@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>redesigned-computing-machine — live preview starter</title>
+  <meta name="description" content="A starter landing page rendered as a live website preview." />
+  <style>*{margin:0;padding:0}</style>
+</head>
+<body>
+<style>
+  :root {
+    --ink: #0E1524;
+    --ink-2: #121C30;
+    --paper: #ECE7DE;
+    --slate: #7C889C;
+    --slate-dim: #566178;
+    --amber: #E6A94C;
+    --teal: #3FB8A4;
+    --line: rgba(124, 136, 156, 0.18);
+    --maxw: 68ch;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---- animated grid backdrop ---- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .grid-bg {
+    position: absolute;
+    inset: -2px;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 20%, transparent 75%);
+    animation: drift 22s linear infinite;
+  }
+  .glow {
+    position: absolute;
+    top: -180px; left: 50%;
+    width: 620px; height: 620px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(230,169,76,0.16), transparent 62%);
+    pointer-events: none;
+  }
+  @keyframes drift {
+    from { background-position: 0 0, 0 0; }
+    to   { background-position: 44px 44px, 44px 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .grid-bg { animation: none; }
+  }
+
+  /* ---- hero content ---- */
+  .hero-inner {
+    position: relative;
+    padding: 84px 24px 72px;
+    text-align: center;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+  .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 0 rgba(63,184,164,0.6);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(63,184,164,0.5); }
+    70%  { box-shadow: 0 0 0 8px rgba(63,184,164,0); }
+    100% { box-shadow: 0 0 0 0 rgba(63,184,164,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow .dot { animation: none; }
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.9rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    margin: 0 auto 20px;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  h1 .accent { color: var(--amber); }
+
+  .lede {
+    color: var(--slate);
+    font-size: 1.12rem;
+    max-width: 54ch;
+    margin: 0 auto 34px;
+    text-wrap: pretty;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  .btn-primary { background: var(--amber); color: #241803; }
+  .btn-primary:hover { transform: translateY(-2px); background: #f0b862; }
+  .btn-ghost { color: var(--paper); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--slate); transform: translateY(-2px); }
+
+  /* ---- terminal motif ---- */
+  .terminal {
+    margin: 52px auto 0;
+    max-width: 560px;
+    text-align: left;
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 24px 60px -30px rgba(0,0,0,0.8);
+    overflow: hidden;
+  }
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .term-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .term-bar i:nth-child(1) { background: #E5533C; }
+  .term-bar i:nth-child(2) { background: var(--amber); }
+  .term-bar i:nth-child(3) { background: var(--teal); }
+  .term-bar span {
+    margin-left: 8px;
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--slate-dim);
+  }
+  .term-body {
+    padding: 18px 18px 22px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+  .term-body .p { color: var(--teal); }
+  .term-body .c { color: var(--paper); }
+  .term-body .o { color: var(--slate); }
+  .term-body .u { color: var(--amber); text-decoration: none; border-bottom: 1px dashed rgba(230,169,76,0.5); }
+  .caret {
+    display: inline-block;
+    width: 8px; height: 1.05em;
+    background: var(--amber);
+    vertical-align: -2px;
+    margin-left: 3px;
+    animation: blink 1.1s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+
+  /* ---- features ---- */
+  .features {
+    padding: 72px 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .kicker {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate-dim);
+    margin: 0 0 6px;
+  }
+  .features h2 {
+    font-size: 1.7rem;
+    letter-spacing: -0.02em;
+    margin: 0 0 40px;
+    font-weight: 700;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 720px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px 22px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover { border-color: var(--slate); transform: translateY(-3px); }
+  .card .num {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+  }
+  .card h3 {
+    font-size: 1.1rem;
+    margin: 14px 0 8px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  .card p {
+    margin: 0;
+    color: var(--slate);
+    font-size: 0.95rem;
+  }
+
+  /* ---- footer ---- */
+  footer {
+    padding: 40px 24px 56px;
+    text-align: center;
+    color: var(--slate-dim);
+    font-size: 0.9rem;
+  }
+  footer code {
+    font-family: ui-monospace, monospace;
+    color: var(--slate);
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 0.85em;
+  }
+</style>
+
+<header class="hero">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span> Live preview · ready</div>
+    <h1>See your site the moment <span class="accent">it changes.</span></h1>
+    <p class="lede">A starter page rendered as a live, hosted preview — the same way a coding agent stands up a site so you can look at it, not just read the diff. Edit the file, redeploy, and this exact URL updates in place.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#how">How it works</a>
+      <a class="btn btn-ghost" href="#how">View the code</a>
+    </div>
+
+    <div class="terminal" role="img" aria-label="Terminal showing a preview command and the resulting preview URL">
+      <div class="term-bar"><i></i><i></i><i></i><span>preview — bash</span></div>
+      <div class="term-body">
+        <div><span class="p">›</span> <span class="c">open</span> <span class="o">index.html</span></div>
+        <div><span class="o">rendering page…</span></div>
+        <div><span class="o">preview ready →</span> <span class="u">https://preview.local/site</span></div>
+        <div><span class="p">›</span><span class="caret" aria-hidden="true"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="features wrap" id="how">
+    <p class="kicker">How preview works here</p>
+    <h2>Three ways to look at your work</h2>
+    <div class="cards">
+      <article class="card">
+        <span class="num">01</span>
+        <h3>Hosted artifact</h3>
+        <p>The page renders to a private URL that opens in a side panel — no local server, no build. Share it when you're ready.</p>
+      </article>
+      <article class="card">
+        <span class="num">02</span>
+        <h3>Redeploy in place</h3>
+        <p>Change the source, publish again, and the same URL refreshes. Compare before and after without hunting for a new link.</p>
+      </article>
+      <article class="card">
+        <span class="num">03</span>
+        <h3>Real dev server</h3>
+        <p>Have a React or Vite project instead? The agent can run its dev server and drive it in a real browser to confirm changes.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Starter site committed to <code>index.html</code> · redesigned-computing-machine
+</footer>
+</body>
+</html>
