@@ -20,7 +20,7 @@ Everything lives in `index.html` and is commented for hand-editing:
 
 ## Design notes
 
-- Typefaces: Fraunces (display), Instrument Sans (body), IBM Plex Mono (labels/meta), Klee One (handwriting, illustration band only) — Google Fonts.
+- Typefaces: Fraunces (display), Work Sans (body), IBM Plex Mono (labels/meta), Klee One (handwriting, illustration band only) — Google Fonts.
 - Signature treatments from the handoff: 1px lit-edge gradient borders, rose radial glow blooms in dark sections, drop-shadow + rose halo on cards, gradient hairline dividers, grain overlay, corrugated coffee-sleeve meta bands, scalloped stamp/tin masks.
 - Scroll reveals and hover lifts are gated behind `prefers-reduced-motion`.
 - Desktop-first at 1240px like the design file, with tablet/mobile reflow (hero cluster and pinned board become stacked grids; decorative props drop on small screens).
