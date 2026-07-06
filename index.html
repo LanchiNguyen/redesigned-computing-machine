@@ -356,7 +356,14 @@
     }
     .tin-wrap:hover { transform: translateY(-5px); filter: drop-shadow(0 26px 36px rgba(30,18,8,0.22)) drop-shadow(0 0 28px rgba(216,162,168,0.32)); }
     .tin {
-      box-sizing: border-box; background: var(--tin); padding: 15px 15px 18px;
+      box-sizing: border-box; padding: 15px 15px 18px;
+      /* biscuit docking holes: a debossed dot grid over the biscuit tone */
+      background-color: var(--tin);
+      background-image:
+        radial-gradient(circle, rgba(108,74,38,0.17) 1.2px, transparent 1.7px),
+        radial-gradient(circle, rgba(255,251,242,0.42) 1.1px, transparent 1.6px);
+      background-size: 19px 19px, 19px 19px;
+      background-position: 0 0, 0.6px 1.5px;
       -webkit-mask: linear-gradient(#000 0 0) 50% 50% / calc(100% - 22px) calc(100% - 22px) no-repeat,
                     radial-gradient(closest-side, #000 97%, transparent) 0 0 / 24px 24px round;
       mask: linear-gradient(#000 0 0) 50% 50% / calc(100% - 22px) calc(100% - 22px) no-repeat,
