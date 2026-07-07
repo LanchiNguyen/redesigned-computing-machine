@@ -18,4 +18,79 @@
   /* footer year */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
+
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* ---- hero cluster parallax: the desk props drift with the cursor ---- */
+  if (!reduce && fine) {
+    var hero = document.querySelector(".hero");
+    var props = hero ? hero.querySelectorAll(".parallax") : [];
+    if (hero && props.length) {
+      var pRaf = null, pe = null;
+      hero.addEventListener("pointermove", function (e) {
+        pe = e;
+        if (pRaf) return;
+        pRaf = requestAnimationFrame(function () {
+          var r = hero.getBoundingClientRect();
+          var nx = (pe.clientX - r.left) / r.width - 0.5;
+          var ny = (pe.clientY - r.top) / r.height - 0.5;
+          props.forEach(function (p) {
+            var d = parseFloat(p.getAttribute("data-depth") || "16") / 100;
+            p.style.setProperty("--tx", (nx * -d * 100).toFixed(1) + "px");
+            p.style.setProperty("--ty", (ny * -d * 100).toFixed(1) + "px");
+          });
+          pRaf = null;
+        });
+      });
+      hero.addEventListener("pointerleave", function () {
+        props.forEach(function (p) { p.style.setProperty("--tx", "0px"); p.style.setProperty("--ty", "0px"); });
+      });
+    }
+  }
+
+  /* ---- flagship work cards tilt in 3D toward the cursor ---- */
+  if (!reduce && fine) {
+    document.querySelectorAll(".flag").forEach(function (card) {
+      var tRaf = null, te = null;
+      card.style.transition = "transform 0.2s var(--ease)";
+      card.addEventListener("pointermove", function (e) {
+        te = e;
+        if (tRaf) return;
+        tRaf = requestAnimationFrame(function () {
+          var r = card.getBoundingClientRect();
+          var rx = ((te.clientY - r.top) / r.height - 0.5) * -6;
+          var ry = ((te.clientX - r.left) / r.width - 0.5) * 7;
+          card.style.transform = "perspective(1100px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) translateY(-6px)";
+          tRaf = null;
+        });
+      });
+      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+    });
+  }
+
+  /* ---- metric numbers count up when they scroll into view ---- */
+  var nums = document.querySelectorAll(".chip .n, .tin .metric");
+  if (nums.length && !reduce && "IntersectionObserver" in window) {
+    var countUp = function (el) {
+      var m = el.textContent.match(/^(\D*)(\d[\d,]*)(.*)$/);
+      if (!m) return;
+      var prefix = m[1], target = parseInt(m[2].replace(/,/g, ""), 10), suffix = m[3];
+      var dur = 950, start = null;
+      el.textContent = prefix + "0" + suffix;
+      var tick = function (ts) {
+        if (!start) start = ts;
+        var t = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = prefix + Math.round(eased * target) + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    var nio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { countUp(e.target); nio.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(function (n) { nio.observe(n); });
+  }
 })();

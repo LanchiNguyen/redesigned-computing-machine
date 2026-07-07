@@ -194,7 +194,7 @@ a { color: inherit; text-decoration: none; }
 .photo-card .cap .m { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em; white-space: nowrap; }
 
 .pc1 {
-  left: 0; top: 10px; width: 330px; transform: rotate(-4deg);
+  left: 0; top: 10px; width: 330px; transform: translate(var(--tx,0px), var(--ty,0px)) rotate(-4deg); transition: transform 0.4s var(--ease);
   filter: drop-shadow(0 24px 34px rgba(20,14,8,0.5)) drop-shadow(0 0 24px rgba(216,162,168,0.3));
 }
 .pc1 .lit { background: linear-gradient(165deg, rgba(255,255,255,0.95), rgba(216,162,168,0.6) 45%, rgba(255,255,255,0.12) 72%, rgba(255,255,255,0.7)); }
@@ -207,7 +207,7 @@ a { color: inherit; text-decoration: none; }
 .pc1 .cap .m { color: var(--rose-2); }
 
 .pc2 {
-  right: 0; bottom: 26px; width: 300px; transform: rotate(3deg);
+  right: 0; bottom: 26px; width: 300px; transform: translate(var(--tx,0px), var(--ty,0px)) rotate(3deg); transition: transform 0.4s var(--ease);
   filter: drop-shadow(0 24px 34px rgba(20,14,8,0.46)) drop-shadow(0 0 24px rgba(216,162,168,0.26));
 }
 .pc2 .lit { background: linear-gradient(195deg, rgba(255,255,255,0.95), rgba(216,162,168,0.55) 45%, rgba(255,255,255,0.12) 72%, rgba(255,255,255,0.7)); }
@@ -235,7 +235,7 @@ a { color: inherit; text-decoration: none; }
 .coaster .in .big { font-family: var(--serif); font-size: 15px; letter-spacing: 0; color: var(--rose-deep); display: block; }
 
 .punch {
-  position: absolute; left: 58px; bottom: 0; transform: rotate(-6deg);
+  position: absolute; left: 58px; bottom: 0; transform: translate(var(--tx,0px), var(--ty,0px)) rotate(-6deg); transition: transform 0.4s var(--ease);
   filter: drop-shadow(0 14px 22px rgba(20,14,8,0.5)) drop-shadow(0 0 18px rgba(216,162,168,0.3));
 }
 .punch .lit { background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(216,162,168,0.55) 50%, rgba(255,255,255,0.25)); }
@@ -663,4 +663,42 @@ a { color: inherit; text-decoration: none; }
   .sleeve { padding: 12px 24px; }
   .results { padding: 32px 24px; }
   .foot-meta { justify-content: center; text-align: center; }
+}
+
+/* ============================ INTERACTIONS ============================ */
+/* Motion-motivated, on-concept touches. All pointer effects are JS-gated to
+   (hover: hover) + fine pointer, and everything collapses under reduced motion. */
+
+/* flagship cards are tilted in 3D by JS; give them a smooth settle + depth */
+.flag { transform-style: preserve-3d; will-change: transform; }
+
+/* illustration board: hovering "picks up" a pinned item — lift + straighten */
+.board-item { transition: transform 0.5s var(--ease), opacity 0.7s var(--ease), filter 0.5s var(--ease); }
+@media (hover: hover) and (pointer: fine) {
+  .board-item:hover {
+    transform: translateY(-12px) rotate(0deg) scale(1.03) !important;
+    z-index: 8;
+    filter: drop-shadow(0 30px 44px rgba(30,18,8,0.32)) drop-shadow(0 0 30px rgba(216,162,168,0.4));
+  }
+}
+
+/* coffee-loyalty card: hovering stamps the two remaining dots ("stamp six") */
+.punch .dots span { transition: background 0.25s var(--ease), border-color 0.25s var(--ease); }
+@media (hover: hover) and (pointer: fine) {
+  .punch:hover .dots span.empty { background: var(--body-ink); border-color: transparent; }
+  .punch:hover .dots span.empty { animation: stamp-pop 0.5s var(--ease) both; }
+  .punch:hover .dots span.empty:last-child { animation-delay: 0.12s; }
+}
+@keyframes stamp-pop {
+  0% { transform: scale(0.2); }
+  55% { transform: scale(1.22); }
+  100% { transform: scale(1); }
+}
+
+/* count-up numbers avoid a layout jump by reserving their own width */
+.chip .n, .tin .metric { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pc1, .pc2, .punch, .flag, .board-item { transition: none !important; }
+  .punch:hover .dots span.empty { animation: none !important; }
 }
