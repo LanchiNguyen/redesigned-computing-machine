@@ -804,6 +804,9 @@ a { color: inherit; text-decoration: none; }
   filter: drop-shadow(0 20px 32px rgba(30,18,8,0.2)) drop-shadow(0 0 24px rgba(216,162,168,0.26));
 }
 .proto video { display: block; width: 100%; height: auto; border-radius: 17px; background: #FFFDF6; }
+/* white mat for demos whose phone bezel is baked into the video */
+.proto .frame.white { background: #FFFFFF; }
+.proto .frame.white video { background: #FFFFFF; }
 .proto .no { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--rose-2); display: block; margin-top: 16px; }
 .proto .t { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-top: 6px; }
 .proto .d { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin-top: 6px; }
