@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ledgerly &mdash; Case study &middot; Lana Nguyen</title>
+  <meta name="description" content="Ledgerly case study: rebuilding trust in small-business banking. Product design by Lana Nguyen." />
+
+  <!--
+    ==========================================================================
+    LEDGERLY - CASE STUDY  (child page of index.html)
+    Uses the shared styles.css / script.js. To add another case study,
+    copy this file, rename (e.g. fieldnote.html), and rewrite the copy.
+    ==========================================================================
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Klee+One:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#case">Skip to case study</a>
+
+  <div class="desk">
+
+    <!-- ============================ PROJECT / CASE STUDY ============================ -->
+    <div class="page" id="project">
+
+      <!-- nav -->
+      <header class="bar">
+        <a class="wordmark" href="index.html" aria-label="Lana Nguyen, home">Lana Nguyen<span class="dot">.</span></a>
+        <nav class="bar-links" aria-label="Case study">
+          <a class="active" href="index.html#home-work">Work</a>
+          <a href="index.html#home-about">About</a>
+          <a href="index.html#home-notes">Notes</a>
+          <a href="index.html#home-contact">Contact</a>
+        </nav>
+        <span class="bar-loc">AMSTERDAM &middot; EST. 2016</span>
+      </header>
+      <div class="bar-hairline"></div>
+
+      <!-- hero -->
+      <section class="proj-hero" id="case">
+        <div class="bloom"></div>
+        <a class="backlink" href="index.html#home-work">&larr; WORK / &#8470; 01 &middot; FINTECH</a>
+        <div class="proj-hero-grid">
+          <div class="rv">
+            <!-- EDIT: case study title + lede -->
+            <h1>Ledgerly &mdash; rebuilding trust in <em>small-business</em> banking</h1>
+            <p class="proj-lede">Month-end reconciliation was the most dreaded hour in an owner's week. We turned it into a five-minute ritual they actually keep.</p>
+          </div>
+          <div class="meta-rail rv" style="--d:120ms">
+            <div><span class="k">ROLE</span><span class="v">Product lead &middot; design</span></div>
+            <div><span class="k">TEAM</span><span class="v">2 designers &middot; 5 eng &middot; 1 PM</span></div>
+            <div><span class="k">YEAR</span><span class="v">2024 &ndash; 2025</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- cover -->
+      <div class="cover rv">
+        <div class="lit"><div class="lit-in">
+          <!-- EDIT: replace .ph with the real hero shot -->
+          <div class="ph">[ hero shot &mdash; reconciliation dashboard ]</div>
+        </div></div>
+      </div>
+
+      <!-- metric chips: sample figures, replace with real outcomes -->
+      <div class="chips">
+        <div class="chip rv"><div class="in"><div class="n">+34%</div><div class="l">ACTIVATION</div></div></div>
+        <div class="chip rv" style="--d:80ms"><div class="in"><div class="n">&minus;58%</div><div class="l">SUPPORT TICKETS</div></div></div>
+        <div class="chip rv" style="--d:160ms"><div class="in"><div class="n">5 min</div><div class="l">MEDIAN MONTH-END</div></div></div>
+      </div>
+
+      <!-- overview -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">OVERVIEW</span>
+          <p class="statement">Ledgerly is a banking app for owner-operated businesses &mdash; caf&eacute;s, studios, one-van trades. They don't have a finance team; <em>they are the finance team</em>, usually at 11pm. Our job was to make the money side feel handled, not haunted.</p>
+        </div>
+      </section>
+
+      <!-- problem -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">PROBLEM</span>
+          <div style="display: flex; flex-direction: column; gap: 22px;">
+            <p class="proj-p">Reconciliation lived in a dense table nobody trusted. Owners exported to spreadsheets, re-checked by hand, and still felt behind. In research, one word came up again and again: <em>dread</em>.</p>
+            <div class="quotes">
+              <div class="quote-card"><div class="q">"I don't read it, I brace for it."</div><div class="a">&mdash; CAF&Eacute; OWNER, DISCOVERY INTERVIEW</div></div>
+              <div class="quote-card"><div class="q">41 min median to close a month.</div><div class="a">&mdash; BASELINE ANALYTICS, N=1,240</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- process -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="sechead" style="letter-spacing:0.16em"><span class="side" style="color:var(--rose-2)">PROCESS</span><span>THREE MOVES</span></div>
+        <div class="steps">
+          <div class="step s1 rv">
+            <!-- EDIT: replace .ph with a real image -->
+            <div class="ph">[ workflow sketches ]</div>
+            <div><span class="no">01</span><div class="t">Match, don't list</div><div class="d">Auto-pair transactions and surface only the handful that need a human eye.</div></div>
+          </div>
+          <div class="step s2 rv" style="--d:100ms">
+            <div class="ph">[ prototype flows ]</div>
+            <div><span class="no">02</span><div class="t">One ritual, weekly</div><div class="d">Small weekly nudges instead of a monthly cliff &mdash; reconciliation as a habit, not an event.</div></div>
+          </div>
+          <div class="step s3 rv" style="--d:200ms">
+            <div class="ph">[ usability tests ]</div>
+            <div><span class="no">03</span><div class="t">Plain-language money</div><div class="d">Every number gets a sentence. No jargon, no red-ink shame, just what happened and what's next.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- solution -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="sechead" style="letter-spacing:0.16em"><span class="side" style="color:var(--rose-2)">SOLUTION</span><span>WHAT SHIPPED</span></div>
+        <div class="shipped rv">
+          <div class="lit"><div class="lit-in">
+            <!-- EDIT: replace .ph with real screens -->
+            <div class="ph a">[ month-end overview ]</div>
+            <div class="ph b">[ match queue ]</div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- results -->
+      <section class="results rv">
+        <div class="bloom"></div>
+        <span class="k">RESULTS</span>
+        <div class="results-grid">
+          <p class="big">Owners now close their month in <em>five minutes</em> &mdash; and, for the first time, tell us they look forward to it.</p>
+          <div class="ledger">
+            <div><span>Activation</span><b>+34%</b></div>
+            <div><span>Support tickets</span><b>&minus;58%</b></div>
+            <div><span>NPS</span><b>31 &rarr; 62</b></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- next project -->
+      <a class="next-proj" href="index.html#home-work">
+        <span><span class="k">NEXT PROJECT &mdash; &#8470; 02</span><span class="t">Fieldnote &mdash; research teams actually open</span></span>
+        <span class="arw">&rarr;</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
