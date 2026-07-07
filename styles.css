@@ -772,3 +772,42 @@ a { color: inherit; text-decoration: none; }
   background: rgba(216,162,168,0.08);
 }
 .about-body .proj-p + .proj-p { margin-top: 16px; }
+
+/* ============================ CASE-STUDY MEDIA ============================ */
+/* real imagery slotted into the same mats the placeholders used */
+.shot-img { display: block; width: 100%; height: auto; border-radius: 9px; border: 1px solid rgba(74,59,44,0.18); }
+.flag-img { display: block; width: 100%; height: 250px; object-fit: cover; border-radius: 7px; border: 1px solid rgba(74,59,44,0.2); }
+.pc-img { display: block; width: 100%; height: 196px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(74,59,44,0.2); }
+.pc2 .pc-img { height: 176px; }
+
+.figure { margin: 0; }
+.figure .figcap { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em; color: var(--meta); margin-top: 12px; text-transform: uppercase; }
+.figure + .figure { margin-top: 26px; }
+
+/* bulleted feature list, rose markers */
+.feat-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.feat-list li { position: relative; padding-left: 22px; font-size: 15px; line-height: 1.55; color: var(--body-ink); max-width: 60ch; }
+.feat-list li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--rose-2); }
+
+/* prototype videos in soft phone frames */
+.protos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+.proto .frame {
+  background: var(--card); border-radius: 26px; padding: 10px;
+  border: 1px solid var(--line-soft);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+  filter: drop-shadow(0 20px 32px rgba(30,18,8,0.2)) drop-shadow(0 0 24px rgba(216,162,168,0.26));
+}
+.proto video { display: block; width: 100%; height: auto; border-radius: 17px; background: #FFFDF6; }
+.proto .no { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--rose-2); display: block; margin-top: 16px; }
+.proto .t { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-top: 6px; }
+.proto .d { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin-top: 6px; }
+
+/* hi-fi screen boards */
+.screens-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.screens-grid img { display: block; width: 100%; height: auto; border-radius: 9px; border: 1px solid rgba(74,59,44,0.18); }
+
+@media (max-width: 860px) {
+  .protos { grid-template-columns: 1fr; }
+  .proto .frame { max-width: 340px; }
+  .screens-grid { grid-template-columns: 1fr; }
+}

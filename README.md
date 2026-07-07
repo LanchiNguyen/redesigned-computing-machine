@@ -5,7 +5,8 @@ A personal product & UX design portfolio. Warm "editorial café / takeout" conce
 ## Files
 
 - `index.html` — the **Home** page: hero, featured work, secondary work (biscuit cards), illustration board, about band, notes, and contact footer.
-- `ledgerly.html` — the **Ledgerly case study** page. Duplicate this file per project (e.g. `fieldnote.html`) to add more case studies.
+- `mug.html` — the **Mug case study** (real project): research, persona, journey, ideation, brand, and animated prototypes. Assets in `images/mug/`.
+- `ledgerly.html` — a **sample case study** page kept as a template. Duplicate it per project to add more case studies.
 - `sketchbook.html` — the **Sketchbook** page: illustration, prints, posters, and doodles.
 - `about.html` — the **About / full bio** page: story, approach, experience, and now.
 - `styles.css` — shared styles for every page.

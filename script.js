@@ -19,6 +19,15 @@
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
+  /* under reduced motion, stop autoplaying prototype videos */
+  if (reduce) {
+    document.querySelectorAll("video[autoplay]").forEach(function (v) {
+      v.removeAttribute("autoplay");
+      v.pause();
+      v.controls = true;
+    });
+  }
+
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   /* ---- hero cluster parallax: the desk props drift with the cursor ---- */
