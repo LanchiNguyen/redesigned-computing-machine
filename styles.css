@@ -754,3 +754,21 @@ a { color: inherit; text-decoration: none; }
   background: repeating-linear-gradient(45deg, rgba(120,100,80,0.04) 0 3px, transparent 3px 10px), #FDFBF3;
   flex-direction: column; gap: 8px; text-align: center; padding: 12px; }
 .piece .ph.doodle .h { font-family: var(--hand); font-size: 15px; color: var(--rose-3); }
+
+/* ============================ ABOUT PAGE ============================ */
+.about-portrait {
+  position: relative; border-radius: 14px; overflow: hidden;
+  filter: drop-shadow(0 26px 44px rgba(30,18,8,0.4)) drop-shadow(0 0 30px rgba(216,162,168,0.3));
+}
+.about-portrait .ph {
+  height: clamp(260px, 34vw, 360px); border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12); font-size: 11px; color: rgba(216,162,168,0.85);
+  background: repeating-linear-gradient(45deg, rgba(216,162,168,0.14) 0 1px, transparent 1px 11px), linear-gradient(160deg, #4A3A44, #2E2318);
+}
+.about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.about-tags span {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--rose-2);
+  border: 1px solid rgba(165,98,107,0.4); border-radius: 999px; padding: 6px 13px;
+  background: rgba(216,162,168,0.08);
+}
+.about-body .proj-p + .proj-p { margin-top: 16px; }
