@@ -96,8 +96,12 @@ a { color: inherit; text-decoration: none; }
 .mono { font-family: var(--mono); }
 .serif { font-family: var(--serif); font-weight: 400; }
 
-/* dark sections stay smooth: espresso + blooms + grain, no lattice */
-.stripes-dark { background-image: none; }
+/* dark-section diagonal stripe texture */
+.stripes-dark {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(237,228,215,0.06) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(237,228,215,0.06) 0 2px, transparent 2px 26px);
+}
 /* rose glow bloom */
 .bloom { position: absolute; border-radius: 50%; pointer-events: none; }
 
@@ -148,7 +152,6 @@ a { color: inherit; text-decoration: none; }
   /* berry as a material: top light, faint weave, soft bloom — not a flat slab */
   background:
     radial-gradient(120% 200% at 88% -60%, rgba(216,162,168,0.28), transparent 52%),
-    repeating-linear-gradient(45deg, rgba(248,236,232,0.028) 0 2px, transparent 2px 24px),
     linear-gradient(180deg, #86495B 0%, #7E4450 58%, #743E4A 100%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(20,8,12,0.18);
 }
@@ -170,9 +173,12 @@ a { color: inherit; text-decoration: none; }
 /* ============================ HOME HERO ============================ */
 .hero {
   position: relative;
-  /* stops sit 66px higher than the design file because there the
-     gradient also spans the 66px nav bar above this section */
-  background: linear-gradient(178deg, #2E2318 0%, #2E2318 274px, #443221 414px, #927856 574px, #D9C6A4 694px, #F5EFE2 794px);
+  background:
+    repeating-linear-gradient(45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    /* stops sit 66px higher than the design file because there the
+       gradient also spans the 66px nav bar above this section */
+    linear-gradient(178deg, #2E2318 0%, #2E2318 274px, #443221 414px, #927856 574px, #D9C6A4 694px, #F5EFE2 794px);
 }
 .hero .bloom.b1 { top: -170px; right: -110px; width: 620px; height: 500px; background: radial-gradient(closest-side, rgba(216,162,168,0.22), transparent); }
 .hero .bloom.b2 { top: 40px; left: -180px; width: 520px; height: 430px; background: radial-gradient(closest-side, rgba(216,162,168,0.1), transparent); }
@@ -511,7 +517,10 @@ a { color: inherit; text-decoration: none; }
 /* ============================ PROJECT PAGE ============================ */
 .proj-hero {
   position: relative; padding: 34px var(--px) 64px;
-  background-image: linear-gradient(178deg, #2E2318, #241C13);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    linear-gradient(178deg, #2E2318, #241C13);
 }
 .proj-hero .bloom { top: -150px; right: -110px; width: 600px; height: 460px; background: radial-gradient(closest-side, rgba(216,162,168,0.2), transparent); }
 .backlink { position: relative; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: #C7A98C; transition: color 0.25s var(--ease); }
@@ -579,6 +588,7 @@ a { color: inherit; text-decoration: none; }
 .results {
   position: relative; overflow: hidden; margin: 44px var(--px) 0;
   border-radius: 18px; padding: 42px 44px;
+  background-image: repeating-linear-gradient(45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px);
   background-color: var(--espresso);
   box-shadow: 0 24px 44px -24px rgba(20,12,6,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
 }
@@ -597,7 +607,6 @@ a { color: inherit; text-decoration: none; }
   color: #F8ECE8;
   background:
     radial-gradient(80% 220% at 92% 50%, rgba(216,162,168,0.22), transparent 55%),
-    repeating-linear-gradient(45deg, rgba(248,236,232,0.04) 0 2px, transparent 2px 24px),
     linear-gradient(178deg, #86495B, #743E4A);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
   transition: filter 0.3s var(--ease);
@@ -616,7 +625,10 @@ a { color: inherit; text-decoration: none; }
   .bar-loc { display: none; }
   /* content stacks much taller here, so the melt tracks height in % */
   .hero {
-    background: linear-gradient(178deg, #2E2318 0%, #2E2318 55%, #443221 66%, #927856 77%, #D9C6A4 85%, #F5EFE2 93%);
+    background:
+      repeating-linear-gradient(45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+      repeating-linear-gradient(-45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+      linear-gradient(178deg, #2E2318 0%, #2E2318 55%, #443221 66%, #927856 77%, #D9C6A4 85%, #F5EFE2 93%);
   }
   .hero-inner { min-height: 0; display: flex; flex-direction: column; gap: 36px; }
   .cluster {
@@ -703,7 +715,10 @@ a { color: inherit; text-decoration: none; }
 /* ============================ SKETCHBOOK PAGE ============================ */
 .sketch-hero {
   position: relative; overflow: hidden; padding: 34px var(--px) 46px;
-  background-image: linear-gradient(178deg, #2E2318, #241C13);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    linear-gradient(178deg, #2E2318, #241C13);
 }
 .sketch-hero .bloom { top: -150px; right: -110px; width: 600px; height: 460px; background: radial-gradient(closest-side, rgba(216,162,168,0.2), transparent); }
 .sketch-hero .eyebrow { position: relative; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--rose-lt); }
