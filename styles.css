@@ -699,6 +699,58 @@ a { color: inherit; text-decoration: none; }
 .chip .n, .tin .metric { font-variant-numeric: tabular-nums; }
 
 @media (prefers-reduced-motion: reduce) {
-  .pc1, .pc2, .punch, .flag, .board-item { transition: none !important; }
+  .pc1, .pc2, .punch, .flag, .board-item, .piece { transition: none !important; }
   .punch:hover .dots span.empty { animation: none !important; }
 }
+
+/* full-cover link so a whole pinned item is clickable */
+.cover-link { position: absolute; inset: 0; z-index: 4; border-radius: 8px; }
+
+/* ============================ SKETCHBOOK PAGE ============================ */
+.sketch-hero {
+  position: relative; overflow: hidden; padding: 34px var(--px) 46px;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(237,228,215,0.05) 0 2px, transparent 2px 26px),
+    linear-gradient(178deg, #2E2318, #241C13);
+}
+.sketch-hero .bloom { top: -150px; right: -110px; width: 600px; height: 460px; background: radial-gradient(closest-side, rgba(216,162,168,0.2), transparent); }
+.sketch-hero .eyebrow { position: relative; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--rose-lt); }
+.sketch-hero h1 { position: relative; font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 7vw, 84px); line-height: 1.0; letter-spacing: -0.01em; color: var(--card); margin-top: 12px; }
+.sketch-hero h1 em { color: var(--rose-lt); text-shadow: 0 0 34px rgba(216,162,168,0.5); }
+.sketch-hero .sub { position: relative; margin-top: 18px; max-width: 560px; font-size: 16.5px; line-height: 1.6; color: var(--on-dark-3); }
+.sketch-hero .hand { position: relative; display: inline-block; margin-top: 14px; font-family: var(--hand); font-size: 20px; color: var(--rose-lt); transform: rotate(-3deg); }
+
+.sketch-cat { padding: clamp(34px, 5vw, 54px) var(--px) 0; }
+.sketch-cat.last { padding-bottom: clamp(40px, 6vw, 64px); }
+.sketch-cat-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding-bottom: 26px; flex-wrap: wrap; }
+.sketch-cat-head .t { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); color: var(--ink); }
+.sketch-cat-head .m { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--rose-2); }
+.sketch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 32px 26px; align-items: start; }
+
+.piece {
+  position: relative;
+  filter: drop-shadow(0 16px 26px rgba(30,18,8,0.18)) drop-shadow(0 0 20px rgba(216,162,168,0.22));
+  transition: transform 0.5s var(--ease), opacity 0.7s var(--ease), filter 0.5s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .piece:hover {
+    transform: translateY(-9px) rotate(0deg) scale(1.03) !important; z-index: 5;
+    filter: drop-shadow(0 28px 40px rgba(30,18,8,0.3)) drop-shadow(0 0 28px rgba(216,162,168,0.4));
+  }
+}
+.piece .ph { height: 200px; font-size: 10px; letter-spacing: 0.08em; }
+.piece .ph.riso { border: 1px solid rgba(74,59,44,0.18); color: rgba(126,68,80,0.75);
+  background: repeating-linear-gradient(45deg, rgba(126,68,80,0.16) 0 2px, transparent 2px 11px), repeating-linear-gradient(-45deg, rgba(198,124,94,0.12) 0 2px, transparent 2px 11px), #F1DAD8; }
+.piece .ph.lino { border: 1px solid rgba(74,59,44,0.18); color: rgba(74,59,44,0.6);
+  background: repeating-linear-gradient(90deg, rgba(74,59,44,0.14) 0 2px, transparent 2px 9px), #E7E1CF; }
+.piece .ph.poster { border: 1px solid rgba(74,59,44,0.18); color: rgba(251,246,234,0.85);
+  background: repeating-linear-gradient(0deg, rgba(46,35,24,0.9) 0 20px, rgba(126,68,80,0.85) 20px 40px); }
+.piece .ph.type { border: 1px solid rgba(74,59,44,0.18); color: rgba(138,78,86,0.7);
+  background: repeating-linear-gradient(45deg, rgba(165,98,107,0.12) 0 1px, transparent 1px 10px), #F1E2E0; }
+.piece .ph.ink { border: 1px solid rgba(74,59,44,0.18); color: rgba(78,96,116,0.7);
+  background: repeating-linear-gradient(45deg, rgba(94,114,134,0.14) 0 1px, transparent 1px 10px), #E9EDF0; }
+.piece .ph.doodle { border: 1.5px dashed rgba(126,68,80,0.4); color: rgba(126,68,80,0.6);
+  background: repeating-linear-gradient(45deg, rgba(120,100,80,0.04) 0 3px, transparent 3px 10px), #FDFBF3;
+  flex-direction: column; gap: 8px; text-align: center; padding: 12px; }
+.piece .ph.doodle .h { font-family: var(--hand); font-size: 15px; color: var(--rose-3); }
