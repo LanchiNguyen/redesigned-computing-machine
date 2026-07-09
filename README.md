@@ -7,6 +7,7 @@ A personal product & UX design portfolio. Warm "editorial café / takeout" conce
 - `index.html` — the **Home** page: hero, featured work, secondary work (biscuit cards), illustration board, about band, notes, and contact footer.
 - `mug.html` — the **Mug case study** (real project): research, persona, journey, ideation, brand, and animated prototypes. Assets in `images/mug/`.
 - `chatter.html` — the **Chatter case study** (real project): interviews, affinity map, two ideas with a pivot, and animated prototypes. Assets in `images/chatter/`.
+- `matrix.html` — the **Matrix case study** (real client project): two feature areas of production UI in a one-week engagement. Board images pending in `images/matrix/`.
 - `ledgerly.html` — a **sample case study** kept as a template (not linked from Home). Duplicate it per project to add more case studies.
 - `sketchbook.html` — the **Sketchbook** page: illustration, prints, posters, and doodles.
 - `about.html` — the **About / full bio** page: story, approach, experience, and now.
