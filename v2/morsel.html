@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morsel &middot; Case study &middot; Lana Nguyen</title>
+  <meta name="description" content="Case study: Morsel, a photo-first food-discovery concept for iOS — three prototype versions, 30 designed states, a safety-tier dietary model, and an unexecuted testing plan documented honestly." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Morsel — eat with your eyes" />
+  <meta property="og:description" content="Photo-first food discovery: no stars, honest trust signals, allergy-safe by design. Three versions, 30 states, zero research yet — on purpose, and labeled." />
+  <meta property="og:image" content="../images/morsel/cover.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- [ADD for this page: timeline + year · tooling note (how the three HTML prototypes were built) ·
+       links to the live v1/v2/v3 prototypes if hosted] -->
+
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Klee+One:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#case">Skip to case study</a>
+
+  <div class="desk">
+    <div class="page" id="project">
+
+      <header class="bar">
+        <a class="wordmark" href="index.html" aria-label="Lana Nguyen, home">Lana Nguyen<span class="dot">.</span></a>
+        <nav class="bar-links" aria-label="Case study">
+          <a class="active" href="index.html#home-work">Work</a>
+          <a href="sketchbook.html">Sketchbook</a>
+          <a href="about.html">About</a>
+          <a href="index.html#home-contact">Contact</a>
+        </nav>
+        <span class="bar-loc">OPEN TO NEW ROLES</span>
+      </header>
+      <div class="bar-hairline"></div>
+
+      <!-- hero -->
+      <section class="proj-hero" id="case">
+        <div class="bloom"></div>
+        <a class="backlink" href="index.html#home-work">&larr; WORK / &#8470; 02 &middot; CONCEPT &middot; iOS</a>
+        <div class="proj-hero-grid">
+          <div class="rv">
+            <h1>Morsel &mdash; eat with your <em>eyes</em></h1>
+            <p class="proj-lede">A photo-first food-discovery concept: every photo is an actionable "eat this tonight" candidate &mdash; no star ratings, no review essays. Three prototype versions, thirty designed states, a safety-critical dietary model, and a testing plan that is written but deliberately not yet claimed as run.</p>
+          </div>
+          <div class="meta-rail rv" style="--d:120ms">
+            <div><span class="k">PROJECT</span><span class="v">Personal concept &middot; solo</span></div>
+            <div><span class="k">ROLE</span><span class="v">Product designer &mdash; concept, system, prototypes, docs</span></div>
+            <div><span class="k">TIMELINE</span><span class="v"><span class="addm">[ADD: timeline + year]</span></span></div>
+            <div><span class="k">TOOLS</span><span class="v"><span class="addm">[ADD: tooling — incl. how the 3 HTML prototypes were built]</span></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TL;DR -->
+      <div class="tldr rv">
+        <div class="cell"><span class="k">What it is</span><span class="v">Urban diners 22&ndash;35 decide what to eat from <strong>photos</strong>, but photo apps can't get you fed and rating apps don't start from appetite. Morsel is the bridge: a location-aware dish feed where every photo carries a path to action.</span></div>
+        <div class="cell"><span class="k">The arc</span><span class="v"><strong>v1</strong> concept &rarr; <strong>v2</strong> critique-driven fixes (the dietary-safety redesign is the headline) &rarr; <strong>v3</strong> making the logic true: real ranking, honest location, 30 designed states, accessibility pass.</span></div>
+        <div class="cell"><span class="k">Status</span><span class="v"><span class="status-flag">Concept &middot; v3</span> No usability research has been run; the 5-session plan is ready and unexecuted. All dish data and percentages are illustrative seed data.</span></div>
+      </div>
+
+      <p class="method-note rv">HOW TO READ THIS PAGE &mdash; artifacts carry disclosure labels: <span class="lbl real">DOCUMENTED</span> exists and is checkable &middot; <span class="lbl retro">CRITIQUE ROUND</span> a real audit of a prior version &middot; <span class="lbl plan">PROPOSED</span> a plan or goal, never a result. All dish names, percentages, and diner counts in the screens are <em>illustrative seed data</em>; no usability sessions have been run.</p>
+
+      <!-- cover -->
+      <div class="cover rv">
+        <div class="lit"><div class="lit-in">
+          <img class="shot-img" src="../images/morsel/cover.webp" alt="Three Morsel screens: the Eat With Your Eyes welcome collage, the personalized photo feed, and a dish detail with a repeat-order trust ring" width="1512" height="685" />
+        </div></div>
+      </div>
+
+      <!-- quick numbers -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="sechead"><span class="lead">THE SHAPE OF THE PROJECT</span><span>HONEST NUMBERS ONLY</span></div>
+        <div class="chips" style="padding: 0 0 8px">
+          <div class="chip rv"><div class="in"><div class="n">3</div><div class="l">PROTOTYPE VERSIONS, EACH PRESERVED</div></div></div>
+          <div class="chip rv" style="--d:80ms"><div class="in"><div class="n">30</div><div class="l">DESIGNED STATES IN V3</div></div></div>
+          <div class="chip rv" style="--d:160ms"><div class="in"><div class="n" data-static>0</div><div class="l">USABILITY SESSIONS RUN &mdash; PLAN READY, NOT DONE</div></div></div>
+        </div>
+      </section>
+
+      <!-- problem -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">PROBLEM &amp;<br>HYPOTHESIS</span>
+          <p class="statement">The tools built for restaurant discovery (Yelp, Google Maps) are organized around star ratings and review text. The tools with great food photos (TikTok, Pinterest) aren't organized around <em>eating tonight</em> &mdash; no price, no distance, no path to action. The hypothesis: a photo-first, location-aware dish feed closes the gap between appetite and action better than list-based rating apps. That's a testable claim, and it hasn't been tested yet &mdash; this page is explicit about which parts are designed and which parts are still hypotheses.</p>
+        </div>
+      </section>
+
+      <!-- JTBD -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">JOBS TO<br>BE DONE</span>
+          <div>
+            <ul class="feat-list">
+              <li><strong>"It's 6:40pm and I'm hungry"</strong> &mdash; show me things nearby that look good right now; let me act in two taps</li>
+              <li><strong>"Fill my someday list"</strong> &mdash; bank dishes that stop my scroll, retrievable when I'm actually near them</li>
+              <li><strong>"Don't make me do ratings math"</strong> &mdash; one honest signal instead of 4.2 stars from 900 strangers</li>
+              <li><strong>"Respect how I eat"</strong> &mdash; lifestyle shapes the feed; allergies are a hard rule, not a preference</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- principles -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">PRINCIPLES</span>
+          <div>
+            <p class="proj-p">Six stances that shaped every screen &mdash; each one a deliberate position with a named trade-off, not a default:</p>
+            <div class="decisions">
+              <div class="decision"><div class="dt">No star ratings, anywhere.</div><div class="dd">Quality = "N% would order again" (repeat-order rate: revealed preference) plus short diner quotes &mdash; instead of stated-preference stars. Trade-off: an unfamiliar metric has to earn comprehension (see the trust section).</div></div>
+              <div class="decision"><div class="dt">Photos dominate; chrome floats.</div><div class="dd">No text under grid photos. Trade-off: zero info scent risk &mdash; explored head-on in Exploration A.</div></div>
+              <div class="decision"><div class="dt">Taste re-ranks, never filters.</div><div class="dd">Personalization must never hide the menu.</div></div>
+              <div class="decision"><div class="dt">Allergies are a different tier from taste.</div><div class="dd">Excluded from discovery, retained-with-warnings where the user already acted, warned on direct opens. Never silently deleted; never promised more than delivered.</div></div>
+              <div class="decision"><div class="dt">Morsel never runs its own checkout.</div><div class="dd">Order = handoff to carriers or pickup. Own the decision, not the transaction. Trade-off: the product's peak moment exits the app.</div></div>
+              <div class="decision"><div class="dt">Honesty over coverage theater.</div><div class="dd">Unmapped city &rarr; say so. Not enough trust data &rarr; show nothing rather than guess. Handoff fails &rarr; visible failure plus fallback.</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- v1 -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">V1 &mdash; THE<br>CONCEPT</span>
+          <div>
+            <p class="proj-p">v1 established the system in four core screens &mdash; hybrid feed (editorial hero + masonry grid), the repeat-order ring, instant save with opt-in collections, carrier handoff &mdash; built as a clickable prototype in three visual directions. Toast (cream + serif) won over Saffron and Charred.</p>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/morsel/v1-sheet.webp" alt="Morsel v1 contact sheet: 20 screens covering feed, search, dish detail, saved collections, profile, and onboarding" width="1584" height="1444" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">v1 &middot; 20 screens</span>The concept worked as a demo &mdash; and hid five real problems, found in critique below.</figcaption>
+            </figure>
+            <p class="proj-p" style="margin-top:22px"><span class="lbl retro">CRITIQUE ROUND</span>&ensp;The v1 audit &mdash; what a structured critique pass found (these are design-review findings, not user research):</p>
+            <ul class="feat-list">
+              <li><strong>A safety-model error:</strong> "Nut allergy" sat in the same list as "Vegetarian" &mdash; a life-or-death constraint modeled as a preference</li>
+              <li><strong>Credibility theater:</strong> "% would order again" shipped with no sample size or methodology</li>
+              <li><strong>Fake personalization:</strong> taste calibration gated browsing but its output wasn't actually used for ranking</li>
+              <li><strong>Missing states:</strong> active tab was color-only; search results unlabeled; empty and edge states absent</li>
+              <li><strong>Dead controls:</strong> several visible affordances (profile rows, new-collection +) did nothing</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- v2: before/afters -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">V2 &mdash; THE<br>CRITIQUE<br>RESPONSE</span>
+          <div>
+            <p class="proj-p">v2 answered the audit point by point. The headline fix is the dietary model &mdash; one list became three tiers with different power: <strong>taste re-ranks &middot; lifestyle filters &middot; allergies exclude and flag</strong>.</p>
+            <div class="fig-duo" style="margin-top: 22px">
+              <figure class="figure">
+                <img class="shot-img" src="../images/morsel/v1-onboarding-dietary.webp" alt="v1 dietary onboarding: a single 'Anything we should skip?' chip list where Nut allergy sits beside Vegetarian and Halal as an equal preference" width="133" height="287" loading="lazy" style="max-width:260px" />
+                <figcaption class="figcap"><span class="fk">Before &middot; v1</span>One flat list &mdash; a nut allergy modeled identically to a lifestyle choice.</figcaption>
+              </figure>
+              <figure class="figure">
+                <img class="shot-img" src="../images/morsel/v3-04-lifestyle-allergy.webp" alt="v3 'Eat your way' onboarding: lifestyle chips in one tier, allergy chips in a visually distinct accent tier with a kitchen-confirmation note" width="192" height="408" loading="lazy" style="max-width:260px" />
+                <figcaption class="figcap"><span class="fk">After &middot; v2&rarr;v3</span>"Eat your way": lifestyle and allergies split into tiers with different visual weight, different power, and a kitchen-confirmation reminder.</figcaption>
+              </figure>
+            </div>
+            <div class="fig-duo" style="margin-top: 26px">
+              <figure class="figure">
+                <img class="shot-img" src="../images/morsel/v1-dish-detail.webp" alt="v1 dish detail: a bare '59% would order again' ring with no sample size or method" width="136" height="293" loading="lazy" style="max-width:260px" />
+                <figcaption class="figcap"><span class="fk">Before &middot; v1</span>A bare percentage &mdash; different clothes, same credibility problem as stars.</figcaption>
+              </figure>
+              <figure class="figure">
+                <img class="shot-img" src="../images/morsel/v3-14-trust-methodology.webp" alt="v3 trust methodology: the percentage now carries '131 verified diners · how we know' with an expandable plain-language method note" width="192" height="415" loading="lazy" style="max-width:260px" />
+                <figcaption class="figcap"><span class="fk">After &middot; v2&rarr;v3</span>Percentage + sample + expandable method ("how we know"), a 90-day window, and a prototype-data note. Cold start abstains: "New &mdash; no score yet."</figcaption>
+              </figure>
+            </div>
+            <div class="fig-duo" style="margin-top: 26px">
+              <figure class="figure">
+                <img class="shot-img" src="../images/morsel/v1-search-results.webp" alt="v1 search results: one unlabeled photo tile for the query 'ramen'" width="136" height="293" loading="lazy" style="max-width:260px" />
+                <figcaption class="figcap"><span class="fk">Before &middot; v1</span>Search returned unlabeled photos &mdash; browsing rules applied to a comparing task.</figcaption>
+              </figure>
+              <figure class="figure">
+                <img class="shot-img" src="../images/morsel/v3-11-search-results.webp" alt="v3 search results: labeled result cards with related-thread chips and a pull-another-thread suggestion" width="192" height="415" loading="lazy" style="max-width:260px" />
+                <figcaption class="figcap"><span class="fk">After &middot; v2&rarr;v3</span>Browsing is appetite-led, search is comparison-led &mdash; so the feed stays photo-only and search results earn labels and related threads.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- v3 -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">V3 &mdash; MAKING<br>THE LOGIC TRUE</span>
+          <div>
+            <p class="proj-p">v3 is the pass most concept portfolios skip: making claims real inside the prototype, then designing every state the happy path hides.</p>
+            <ul class="feat-list">
+              <li><strong>Personalization became real.</strong> A deterministic affinity boost from onboarding taps re-ranks the feed (<code style="font-family:var(--mono); font-size:12.5px">nearScore = distance &minus; min(affinity, 2) &times; 0.3</code>), boosted dishes carry a "your taste" tag, the dish detail explains <em>why</em> ("ranked up because you tapped sushi"), and a recalibrate path exists. It's a transparent toy model standing in for a real ranker &mdash; and it never filters; Trending is deliberately unaffected.</li>
+              <li><strong>The allergy promise was corrected to what ships.</strong> v2's copy promised "removed everywhere, always" &mdash; but saved items are deliberately retained with warnings, so v3 rewrote the promise to match the behavior exactly. Saves are never silently deleted; direct opens get a warning banner; allergen data is labeled prototype-grade, "always confirm with the kitchen."</li>
+              <li><strong>Location got honest.</strong> Typed location input; only Washington, DC has seeded coverage; any other city gets a truthful "Los Angeles isn't mapped yet" state instead of mislabeled DC dishes &mdash; plus permission rationale, "continue without location," and a location-off recovery banner.</li>
+            </ul>
+            <div class="phone-grid" style="margin-top: 24px">
+              <figure><img src="../images/morsel/v3-05-feed-personalized.webp" alt="Personalized feed with 'your taste' tags on boosted dishes" loading="lazy" /><figcaption>Feed, tuned &mdash; boosts visible, never filtering</figcaption></figure>
+              <figure><img src="../images/morsel/v3-15-allergen-conflict.webp" alt="Dish detail with an allergen conflict warning banner explaining the dish contains nuts" loading="lazy" /><figcaption>Direct open of a conflicting dish &mdash; warned, not blocked</figcaption></figure>
+              <figure><img src="../images/morsel/v3-21-saved-warnings.webp" alt="Saved tab where conflicting saves carry '! Nuts' warning chips instead of being deleted" loading="lazy" /><figcaption>Saves retained with warn chips &mdash; never auto-deleted</figcaption></figure>
+              <figure><img src="../images/morsel/v3-09-location-no-coverage.webp" alt="No-coverage state: Los Angeles isn't mapped yet, with back-to-DC and notify actions" loading="lazy" /><figcaption>Honest no-coverage state &mdash; no fake city</figcaption></figure>
+            </div>
+
+            <p class="proj-p" style="margin-top: 28px"><strong>The states most concepts never design.</strong> Loading, offline, zero-result with tiered recovery ("clear filters" can never touch allergies), handoff failure with a pickup fallback, closed restaurants, empty saved, cold-start trust, image failure:</p>
+            <div class="phone-grid" style="margin-top: 18px">
+              <figure><img src="../images/morsel/v3-27-loading-skeleton.webp" alt="Loading skeleton state" loading="lazy" /><figcaption>Loading skeleton</figcaption></figure>
+              <figure><img src="../images/morsel/v3-28-offline.webp" alt="Offline banner over a stale feed" loading="lazy" /><figcaption>Offline &mdash; stale feed, said plainly</figcaption></figure>
+              <figure><img src="../images/morsel/v3-26-preference-zero-results.webp" alt="Zero-result recovery naming each active limit by tier with separate clear actions" loading="lazy" /><figcaption>Zero-result recovery &mdash; names each limit; clear-filters never touches allergies</figcaption></figure>
+              <figure><img src="../images/morsel/v3-12-search-empty-recovery.webp" alt="Empty search state with recovery suggestions" loading="lazy" /><figcaption>Search empty + recovery threads</figcaption></figure>
+              <figure><img src="../images/morsel/v3-18-handoff-failure.webp" alt="Order handoff failure with retry, another carrier, and pickup fallback" loading="lazy" /><figcaption>Handoff failure &mdash; retry, other carrier, pickup</figcaption></figure>
+              <figure><img src="../images/morsel/v3-17-no-carrier.webp" alt="No delivery carrier available; pickup offered" loading="lazy" /><figcaption>No carrier &mdash; pivot to pickup</figcaption></figure>
+              <figure><img src="../images/morsel/v3-25-restaurant-closed.webp" alt="Closed restaurant page with ordering disabled and the reason named" loading="lazy" /><figcaption>Closed &mdash; disabled Order names the reason</figcaption></figure>
+              <figure><img src="../images/morsel/v3-22-saved-empty.webp" alt="Empty saved tab explaining how saving works" loading="lazy" /><figcaption>Saved, empty &mdash; teaches the gesture</figcaption></figure>
+            </div>
+
+            <p class="proj-p" style="margin-top: 28px"><strong>Accessibility pass:</strong> all type on a multiplier (100&ndash;140% Dynamic Type simulated), focus-visible rings, non-color state indicators everywhere (&check; / ! / dashed / underline), reduced-motion honored (zoom transition and skeleton shimmer off), status/alert roles on banners.</p>
+            <div class="phone-grid" style="margin-top: 18px; max-width: 420px">
+              <figure><img src="../images/morsel/v3-30-dynamic-type.webp" alt="Dish detail rendered at 140 percent Dynamic Type without truncation" loading="lazy" /><figcaption>Dynamic Type at 140% &mdash; layout holds, nothing truncates</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- structure -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">STRUCTURE &amp;<br>ASSUMPTIONS</span>
+          <div>
+            <p class="proj-p">The whole prototype as a wireflow &mdash; green marks implemented changes (by round), amber marks what is <em>still an assumption</em> and targeted by the usability plan. Keeping the assumption map on the same diagram as the structure is the point: the map shows exactly where the design is load-bearing on untested beliefs.</p>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/morsel/doc-wireflow.webp" alt="Morsel wireflow: onboarding, feed hub, search, dish detail, order handoff, saved and collections — with implemented changes in green and open assumptions in amber" width="1600" height="909" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">Wireflow</span>Structure + assumption map &middot; <a class="doc-link" href="morsel-docs/wireflow.html">open the full artifact &rarr;</a></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- explorations -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">STRUCTURAL<br>EXPLORATIONS</span>
+          <div>
+            <p class="proj-p">Four unresolved decisions explored as real alternatives with trade-offs &mdash; not post-hoc validation of what shipped. Each ends with a provisional recommendation and how to test it:</p>
+            <ul class="feat-list">
+              <li><strong>A &middot; Feed density:</strong> keep the photo-only feed; use overlay chips only for mode context. If &ge;3/5 test participants open details just to check price, promote the chip variant</li>
+              <li><strong>B &middot; Onboarding model:</strong> ship calibrate-first (skippable); progressive prompting is the strongest challenger &mdash; the non-negotiable is that allergy capture precedes unrestricted browsing</li>
+              <li><strong>C &middot; Trust signal:</strong> precise number + visible sample + method when data exists; honest abstention when it doesn't</li>
+              <li><strong>D &middot; Action hierarchy:</strong> context-dependent primary (order / directions / pickup by state) is the destination; v3 ships its first two rules</li>
+            </ul>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/morsel/doc-explorations-preview.webp" alt="Preview of the structural explorations document: four feed-density variants A1 to A4 with scan, impact, decisions, and accessibility trade-offs, and a provisional recommendation" width="1400" height="1150" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">Explorations A&ndash;D</span>Preview &middot; <a class="doc-link" href="morsel-docs/explorations.html">open the full artifact &rarr;</a></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- design system -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">DESIGN-SYSTEM<br>ADDENDUM</span>
+          <div>
+            <p class="proj-p">Thirteen patterns added or upgraded across v2/v3 &mdash; warning chips, trust presentation, recovery banners, disabled-with-reason buttons &mdash; each documented with anatomy, usage rules, and accessibility notes.</p>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/morsel/doc-ds-preview.webp" alt="Preview of the design-system addendum: component specs with anatomy and accessibility notes in the Toast visual system" width="1400" height="1150" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">DS addendum</span>Preview &middot; <a class="doc-link" href="morsel-docs/ds-addendum.html">open the full artifact &rarr;</a></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- testing plan -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">WHAT I'D<br>TEST NEXT</span>
+          <div>
+            <p class="proj-p"><span class="lbl plan">PROPOSED</span>&ensp;The validation package is written and unexecuted &mdash; 5 moderated sessions, 10 tasks, a severity scale, and a findings&rarr;iteration matrix. Priority questions, in order:</p>
+            <ul class="feat-list">
+              <li>Does the photo-only grid give enough info scent, or do users bounce to detail views just to check price? (Exploration A's fallback is ready)</li>
+              <li>Is "% would order again" understood as repeat-order rate &mdash; or misread as a star substitute?</li>
+              <li>Does the allergy model (exclude from discovery / warn on retained) match users' mental model? Safety-critical if wrong</li>
+              <li>Do zero-result recovery actions read as three different tiers, or one blur?</li>
+            </ul>
+            <p class="proj-p" style="margin-top:14px">Success gate for the next iteration: zero S1 findings, at most one S2.</p>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/morsel/doc-testing-preview.webp" alt="Preview of the unexecuted testing plan: session structure, ten tasks, severity definitions, and a findings-to-iteration matrix" width="1400" height="1150" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">Testing plan &middot; unexecuted</span>Preview &middot; <a class="doc-link" href="morsel-docs/testing-plan.html">open the full artifact &rarr;</a></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- risks -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <span class="side">HONEST<br>PRODUCTION<br>RISKS</span>
+          <div>
+            <p class="proj-p">Unresolved by design work, and stated as the real headline of this case study &mdash; the two hardest problems are not screens:</p>
+            <ul class="feat-list">
+              <li><strong>Trust-metric plumbing.</strong> Repeat-order attribution across carrier handoffs, dish-identity resolution across menus, gaming prevention, the minimum-sample threshold, cold start. The design abstains honestly below threshold &mdash; but production needs the pipes.</li>
+              <li><strong>Allergen-data liability.</strong> Menu data is stale and unverified at scale. The design treats allergen info as best-effort with explicit kitchen-confirmation disclaimers; marketing it as safety-adjacent needs restaurant-verified data and a liability review.</li>
+              <li><strong>Photo supply.</strong> Licensing vs. UGC, freshness, misrepresentation moderation &mdash; the entire premise degrades with stale or stocky photos.</li>
+              <li><strong>Carrier economics &amp; coverage.</strong> Deep-link reliability and fee accuracy; city-by-city seeding is expensive, and the honest no-coverage state helps expectations, not acquisition.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- status -->
+      <section class="results rv">
+        <div class="bloom"></div>
+        <span class="k">STATUS &amp; WHAT'S TRUE</span>
+        <div class="results-grid">
+          <p class="big">Every "finding" here is a critique observation or a hypothesis &mdash; the next artifact this project needs isn't a screen, it's <em>five usability sessions</em>.</p>
+          <div class="ledger">
+            <div><span>Three versions</span><b>preserved intact, diffable</b></div>
+            <div><span>30 designed states</span><b>edge cases are the portfolio</b></div>
+            <div><span>Research run</span><b>none &mdash; plan ready, labeled honestly</b></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- next project -->
+      <a class="next-proj" href="nhathuong.html">
+        <span><span class="k">NEXT PROJECT &mdash; &#8470; 03</span><span class="t">Nhat Huong Bakery &mdash; refreshing a 25-year-old brand</span></span>
+        <span class="arw">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
