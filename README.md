@@ -2,6 +2,11 @@
 
 A personal product & UX design portfolio. Warm "editorial café / takeout" concept: dark espresso melting into oat paper, dusty-rose and olive accents, Fraunces display type, lit-edge gradient borders, glow blooms, coffee-sleeve bands, and scalloped biscuit cards. No build step, no dependencies — just static files.
 
+## Two versions
+
+- **Root (`index.html` …)** — the original v1 site, unchanged.
+- **`v2/`** — the hiring-audit redesign: honest positioning (all template fiction removed), reordered lineup (Hey Period → Nhat Huong → Mug → Matrix → Chatter), TL;DR + role-split blocks on every case study, decision-bearing captions, fixed contrast tokens, OG/social metadata, real contact email, and explicit `[ADD:]` placeholders wherever a real fact is still needed. Open `v2/index.html` to review. v2 shares `images/` with v1 but has its own `styles.css`/`script.js`; repaired image variants are suffixed `-fixed.webp`. The audit that produced it is in the project artifacts. **Notes and `ledgerly.html` are intentionally absent from v2** — Notes advertised unwritten articles, and Ledgerly is a fictional template case study that must never deploy under a real name (if v1 is ever deployed, exclude it or add `noindex`).
+
 ## Files
 
 - `index.html` — the **Home** page: hero, featured work, secondary work (biscuit cards), illustration board, about band, notes, and contact footer.
