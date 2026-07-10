@@ -63,6 +63,8 @@
         <div class="cell"><span class="k">Status &amp; outcome</span><span class="v"><span class="status-flag">Pre-launch</span> Handed off during R&amp;D. <span class="addm">[ADD: waitlist numbers, launch status, or client feedback]</span></span></div>
       </div>
 
+      <p class="method-note rv">HOW TO READ THIS PAGE &mdash; artifacts carry disclosure labels: <span class="lbl real">MEASURED</span> real, checkable data &middot; <span class="lbl retro">RETROSPECTIVE</span> made after the project to document reasoning &middot; <span class="lbl sim">SIMULATED</span> illustrative, no real participants &middot; <span class="lbl plan">PROPOSED</span> a goal or plan, never an achieved result.</p>
+
       <!-- cover -->
       <div class="cover rv">
         <div class="lit"><div class="lit-in">
@@ -86,6 +88,13 @@
           <span class="side">RESEARCH</span>
           <div>
             <p class="proj-p">Honest version: user access was limited during R&amp;D, so most of what I learned came from secondary research &mdash; teardowns of Flo and Clue, community threads on period tracking, and the team's own customer conversations. <span class="addm">[ADD: if you ran interviews yourself, how many and how recruited; if not, delete the interview claim for good]</span></p>
+            <p class="proj-p" style="margin-top:18px"><span class="lbl retro">RETROSPECTIVE</span>&ensp;What the competitor teardown established, reconstructed from the analysis that shaped the design:</p>
+            <div class="ev-wrap"><table class="ev-table">
+              <tr><th>Competitor</th><th>What it owns</th><th>Trust signal</th><th>Implication for Hey Period</th></tr>
+              <tr><td><b>Flo</b></td><td>Category default; the pink</td><td>Ubiquity &mdash; "everyone uses it"</td><td>Borrow the familiar pink; differentiate on <em>lab data</em>, which Flo doesn't have</td></tr>
+              <tr><td><b>Clue</b></td><td>Science-forward tracking</td><td>Clinical tone, citations</td><td>Matching Clue's coldness would erase the warmth women's-health forums say they miss</td></tr>
+              <tr><td><b>Mail-in test kits</b> (Everlywe&shy;ll-type)</td><td>The mail-a-sample behavior</td><td>Medical packaging, results dashboards</td><td>Proof the behavior isn't the barrier when the kit feels professional &mdash; the unfamiliar <em>sample type</em> is</td></tr>
+            </table></div>
             <p class="proj-p" style="margin-top:14px">The two personas below are <em>assumption personas</em>: they exist to keep a fast-moving team pointed at the same two women, not to summarize interview data. That's also why they're written in the conditional &mdash; "she would use Hey Period to&hellip;"</p>
             <figure class="figure" style="margin-top: 26px">
               <img class="shot-img" src="../images/heyperiod/persona-brandy.webp" alt="Assumption persona: Brandy, 21, a college athlete and avid user of wearables who would use Hey Period to optimize athletic performance" width="1395" height="623" loading="lazy" />
@@ -111,7 +120,14 @@
               <div class="decision"><div class="dt">Supporting colors are whimsical on purpose.</div><div class="dd">Periwinkle, marigold, mint, and blush do the warmth job &mdash; this is a product you mail your period blood to, and the packaging has to feel closer to a skincare subscription than a lab requisition.</div></div>
               <div class="decision"><div class="dt">Poppins, for both jobs.</div><div class="dd">Geometric enough to stay crisp at UI sizes, round enough to stay friendly at display sizes. One family across brand, web, and app kept a two-month timeline realistic.</div></div>
             </div>
-            <p class="proj-p" style="margin-top:16px"><span class="addm">[ADD: the directions that lost — if any mood-board or logo explorations survive, show 2–3 with one line on why each was killed]</span></p>
+            <p class="proj-p" style="margin-top:18px"><span class="lbl retro">RETROSPECTIVE</span>&ensp;The decision space, reconstructed &mdash; the three directions the category offers, and why this design landed where it did:</p>
+            <div class="ev-wrap"><table class="ev-table">
+              <tr><th>Direction</th><th>What it buys</th><th>Why it lost / won</th></tr>
+              <tr><td><b>Clinical teal</b> &mdash; the diagnostics look</td><td>Instant medical credibility</td><td class="fail">Lost &mdash; indistinguishable from every telehealth brand; kills the community half of the brief</td></tr>
+              <tr><td><b>Millennial beige</b> &mdash; the DTC wellness look</td><td>Shelf-pretty, safe</td><td class="fail">Lost &mdash; reads as skincare; buries the "this is real medicine" claim the product depends on</td></tr>
+              <tr><td><b>Familiar pink + whimsy</b> &mdash; chosen</td><td>Category recognition via the Flo echo, warmth via the supporting palette</td><td class="ok">Won &mdash; the only direction serving both halves of the trust problem at once</td></tr>
+            </table></div>
+            <p class="proj-p" style="margin-top:12px"><span class="addm">[ADD: if actual mood-board or logo explorations survive, show them here and this table becomes documented evidence instead of reconstruction]</span></p>
             <figure class="figure" style="margin-top: 26px">
               <img class="shot-img" src="../images/heyperiod/brand.webp" alt="Brand board: six-color palette with hex values, Poppins type specimen, logo lockups on gradient, white, and black, and the test-kit box packaging" width="1600" height="1000" loading="lazy" />
               <figcaption class="figcap"><span class="fk">Brand system</span>Palette, type, lockups, and the kit box &mdash; the physical object had to sell the brand alone, since it arrives before the app gets opened.</figcaption>
@@ -174,8 +190,15 @@
             <ul class="feat-list">
               <li><strong>Credibility:</strong> clinical biomarker names on the map, chart-based evidence cards, the Flo-familiar pink, an assistant that is honestly a bot</li>
               <li><strong>Warmth:</strong> the whimsical supporting palette, blob shapes, skincare-grade packaging, insight cards that read like tips instead of lab results</li>
-              <li><strong>Untested:</strong> whether the balance lands. <span class="addm">[ADD: any signal — stakeholder reaction, waitlist conversion, user comments]</span> With another sprint I'd run a five-second brand-perception test ("does this look medical or fun?") before anything else.</li>
+              <li><strong>Untested:</strong> whether the balance lands. <span class="addm">[ADD: any signal — stakeholder reaction, waitlist conversion, user comments]</span></li>
             </ul>
+            <p class="proj-p" style="margin-top:18px"><span class="lbl plan">PROPOSED</span>&ensp;How I'd measure it &mdash; a framework, not results:</p>
+            <div class="ev-wrap"><table class="ev-table">
+              <tr><th>Metric</th><th>Definition</th><th>How</th><th>Goal (not a result)</th><th>Limitation</th></tr>
+              <tr><td><b>Perceived credibility</b></td><td>% describing the brand as "trustworthy/medical" in a 5-second test</td><td>5-sec exposure, n&asymp;20, open response</td><td>&ge;60% mention trust or health before "cute"</td><td>Perception, not behavior</td></tr>
+              <tr><td><b>Waitlist conversion</b></td><td>Visits &rarr; signups on the marketing site</td><td>Site analytics + form events</td><td>Baseline first; direction over absolute</td><td>Traffic source dominates early numbers</td></tr>
+              <tr><td><b>Kit-return intent</b></td><td>% of signups saying they'd mail a sample this cycle</td><td>One-question follow-up email</td><td>Establish baseline</td><td>Stated intent overstates behavior</td></tr>
+            </table></div>
           </div>
         </div>
       </section>
@@ -188,7 +211,17 @@
           <div>
             <p class="proj-p">Two months, three surfaces, one designer, and a startup whose priorities changed weekly &mdash; the honest constraint set. Two things I'd fix first with more time:</p>
             <ul class="feat-list">
-              <li><strong>Contrast.</strong> The marigold and mint chips carry white text in the app screens; both fail WCAG contrast. In a product where you read your own health results, that's not a style nitpick &mdash; I'd flip those chips to dark text first.</li>
+              <li><strong>Contrast.</strong> The biomarker chips carry white text in the app screens. I audited the shipped mockups after the fact &mdash; every chip fails, and every one passes by simply flipping to dark text:</li>
+            </ul>
+            <p class="proj-p" style="margin-top:14px"><span class="lbl real">MEASURED</span>&ensp;Retrospective accessibility audit &mdash; WCAG 2.1 contrast, sampled from the actual screen files (threshold 4.5:1):</p>
+            <div class="ev-wrap"><table class="ev-table">
+              <tr><th>Chip (sampled color)</th><th>White text</th><th>Dark text (#1A1A1A)</th><th>Fix</th></tr>
+              <tr><td>Sleep marigold <b>rgb(247,204,78)</b></td><td class="fail">1.53 — fail</td><td class="ok">11.36 — pass</td><td>flip to dark text</td></tr>
+              <tr><td>Activities mint <b>rgb(105,226,183)</b></td><td class="fail">1.60 — fail</td><td class="ok">10.91 — pass</td><td>flip to dark text</td></tr>
+              <tr><td>Blood coral <b>rgb(253,138,147)</b></td><td class="fail">2.27 — fail</td><td class="ok">7.65 — pass</td><td>flip to dark text</td></tr>
+              <tr><td>E2 periwinkle <b>rgb(140,166,255)</b></td><td class="fail">2.33 — fail</td><td class="ok">7.47 — pass</td><td>flip to dark text</td></tr>
+            </table></div>
+            <ul class="feat-list" style="margin-top:16px">
               <li><strong>Mock data as real content.</strong> The screens measure blood volume in <em>mg</em> in one place and <em>ml</em> in another. Health UI mock data deserves the same QA as shipping copy.</li>
             </ul>
           </div>

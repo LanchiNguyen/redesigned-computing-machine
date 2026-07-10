@@ -64,6 +64,8 @@
         <div class="cell"><span class="k">Status</span><span class="v"><span class="status-flag">Unshipped concept</span> Wireframes tested with users; the hi-fi design was never tested or launched. Open questions listed at the end.</span></div>
       </div>
 
+      <p class="method-note rv">HOW TO READ THIS PAGE &mdash; artifacts carry disclosure labels: <span class="lbl real">MEASURED</span> real, checkable data &middot; <span class="lbl retro">RETROSPECTIVE</span> made after the project to document reasoning &middot; <span class="lbl sim">SIMULATED</span> illustrative, no real participants &middot; <span class="lbl plan">PROPOSED</span> a goal or plan, never an achieved result.</p>
+
       <!-- cover -->
       <div class="cover rv">
         <div class="lit"><div class="lit-in">
@@ -80,7 +82,7 @@
           <div class="chip rv" style="--d:80ms"><div class="in"><div class="n">21%</div><div class="l">SEE NO REASON TO</div></div></div>
           <div class="chip rv" style="--d:160ms"><div class="in"><div class="n">13%</div><div class="l">DON'T HAVE TIME</div></div></div>
         </div>
-        <p class="proj-p" style="padding: 10px var(--px) 0; font-size: 13px; color: var(--meta)">The three most-cited barriers from our Qualtrics survey of 60 college students who don't use reusable cups. <span class="addm">[ADD: the remaining 31% breakdown, or link the survey summary]</span></p>
+        <p class="proj-p" style="padding: 10px var(--px) 0; font-size: 13px; color: var(--meta)"><span class="lbl real">MEASURED</span>&ensp;The three most-cited barriers from our Qualtrics survey of 60 college students who don't use reusable cups. <span class="addm">[ADD: the remaining 31% breakdown, or link the survey summary]</span></p>
       </section>
 
       <!-- overview -->
@@ -253,10 +255,34 @@
           <div>
             <p class="proj-p">Things a real launch would have to answer that a semester didn't &mdash; stated here because unacknowledged gaps read worse than acknowledged ones:</p>
             <ul class="feat-list">
-              <li><strong>Verification.</strong> "Any mug counts" is the pitch and the hole: how does a busy barista verify the mug without slowing the line? We designed the customer side only. First thing I'd tackle next &mdash; probably a barista-side tap on the same scan.</li>
-              <li><strong>The caf&eacute; economics.</strong> We claimed caf&eacute;s benefit but never interviewed one. Two barista conversations would have been cheap and telling; the discount has to come from somewhere.</li>
+              <li><strong>Verification.</strong> "Any mug counts" is the pitch and the hole: how does a busy barista verify the mug without slowing the line? We designed the customer side only.</li>
+              <li><strong>The caf&eacute; economics.</strong> We claimed caf&eacute;s benefit but never interviewed one. The discount has to come from somewhere.</li>
               <li><strong>Hi-fi validation.</strong> The wireframes were tested; the final design never was. The green-on-white text in the final screens also deserves a contrast pass.</li>
             </ul>
+
+            <p class="proj-p" style="margin-top:26px"><span class="lbl retro">RETROSPECTIVE</span>&ensp;The verification mechanic I'd design first &mdash; reasoned from the register flow we already had:</p>
+            <p class="proj-p" style="margin-top:8px">The customer's barcode scan already tells the register <em>who</em> is paying. Verification only has to answer <em>did they bring a mug</em> &mdash; a yes/no the barista knows the moment the cup hits the counter. So: the scan fires the discount as "pending," and a single barista-side tap (or the register's existing modifier key) confirms it. No new hardware, one extra tap, and the fraud cost of a wrong tap is one small discount &mdash; low enough that speed beats policing. What this doesn't solve: multi-register cafés and rush-hour honesty drift; both are testable in a pilot before they're worth designing for.</p>
+
+            <p class="proj-p" style="margin-top:26px"><span class="lbl sim">SIMULATED</span>&ensp;The caf&eacute;-side study we should have run &mdash; a concept-validation scenario showing how I'd evaluate the merchant half. No real baristas participated; profiles and quotes are illustrative:</p>
+            <p class="proj-p" style="margin-top:8px"><strong>Objective:</strong> would independent caf&eacute;s fund a bring-your-own-mug discount, and can verification survive a rush? <strong>Method:</strong> 15-minute intercepts with 5 staff across 3 independent caf&eacute;s (2 owners, 2 baristas, 1 shift lead), off-peak. <strong>Limitation:</strong> intercepts surface objections, not adoption behavior.</p>
+            <div class="ev-wrap"><table class="ev-table">
+              <tr><th>Simulated finding</th><th>Product implication</th><th>Proposed response</th><th>Confidence</th></tr>
+              <tr><td>Owners frame the discount as marketing spend, not margin loss &mdash; <em>if</em> the app demonstrably brings new faces</td><td>The caf&eacute; pitch must lead with discovery, not sustainability</td><td>Surface "new customers from Mug" in a merchant view</td><td>Low &mdash; needs real intercepts</td></tr>
+              <tr><td>Baristas reject anything adding &gt;2&ndash;3 seconds at the register during rush</td><td>Verification must ride the existing scan</td><td>The pending-discount tap above</td><td>Medium &mdash; consistent with POS research generally</td></tr>
+              <tr><td>Mixed on fraud: some owners shrug ("it's a coffee discount"), others want control</td><td>Policing is a setting, not a feature</td><td>Per-caf&eacute; toggle: auto-approve vs. confirm</td><td>Low</td></tr>
+            </table></div>
+            <div class="quotes" style="margin-top:16px">
+              <div class="quote-card sim"><div class="q">"If it slows my line at 8am, I don't care what it saves."</div><div class="a">SIMULATED BARISTA VOICE &mdash; ILLUSTRATIVE, NOT A REAL PARTICIPANT</div></div>
+              <div class="quote-card sim"><div class="q">"I'd fund 25 cents a cup if it walks students in the door."</div><div class="a">SIMULATED OWNER VOICE &mdash; ILLUSTRATIVE, NOT A REAL PARTICIPANT</div></div>
+            </div>
+
+            <p class="proj-p" style="margin-top:26px"><span class="lbl plan">PROPOSED</span>&ensp;How success would be measured if this shipped &mdash; goals, not results:</p>
+            <div class="ev-wrap"><table class="ev-table">
+              <tr><th>Metric</th><th>Definition</th><th>How</th><th>Goal (not a result)</th><th>Limitation</th></tr>
+              <tr><td><b>Repeat bring-rate</b></td><td>% of users whose 2nd+ visit includes a mug scan</td><td>Scan events per user</td><td>The habit metric &mdash; baseline first, then grow it</td><td>Confounded by discount size</td></tr>
+              <tr><td><b>Register time delta</b></td><td>Seconds added per transaction at pilot caf&eacute;s</td><td>Timed observation, 1 rush hour per caf&eacute;</td><td>&le;3s or the mechanic fails</td><td>Small sample; observer effect</td></tr>
+              <tr><td><b>Caf&eacute; retention</b></td><td>Pilot caf&eacute;s still active after 8 weeks</td><td>Merchant dashboard</td><td>The business-side truth test</td><td>Tiny n in a pilot</td></tr>
+            </table></div>
           </div>
         </div>
       </section>
