@@ -4,14 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sketchbook &middot; Lana Nguyen</title>
-  <meta name="description" content="Sketchbook: illustration, riso, linocut, posters, and doodles by Lana Nguyen." />
+  <meta name="description" content="Sketchbook: digital paintings, illustrations, posters, and motion by Lana Nguyen." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
 
   <!--
     ==========================================================================
     SKETCHBOOK - side-work gallery (child page of index.html)
-    Uses the shared styles.css / script.js. Every striped box is a
-    placeholder; swap each .ph for an <img> of your real scan. Copy a
-    <div class="piece rv rot"> block to add another piece.
+    Uses the shared styles.css / script.js. Real artwork lives in
+    images/sketch/. Masonry gallery (.art-grid) handles mixed aspect
+    ratios; copy a <div class="piece"> block to add another piece.
     ==========================================================================
   -->
 
@@ -44,93 +46,79 @@
         <div class="bloom"></div>
         <a class="backlink" href="index.html#home-work">&larr; BACK TO WORK</a>
         <p class="eyebrow" style="margin-top:22px">SKETCHBOOK</p>
-        <!-- EDIT: title + intro -->
-        <h1>Drawing, print <em>&amp;</em> fun.</h1>
-        <p class="sub">The stuff outside the product work &mdash; riso and linocut prints, gig posters, type experiments, and the daily doodles that never had a brief. Made for the love of it.</p>
+        <h1>Drawing, painting <em>&amp;</em> fun.</h1>
+        <p class="sub">The stuff outside the product work &mdash; digital paintings, illustrations, the odd acrylic, poster art, and a bit of motion. Made for the love of it.</p>
         <span class="hand">&#8627; always adding</span>
       </section>
 
-      <!-- riso & print -->
+      <!-- environments & painting -->
       <section class="sketch-cat">
-        <div class="sketch-cat-head"><span class="t serif">Riso &amp; print</span><span class="m">PULLED BY HAND</span></div>
-        <div class="sketch-grid">
-          <!-- EDIT: each .piece is one artwork; swap the .ph for an <img> -->
-          <div class="piece rv rot" style="--rot:-3deg">
-            <div class="stamp"><div class="ph riso">[ two-colour zine ]</div>
-              <div class="cap"><span class="t">Two-Colour Zine</span><span class="m">RISO &middot; '25</span></div></div>
+        <div class="sketch-cat-head"><span class="t serif">Environments &amp; painting</span><span class="m">DIGITAL &amp; TRADITIONAL</span></div>
+        <div class="art-grid">
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/tearoom.webp" alt="Digital painting of a moonlit Japanese tatami tea room, warm light spilling through paper screens" width="900" height="568" loading="lazy" />
+              <div class="cap"><span class="t">Tea Room</span><span class="m">DIGITAL</span></div></div>
           </div>
-          <div class="piece rv rot" style="--rot:2deg; --d:80ms">
-            <div class="stamp"><div class="ph lino">[ linocut print ]</div>
-              <div class="cap"><span class="t">Kitchen still-life</span><span class="m">LINO &middot; '24</span></div></div>
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/bluetown.webp" alt="Digital painting of a blue-lit Mediterranean stairway at night, potted plants and a crescent moon" width="517" height="729" loading="lazy" />
+              <div class="cap"><span class="t">Blue Town</span><span class="m">DIGITAL</span></div></div>
           </div>
-          <div class="piece rv rot" style="--rot:-1.5deg; --d:160ms">
-            <div class="stamp"><div class="ph riso">[ riso poster ]</div>
-              <div class="cap"><span class="t">Market Day</span><span class="m">RISO &middot; '25</span></div></div>
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/solace.webp" alt="Dreamy digital painting: a library shelf beneath a pastel sky with a red planet and crescent moon" width="655" height="830" loading="lazy" />
+              <div class="cap"><span class="t">Solace</span><span class="m">DIGITAL</span></div></div>
           </div>
-          <div class="piece rv rot" style="--rot:3deg; --d:240ms">
-            <div class="stamp"><div class="ph lino">[ block print ]</div>
-              <div class="cap"><span class="t">Harvest, no.2</span><span class="m">LINO &middot; '23</span></div></div>
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/lakeside.webp" alt="Acrylic painting of a cabin by a lake at sunset, dock reaching into rippled water" width="1200" height="987" loading="lazy" />
+              <div class="cap"><span class="t">Lakeside</span><span class="m">ACRYLIC ON CANVAS</span></div></div>
           </div>
         </div>
       </section>
 
-      <!-- posters & shows -->
+      <!-- illustration -->
       <section class="sketch-cat">
-        <div class="sketch-cat-head"><span class="t serif">Posters &amp; shows</span><span class="m">SCREENPRINT</span></div>
-        <div class="sketch-grid">
-          <div class="piece rv rot" style="--rot:2deg">
-            <div class="stamp"><div class="ph poster">[ gig poster ]</div>
-              <div class="cap"><span class="t">Night shift</span><span class="m">SCREEN &middot; '25</span></div></div>
+        <div class="sketch-cat-head"><span class="t serif">Illustration</span><span class="m">CHARACTER &amp; SCENE</span></div>
+        <div class="art-grid">
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/festival.webp" alt="Vibrant illustration of a girl with cotton candy at a sunset fair, ice-cream truck and ferris wheel" width="1200" height="800" loading="lazy" />
+              <div class="cap"><span class="t">Festival</span><span class="m">ILLUSTRATION</span></div></div>
           </div>
-          <div class="piece rv rot" style="--rot:-2.5deg; --d:80ms">
-            <div class="stamp"><div class="ph poster">[ show poster ]</div>
-              <div class="cap"><span class="t">Slow Sundays</span><span class="m">SCREEN &middot; '24</span></div></div>
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/simmer.webp" alt="Cute illustration titled Simmer Party: a hotpot full of smiling food characters with side dishes" width="1100" height="1423" loading="lazy" />
+              <div class="cap"><span class="t">Simmer Party</span><span class="m">ILLUSTRATION</span></div></div>
           </div>
-          <div class="piece rv rot" style="--rot:1.5deg; --d:160ms">
-            <div class="stamp"><div class="ph type">[ event flyer ]</div>
-              <div class="cap"><span class="t">Open Studio</span><span class="m">DIGITAL &middot; '25</span></div></div>
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/elevencats.webp" alt="Poster illustration of eleven sleepy cats adrift on a raft with a patchwork sail at sunset" width="1100" height="1630" loading="lazy" />
+              <div class="cap"><span class="t">Eleven Cats</span><span class="m">POSTER TRIBUTE</span></div></div>
           </div>
         </div>
       </section>
 
-      <!-- type & lettering -->
+      <!-- flat & vector -->
       <section class="sketch-cat">
-        <div class="sketch-cat-head"><span class="t serif">Type &amp; lettering</span><span class="m">BY HAND</span></div>
-        <div class="sketch-grid">
-          <div class="piece rv rot" style="--rot:-2deg">
-            <div class="stamp"><div class="ph type">[ lettering study ]</div>
-              <div class="cap"><span class="t">Ampersands</span><span class="m">INK &middot; '25</span></div></div>
+        <div class="sketch-cat-head"><span class="t serif">Flat &amp; vector</span><span class="m">SHAPE &amp; GRADIENT</span></div>
+        <div class="art-grid">
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/dunes.webp" alt="Flat vector landscape: gradient dunes and sea at sunset with a lone palm on a blue hill" width="1600" height="592" loading="lazy" />
+              <div class="cap"><span class="t">Dunes</span><span class="m">VECTOR</span></div></div>
           </div>
-          <div class="piece rv rot" style="--rot:2.5deg; --d:80ms">
-            <div class="stamp"><div class="ph ink">[ wordmark sketches ]</div>
-              <div class="cap"><span class="t">Marks &amp; monograms</span><span class="m">PENCIL &middot; '24</span></div></div>
-          </div>
-          <div class="piece rv rot" style="--rot:-1deg; --d:160ms">
-            <div class="stamp"><div class="ph type">[ alphabet page ]</div>
-              <div class="cap"><span class="t">A to Z, slowly</span><span class="m">INK &middot; '25</span></div></div>
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/cabin.webp" alt="Flat vector scene: an A-frame cabin by the water at dusk, a seagull gliding past a palm" width="1400" height="1050" loading="lazy" />
+              <div class="cap"><span class="t">Cabin at Dusk</span><span class="m">VECTOR</span></div></div>
           </div>
         </div>
       </section>
 
-      <!-- sketchbook & doodles -->
+      <!-- posters & motion -->
       <section class="sketch-cat last">
-        <div class="sketch-cat-head"><span class="t serif">Sketchbook &amp; doodles</span><span class="m">NO BRIEF</span></div>
-        <div class="sketch-grid">
-          <div class="piece rv rot" style="--rot:2deg">
-            <div class="stamp"><div class="ph doodle"><span>[ napkin sketch ]</span><span class="h">"ideas that didn't survive lunch"</span></div>
-              <div class="cap"><span class="t">Lunch napkins</span><span class="m">PEN &middot; ongoing</span></div></div>
+        <div class="sketch-cat-head"><span class="t serif">Posters &amp; motion</span><span class="m">FOR A CAUSE &amp; FOR FUN</span></div>
+        <div class="art-grid">
+          <div class="piece rv">
+            <div class="stamp"><img src="images/sketch/psa.webp" alt="Bold, playful public-health poster encouraging lung cancer screening, with cartoon lung characters" width="1100" height="1467" loading="lazy" />
+              <div class="cap"><span class="t">Get Screened</span><span class="m">PSA POSTER</span></div></div>
           </div>
-          <div class="piece rv rot" style="--rot:-2.5deg; --d:80ms">
-            <div class="stamp"><div class="ph doodle"><span>[ daily doodle ]</span><span class="h">one a day, mostly</span></div>
-              <div class="cap"><span class="t">Daily doodles</span><span class="m">PEN &middot; ongoing</span></div></div>
-          </div>
-          <div class="piece rv rot" style="--rot:1.5deg; --d:160ms">
-            <div class="stamp"><div class="ph ink">[ margin drawings ]</div>
-              <div class="cap"><span class="t">Meeting margins</span><span class="m">PEN &middot; '25</span></div></div>
-          </div>
-          <div class="piece rv rot" style="--rot:-1.5deg; --d:240ms">
-            <div class="stamp"><div class="ph doodle"><span>[ travel pages ]</span><span class="h">trains, mostly</span></div>
-              <div class="cap"><span class="t">On the train</span><span class="m">PEN &middot; '24</span></div></div>
+          <div class="piece rv">
+            <div class="stamp"><video src="images/sketch/dribbble.webm" autoplay muted loop playsinline preload="metadata" aria-label="Looping animated illustration, a Dribbble debut shot"></video>
+              <div class="cap"><span class="t">Dribbble debut</span><span class="m">MOTION</span></div></div>
           </div>
         </div>
       </section>

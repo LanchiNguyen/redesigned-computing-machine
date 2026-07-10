@@ -762,6 +762,23 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column; gap: 8px; text-align: center; padding: 12px; }
 .piece .ph.doodle .h { font-family: var(--hand); font-size: 15px; color: var(--rose-3); }
 
+/* real-art masonry gallery (mixed aspect ratios) */
+.art-grid { columns: 3; column-gap: 28px; }
+.art-grid .piece { break-inside: avoid; margin: 0 0 30px; }
+.art-grid .stamp img, .art-grid .stamp video {
+  display: block; width: 100%; height: auto; border-radius: 5px; background: #EFECE4;
+  border: 1px solid rgba(74,59,44,0.12);
+}
+.art-grid .stamp .cap { padding: 11px 3px 1px; }
+@media (max-width: 900px) { .art-grid { columns: 2; } }
+@media (max-width: 560px) { .art-grid { columns: 1; } }
+
+/* real images inside the home illustration board frames */
+.board-img { display: block; width: 100%; object-fit: cover; }
+.bi1 .board-img, .bi4 .board-img { height: 214px; border: 1px solid rgba(74,59,44,0.18); }
+.bi2 .board-img { height: 236px; }
+.bi3 .board-img { height: 222px; }
+
 /* ============================ ABOUT PAGE ============================ */
 .about-portrait {
   position: relative; border-radius: 14px; overflow: hidden;
