@@ -9,6 +9,7 @@ A personal product & UX design portfolio. Warm "editorial café / takeout" conce
 - `chatter.html` — the **Chatter case study** (real project): interviews, affinity map, two ideas with a pivot, and animated prototypes. Assets in `images/chatter/`.
 - `matrix.html` — the **Matrix case study** (real client project): two feature areas of production UI in a one-week engagement. Assets in `images/matrix/`.
 - `heyperiod.html` — the **Hey Period case study** (real client project): user research, brand identity, marketing website, and mobile before/afters for a femtech startup. Assets in `images/heyperiod/`.
+- `nhathuong.html` — the **Nhat Huong Bakery case study** (real client project): brand strategy, logo refresh, color/graphic system, and packaging for Vietnam's legacy baking brand. Assets in `images/nhathuong/`.
 - `ledgerly.html` — a **sample case study** kept as a template (not linked from Home). Duplicate it per project to add more case studies.
 - `sketchbook.html` — the **Sketchbook** page: illustration, prints, posters, and doodles.
 - `about.html` — the **About / full bio** page: story, approach, experience, and now.
