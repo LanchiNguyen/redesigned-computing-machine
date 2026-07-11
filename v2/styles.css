@@ -879,8 +879,8 @@ a { color: inherit; text-decoration: none; }
 .meta-rail .k { font-size: 10px; }
 .note-row .d, .foot-meta { font-size: 11px; }
 
-/* v2: when a TL;DR card precedes the cover, cancel the cover's hero-overlap pull */
-.tldr + .cover { margin-top: 26px; }
+/* v2: when a TL;DR card or method note precedes the cover, cancel the cover's hero-overlap pull */
+.tldr + .cover, .method-note + .cover { margin-top: 26px; }
 
 /* ============================ V2 EVIDENCE SYSTEM ============================ */
 /* disclosure labels — visible, unambiguous, visually integrated */
@@ -912,3 +912,35 @@ a { color: inherit; text-decoration: none; }
 .phone-grid img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(74,59,44,0.16); }
 .phone-grid figcaption { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--meta); margin-top: 7px; line-height: 1.5; }
 .doc-link { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 12.5px; letter-spacing: 0.08em; color: var(--rose-link); border-bottom: 1.5px solid var(--rose-2); padding-bottom: 3px; }
+
+/* ============================ CLEAN / DRAFT MODE ============================ */
+/* [ADD:] chips and .needs-input blocks are workbench-only. Visitors get the
+   clean fallback text; append ?draft to any URL to reveal the punch list. */
+html:not(.draft) .addm, html:not(.draft) .needs-input, html.draft .clean-fill { display: none; }
+html.draft .needs-input { outline: 1.5px dashed rgba(94,69,38,0.35); outline-offset: 5px; border-radius: 4px; }
+a.bar-loc:hover { color: var(--gold); }
+
+/* ============================ RESUME PAGE ============================ */
+.resume-wrap { max-width: 880px; margin: 0 auto; padding: 48px var(--px) 64px; }
+.resume-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
+.resume-head h1 { font-family: var(--serif); font-weight: 500; font-size: 44px; color: var(--ink); line-height: 1; }
+.resume-head .sub { font-size: 15px; color: var(--body-ink); margin-top: 8px; }
+.resume-contact { font-family: var(--mono); font-size: 11.5px; color: var(--body-ink); text-align: right; line-height: 1.9; }
+.resume-contact a { color: var(--rose-link); }
+.resume-sec { margin-top: 30px; }
+.resume-sec > .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; color: var(--rose-2); text-transform: uppercase; display: block; margin-bottom: 12px; }
+.resume-item { padding: 12px 0; border-bottom: 1px solid rgba(74,59,44,0.15); }
+.resume-item .row1 { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.resume-item .t { font-weight: 600; font-size: 15.5px; color: var(--ink); }
+.resume-item .d { font-family: var(--mono); font-size: 11px; color: var(--meta); white-space: nowrap; }
+.resume-item .desc { font-size: 14px; line-height: 1.55; color: var(--body-ink); margin-top: 5px; max-width: 74ch; }
+.print-btn { margin-top: 26px; font-weight: 600; font-size: 12.5px; letter-spacing: 0.08em; color: var(--rose-link); border: 1.5px solid var(--rose-2); border-radius: 999px; padding: 9px 18px; background: none; cursor: pointer; }
+.print-btn:hover { background: var(--rose-pill); }
+@media print {
+  .bar, .bar-hairline, .print-btn, .next-proj, .skip-link { display: none !important; }
+  .addm, .needs-input { display: none !important; }
+  .desk, .page { background: #fff !important; box-shadow: none !important; border-radius: 0 !important; margin: 0 !important; }
+  .page::before, .page::after, .grain { display: none !important; }
+  .resume-wrap { padding: 0; max-width: none; }
+  body { background: #fff !important; }
+}

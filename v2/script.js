@@ -1,3 +1,21 @@
+// ---- clean / draft mode ------------------------------------------------
+// [ADD:] chips are hidden for visitors; ?draft reveals the punch list.
+// Chips with data-clean get honest fallback text in clean mode.
+(function () {
+  document.querySelectorAll(".addm[data-clean]").forEach(function (el) {
+    var t = el.getAttribute("data-clean");
+    if (t) {
+      var s = document.createElement("span");
+      s.className = "clean-fill";
+      s.textContent = t;
+      el.parentNode.insertBefore(s, el);
+    }
+  });
+  if (/[?&#]draft/.test(location.search + location.hash)) {
+    document.documentElement.classList.add("draft");
+  }
+})();
+
 (function () {
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
