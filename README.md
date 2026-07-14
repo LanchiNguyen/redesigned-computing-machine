@@ -28,7 +28,7 @@ Home links to `ledgerly.html` and `sketchbook.html`; both link back to Home's se
 
 The deployable site is **v2 only**, assembled by `build-site.sh` into `_site/` (v1 and its template fiction never ship). A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and publishes it automatically.
 
-1. **Enable Pages:** repo **Settings → Pages → Source: "GitHub Actions"**. Then push (or run the "Deploy portfolio" workflow manually from the Actions tab). Site appears at `https://lanchinguyen.github.io/redesigned-computing-machine/`.
+1. **Enable Pages (required once, can't be automated):** repo **Settings → Pages → Source: "GitHub Actions"**. Until this is done, deploy runs skip cleanly with a notice. After clicking, run the "Deploy portfolio" workflow from the Actions tab (or push anything). Site appears at `https://lanchinguyen.github.io/redesigned-computing-machine/`.
 2. **Custom domain:** buy one (Porkbun/Namecheap/Cloudflare, ~$10/yr), then in **Settings → Pages → Custom domain** enter it. At your registrar add DNS records:
    - apex (`yourdomain.com`): four `A` records → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - `www`: `CNAME` → `lanchinguyen.github.io`
