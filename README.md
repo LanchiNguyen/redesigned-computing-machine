@@ -24,6 +24,18 @@ A personal product & UX design portfolio. Warm "editorial café / takeout" conce
 
 Home links to `ledgerly.html` and `sketchbook.html`; both link back to Home's sections (`index.html#home-work`, etc.).
 
+## Deploy (GitHub Pages + custom domain)
+
+The deployable site is **v2 only**, assembled by `build-site.sh` into `_site/` (v1 and its template fiction never ship). A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and publishes it automatically.
+
+1. **Enable Pages:** repo **Settings → Pages → Source: "GitHub Actions"**. Then push (or run the "Deploy portfolio" workflow manually from the Actions tab). Site appears at `https://lanchinguyen.github.io/redesigned-computing-machine/`.
+2. **Custom domain:** buy one (Porkbun/Namecheap/Cloudflare, ~$10/yr), then in **Settings → Pages → Custom domain** enter it. At your registrar add DNS records:
+   - apex (`yourdomain.com`): four `A` records → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `www`: `CNAME` → `lanchinguyen.github.io`
+   - back in Pages settings, tick **Enforce HTTPS** once the certificate is issued (minutes to an hour).
+3. **Social previews:** set a repo variable `SITE_URL` (Settings → Secrets and variables → Actions → Variables) to `https://yourdomain.com` and re-run the workflow — og:image URLs become absolute so link cards work in Slack/LinkedIn.
+4. Local test of exactly what deploys: `bash build-site.sh && python3 -m http.server -d _site`.
+
 ## Preview it
 
 - **Open locally:** open `index.html` in any browser.

@@ -1,0 +1,44 @@
+name: Deploy portfolio (v2) to GitHub Pages
+
+# Deploys the v2 site assembled by build-site.sh.
+# Nothing goes live until GitHub Pages is enabled in
+# Settings -> Pages -> Source: "GitHub Actions".
+on:
+  push:
+    branches: [main, claude/repo-skills-capability-7ri1jb]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build _site from v2
+        run: bash build-site.sh
+        env:
+          # Set a repository variable SITE_URL (Settings -> Secrets and
+          # variables -> Actions -> Variables) once your domain is live,
+          # e.g. https://lananguyen.com — makes social previews absolute.
+          SITE_URL: ${{ vars.SITE_URL }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
