@@ -35,6 +35,9 @@ jobs:
           SITE_URL: ${{ vars.SITE_URL }}
 
       - uses: actions/configure-pages@v5
+        with:
+          # create/enable the Pages site on first run — no settings step needed
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
