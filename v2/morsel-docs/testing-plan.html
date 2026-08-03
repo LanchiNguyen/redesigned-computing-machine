@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Morsel — usability testing plan (5 sessions)</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --paper:#F7F1E6; --surface:#FFFCF5; --sunken:#EFE6D6; --ink:#26190E; --ink2:rgba(38,25,14,.62); --ink3:rgba(38,25,14,.4); --line:rgba(38,25,14,.12); --accent:#C2492B; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: "Hanken Grotesk", sans-serif; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 880px; margin: 0 auto; padding: 56px 32px 96px; }
+  h1 { font-family: "Lora", serif; font-weight: 600; font-size: 42px; line-height: 1.05; }
+  h2 { font-family: "Lora", serif; font-weight: 600; font-size: 25px; margin: 56px 0 6px; }
+  .sub { color: var(--ink2); font-size: 15px; line-height: 1.55; max-width: 640px; }
+  .rule { height: 1px; background: var(--line); margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-size: 10.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--ink3); padding: 8px 10px 8px 0; border-bottom: 1.5px solid var(--line); }
+  td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.45; color: var(--ink2); }
+  td:first-child { font-weight: 800; color: var(--ink); white-space: nowrap; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin-top: 14px; }
+  .card h3 { font-size: 15px; font-weight: 800; margin-bottom: 8px; }
+  .card p, .card li { font-size: 13.5px; line-height: 1.55; color: var(--ink2); }
+  .card ul, .card ol { padding-left: 18px; }
+  .card b { color: var(--ink); }
+  .q { font-style: italic; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 800; border-radius: 99px; padding: 2px 8px; background: var(--sunken); color: var(--ink2); margin-left: 6px; vertical-align: 1px; white-space: nowrap; }
+  .sev { display: inline-block; width: 10px; height: 10px; border-radius: 99px; margin-right: 6px; vertical-align: -1px; }
+  a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .note { background: var(--sunken); border-radius: 12px; padding: 10px 14px; font-size: 12.5px; color: var(--ink2); margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="../morsel.html">← back to the Morsel case study</a>
+  <h1 style="margin-top:16px;">Usability testing plan</h1>
+  <p class="sub" style="margin-top:12px;">Five moderated sessions, ~40 minutes each, on the v3 prototype (phone-sized browser window or device). Goal: pressure-test the amber assumptions on the wireflow — info scent, trust comprehension, dietary model, and recovery states.</p>
+
+  <h2>Participants</h2>
+  <div class="rule"></div>
+  <div class="card">
+    <ul>
+      <li><b>5 participants</b>, ages 22–35, urban, order out or eat out ≥2× a week, decide from photos (screener: "show me the last food photo that made you order something").</li>
+      <li>Mix: ≥2 who primarily use delivery apps, ≥2 who primarily walk in; ≥1 with a real dietary restriction or allergy (critical for tasks 6, 8, 9).</li>
+      <li>Exclude: food-industry professionals, UX designers.</li>
+      <li>Device: their own phone if possible (mirrors real grip + text size), else provided device.</li>
+    </ul>
+  </div>
+
+  <h2>Moderator script</h2>
+  <div class="rule"></div>
+  <div class="card">
+    <p class="q">"Thanks for making time. This is an early prototype of a food-discovery app — some data is fake and some buttons are intentionally limited; none of that reflects on you. I'll ask you to do a few things and think out loud. There are no wrong answers — if something is confusing, that's the app failing, not you. I didn't design it, so be blunt."</p>
+    <ul style="margin-top:8px;">
+      <li>Warm-up (3 min): "Walk me through how you picked the last place you ate that wasn't routine."</li>
+      <li>Tasks 1–10 below, in order; skip 7–10 if time runs short for a participant, rotating which are skipped across sessions.</li>
+      <li>Wrap (3 min): "If this existed tomorrow, when would you actually open it? What would make you delete it?"</li>
+    </ul>
+  </div>
+
+  <h2>Tasks</h2>
+  <div class="rule"></div>
+  <table>
+    <tr><th style="width:34px;">#</th><th>Task (read aloud)</th><th>Tests</th><th>Success criteria</th></tr>
+    <tr><td>1</td><td>"You have 20 minutes to decide on dinner. Use the app to pick something."<span class="tag">feed</span></td><td>Photo-only info scent (Exploration A)</td><td>Reaches a decision ≤5 min; note every detail-open made *only* to check price/distance</td></tr>
+    <tr><td>2</td><td>"What made you choose that one? What information did you use?"</td><td>Decision drivers</td><td>Articulates photo + at least one non-photo signal without prompting</td></tr>
+    <tr><td>3</td><td>"Save that dish to your Date night list."<span class="tag">save flow</span></td><td>Instant save + opt-in collection model</td><td>Completes via toast or detail heart ≤3 taps after save; no hunting for the sheet</td></tr>
+    <tr><td>4</td><td>"Find ramen near you."<span class="tag">search</span></td><td>Search entry + labeled results</td><td>Uses search chip (not scrolling); interprets result labels correctly</td></tr>
+    <tr><td>5</td><td>"This dish says 90% would order again. What do you think that means — who counted that?"<span class="tag">trust</span></td><td>Trust-signal comprehension (Exploration C)</td><td>Describes repeat orders / verified diners, not star-like satisfaction; bonus if they find "how we know"</td></tr>
+    <tr><td>6</td><td>"You have a nut allergy. Set that up, then tell me what you expect the app to do from now on."<span class="tag">safety</span></td><td>Three-tier dietary model comprehension</td><td>Finds setup (profile → edit, or recalibrate); expectation matches the promise: hidden from feed/search, saved dishes kept + warned</td></tr>
+    <tr><td>7</td><td>"You're visiting Los Angeles next week. Point the app there."<span class="tag">location</span></td><td>No-coverage honesty</td><td>Understands why the feed is empty; finds the way back; no belief that the app is broken</td></tr>
+    <tr><td>8</td><td>"Set the price filter to $ and distance to 'Steps away' with vegan lifestyle on. What happened, and how do you get dishes back?"<span class="tag">recovery</span></td><td>Zero-result recovery</td><td>Identifies which limits caused it; uses the correct button; understands allergies weren't touched</td></tr>
+    <tr><td>9</td><td>"Open the dan dan noodles you saved earlier." (with nut allergy set)<span class="tag">safety</span></td><td>Conflict warning on retained saves</td><td>Notices the warn chip and banner; explains why it's still visible in their saves</td></tr>
+    <tr><td>10</td><td>"Order the tasting plate from Hollis."<span class="tag">handoff</span></td><td>No-carrier state (Exploration D)</td><td>Understands no delivery exists; pivots to pickup/directions without judging the app broken</td></tr>
+  </table>
+  <div class="note">Follow-ups — always non-leading: "What did you expect to happen?" · "What would you do next?" · "You hesitated there — what were you weighing?" · "Say more about that face you made." Never: "Did you like…", "Wasn't that easy?"</div>
+
+  <h2>Observation table</h2>
+  <div class="rule"></div>
+  <p class="sub">One row per participant × task. Print or duplicate per session.</p>
+  <table style="margin-top:12px;">
+    <tr><th>Task</th><th>Completion</th><th>Misclicks</th><th>Confidence (1–5, self-report)</th><th>Quotes / behavior</th><th>Severity</th></tr>
+    <tr><td>1</td><td>✓ / partial / ✗</td><td>count + where</td><td>"How sure are you that was a good pick?"</td><td></td><td></td></tr>
+    <tr><td>…</td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="card" style="margin-top:16px;">
+    <h3>Severity scale</h3>
+    <ul style="list-style:none; padding-left:0;">
+      <li><span class="sev" style="background:#C2492B;"></span><b>S1 — safety/trust breach:</b> user misunderstands the allergy promise or the trust metric in a way that could cause harm or distrust. Fix before any release.</li>
+      <li><span class="sev" style="background:#C97C1B;"></span><b>S2 — task blocker:</b> cannot complete a core task (choose, save, order handoff) without moderator help.</li>
+      <li><span class="sev" style="background:#B89A4F;"></span><b>S3 — friction:</b> completes with detours, misclicks, or visible hesitation.</li>
+      <li><span class="sev" style="background:#8C9A6B;"></span><b>S4 — polish:</b> cosmetic or preference-level.</li>
+    </ul>
+  </div>
+
+  <h2>Findings → iteration matrix</h2>
+  <div class="rule"></div>
+  <table style="margin-top:12px;">
+    <tr><th>Finding (evidence)</th><th>Sessions</th><th>Severity</th><th>Hypothesis</th><th>Design response</th><th>Owner / status</th></tr>
+    <tr><td colspan="6" style="color:var(--ink3); font-weight:600;">Fill after sessions — one row per distinct finding, merged across participants.</td></tr>
+  </table>
+
+  <h2>Before / after template</h2>
+  <div class="rule"></div>
+  <div class="card">
+    <p>For each S1–S2 finding that changes the design, produce one before/after pair for the case study:</p>
+    <ol>
+      <li><b>Before:</b> screenshot of the v3 state + one-line finding ("4/5 read 90% as a satisfaction score").</li>
+      <li><b>After:</b> screenshot of the revised state + what changed and why it addresses the evidence.</li>
+      <li><b>Verdict line:</b> how you'll know it worked (re-test criterion or metric).</li>
+    </ol>
+    <p style="margin-top:8px;">Keep pairs at identical crop/zoom so the change reads instantly (template: two phone frames side by side, finding above, response below).</p>
+  </div>
+
+  <div class="note">This plan is ready to run but has <b>not been run</b> — all findings tables are intentionally empty. Any populated example content elsewhere in the case-study package is labeled illustrative.</div>
+</div>
+</body>
+</html>

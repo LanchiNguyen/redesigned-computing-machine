@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tenet &middot; Case study &middot; Lana Nguyen</title>
+  <meta name="description" content="Case study: Tenet, a behavioral intervention system for retail trading — self-authored guardrails that restore one deliberate moment before an impulsive order, prototyped inside two fictional brokers." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Tenet — one deliberate moment" />
+  <meta property="og:description" content="Self-authored trading guardrails: reversible friction at order-send, never a block. A functional prototype across a fictional mobile broker and desktop terminal, with one Companion Record." />
+  <meta property="og:image" content="../images/tenet/cover.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Klee+One:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#case">Skip to case study</a>
+
+  <div class="desk">
+    <div class="page" id="project">
+
+      <header class="bar">
+        <a class="wordmark" href="index.html" aria-label="Lana Nguyen, home">Lana Nguyen<span class="dot">.</span></a>
+        <nav class="bar-links" aria-label="Case study">
+          <a class="active" href="index.html#home-work">Work</a>
+          <a href="sketchbook.html">Sketchbook</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">R&eacute;sum&eacute;</a>
+          <a href="index.html#home-contact">Contact</a>
+        </nav>
+        <a class="bar-loc" href="mailto:lanchib.nguyen@gmail.com">OPEN TO NEW ROLES &rarr;</a>
+      </header>
+      <div class="bar-hairline"></div>
+
+      <!-- hero -->
+      <section class="proj-hero" id="case">
+        <div class="bloom"></div>
+        <a class="backlink" href="index.html#home-work">&larr; WORK / &#8470; 01 &middot; PROTOTYPE &middot; BEHAVIORAL SYSTEM</a>
+        <div class="proj-hero-grid">
+          <div class="rv">
+            <h1>Tenet &mdash; one deliberate <em>moment</em></h1>
+            <p class="proj-lede">Self-authored trading guardrails that restore one deliberate moment before an impulsive order &mdash; without taking control away. Rules written after the close become reversible friction at order-send, inside two fictional brokers: <strong>Dart</strong> (mobile) and <strong>Meridian</strong> (desktop), backed by one <strong>Companion Record</strong>.</p>
+          </div>
+          <div class="meta-rail rv" style="--d:120ms">
+            <div><span class="k">ROLE</span><span class="v">Product design, interaction design, UX writing</span></div>
+            <div><span class="k">SCOPE</span><span class="v">0&rarr;1 behavioral intervention system</span></div>
+            <div><span class="k">STATUS</span><span class="v">Functional interactive prototype &middot; not shipped</span></div>
+            <div><span class="k">TEAM &middot; YEAR</span><span class="v">Independent &middot; 2026</span></div>
+            <div><span class="k">BUILD</span><span class="v">HTML/CSS/JavaScript prototype, AI&#8209;assisted with Claude Design and Fable</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TL;DR -->
+      <div class="tldr rv">
+        <div class="cell"><span class="k">What it is</span><span class="v">Retail traders describe a specific regret: orders placed in a hot minute that they'd undo by morning. Tenet lets them write their own rules when calm &mdash; then meets them with those exact words at the one moment that matters: <strong>order-send</strong>.</span></div>
+        <div class="cell"><span class="k">The boundary</span><span class="v">Friction, never a block. Tenet can slow an order, requote it, ask for a reason &mdash; but the send button always works and nothing sends automatically. If Tenet's connection drops, orders go through and the gap is <strong>recorded, not hidden</strong>.</span></div>
+        <div class="cell"><span class="k">Status</span><span class="v"><span class="status-flag">Functional prototype &middot; not shipped</span> Two fictional broker hosts, one shared record. No user study has been completed; every number on the screens is illustrative.</span></div>
+      </div>
+
+      <p class="method-note rv">HOW TO READ THIS PAGE &mdash; <span class="lbl real">IMPLEMENTED</span> a behavior that works in the prototype &middot; <span class="lbl sim">SIMULATED</span> illustrative prototype data &middot; <span class="lbl plan">PROPOSED</span> a plan, never a result. <strong>Dart and Meridian are fictional brokers.</strong> All quotes, fills, order histories, encounter counts, financial values, and performance figures are illustrative prototype data. A real broker SDK and trade-history import pipeline are future work. No user study has been completed.</p>
+
+      <!-- cover -->
+      <div class="cover rv">
+        <div class="lit"><div class="lit-in">
+          <img class="shot-img" src="../images/tenet/cover.webp" alt="Tenet cover: the tagline 'One deliberate moment' beside a Dart mobile screen where a Tenet sheet has stepped in on an order, and a fragment of the Meridian desktop terminal" width="1600" height="900" />
+        </div></div>
+      </div>
+
+      <!-- quick numbers -->
+      <section class="proj-sec">
+        <div class="rule"></div>
+        <div class="sechead"><span class="lead">THE SHAPE OF THE PROJECT</span><span>HONEST NUMBERS ONLY</span></div>
+        <div class="chips" style="padding: 0 0 8px">
+          <div class="chip rv"><div class="in"><div class="n">2</div><div class="l">HOST ADAPTATIONS &mdash; MOBILE SHEET, DESKTOP RAIL</div></div></div>
+          <div class="chip rv" style="--d:80ms"><div class="in"><div class="n">4</div><div class="l">WAYS OUT OF EVERY INTERVENTION &mdash; ALL REVERSIBLE</div></div></div>
+          <div class="chip rv" style="--d:160ms"><div class="in"><div class="n" data-static>0</div><div class="l">USER STUDIES COMPLETED &mdash; VALIDATION PLAN BELOW</div></div></div>
+        </div>
+      </section>
+
+      <!-- hypothesis -->
+      <section class="proj-sec" id="hypothesis">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">PRODUCT<br>HYPOTHESIS</h2>
+          <p class="statement">The moment of impulse and the moment of judgment are different moments. A trader at 9pm can describe exactly which orders they regret; a trader at 3:41pm with a moving price cannot hear that person. The hypothesis: if the calm version of you writes the rule <em>in your own words</em>, and the system replays those words at order-send &mdash; with a reversible way to proceed &mdash; more orders will match your own stated intent. That is a testable behavioral claim, and this page is explicit that it has not been tested yet.</p>
+        </div>
+      </section>
+
+      <!-- ethical boundary -->
+      <section class="proj-sec" id="boundary">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">THE ETHICAL<br>BOUNDARY</h2>
+          <div>
+            <p class="proj-p">Products in this space drift toward custody: lockouts, cooling-off jails, paternal copy. Tenet's hard line is drawn differently &mdash; it is <strong>friction, never a block</strong>, because a guardrail you can't override isn't a guardrail, it's a cage you'll tear down the first week it's wrong.</p>
+            <ul class="feat-list">
+              <li><strong>Every intervention has four ways out</strong> &mdash; reduce to rule size, wait, override with a reason, or cancel. All four are always available; none is hidden or shamed</li>
+              <li><strong>The rules are yours, verbatim.</strong> Tenet never generates a rule, never edits your words, and quotes them back exactly as written &mdash; the authority in the moment is your own voice, not the product's</li>
+              <li><strong>Failure fails open.</strong> If Tenet's connection drops, the broker keeps working and orders send unchecked &mdash; the gap lands in the record as a visible event, never silently</li>
+              <li><strong>No scores, no streaks, no shame.</strong> The record shows patterns ("most of what I'd undo happens in the last hour"), not grades</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- system loop -->
+      <section class="proj-sec" id="loop">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">THE SYSTEM<br>LOOP</h2>
+          <div>
+            <p class="proj-p">One loop, five verbs: write after the close &rarr; meet at order-send &rarr; decide in one moment &rarr; record verbatim &rarr; reflect weekly and revise. The asymmetry in the last step is the system's spine: <strong>stricter rule edits apply immediately; looser ones wait for the next open</strong> &mdash; tightening trusts the urgent you, loosening has to survive a night's sleep.</p>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/tenet/loop.webp" alt="The Tenet system loop in five steps: Write after the close, Meet at order send, Decide in one moment, Record verbatim, Reflect and revise weekly — with a note that stricter edits apply instantly while looser ones wait for the next open" width="1600" height="470" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">System diagram</span>Rules are a conversation with yourself, on a delay &mdash; the loop-back arrow is deliberately harder to traverse in the loosening direction.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- authoring -->
+      <section class="proj-sec" id="authoring">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">WRITING RULES<br>AFTER THE CLOSE</h2>
+          <div>
+            <p class="proj-p"><span class="lbl real">IMPLEMENTED</span>&ensp;Authoring lives in the quiet hours &mdash; the market-closed state isn't dead space, it's Tenet's home turf. Rules are written as plain sentences, not condition builders: the prototype's rule cards keep the user's phrasing and attach the trigger underneath. The composer's promise is the product's whole contract in one line: <em>plain words &rarr; one check, at send &mdash; never a block.</em></p>
+            <div class="fig-duo" style="margin-top: 22px">
+              <figure class="figure">
+                <img class="shot-img" src="../images/tenet/dart-rules.webp" alt="Dart mobile at 9:12 PM, market closed: Tenet rule cards in the user's own words — 'Don't add more than 5% to any single name', 'If I'm adding to a loser after 3pm, make me wait ten minutes' — a loosened rule marked 'applies at next open', and a plain-language rule composer" width="840" height="1832" loading="lazy" style="max-width:245px; border-radius:18px" />
+                <figcaption class="figcap"><span class="fk">Dart &middot; after the close</span>Rules in the author's own words. The third card is loosened &mdash; and visibly waiting for the next open to take effect.</figcaption>
+              </figure>
+              <figure class="figure" style="align-self:center">
+                <figcaption class="figcap" style="max-width:300px"><span class="fk">Why plain words</span>A condition-builder UI would be more parseable &mdash; but the moment of intervention depends on the words feeling <em>yours</em>. "If I'm adding to a loser after 3pm, make me wait" lands differently than RULE_07: ADD_TO_LOSING_POSITION &amp;&amp; TIME &gt; 15:00. The trade-off is parsing ambiguity; the prototype constrains it with guided phrasing chips rather than exposing raw logic.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- the moment -->
+      <section class="proj-sec" id="the-moment">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">THE MOMENT<br>AT ORDER-SEND</h2>
+          <div>
+            <p class="proj-p"><span class="lbl real">IMPLEMENTED</span>&ensp;When an order crosses a rule, Tenet steps in <em>between tap and send</em>: the sheet quotes the rule, shows exactly how far the order oversteps it (with honest geometry &mdash; the bar is to scale), and offers the four ways out. Choosing <strong>wait</strong> starts a cooldown; when it ends, the original tap does <em>not</em> carry over &mdash; the quote refreshes, changed values are highlighted, and sending requires an explicit fresh confirmation at the new price.</p>
+            <div class="fig-duo" style="margin-top: 22px">
+              <figure class="figure">
+                <img class="shot-img" src="../images/tenet/dart-intervention.webp" alt="Dart order ticket dimmed behind a cream Tenet sheet titled 'Tenet stepped in — not a block, your call': the user's rule quoted verbatim, a to-scale bar showing the order at 9.1% against a 5% cap, a record-based pattern note, and four actions — reduce to 58 shares, wait 10 minutes, override with a reason, cancel order" width="840" height="1832" loading="lazy" style="max-width:245px; border-radius:18px" />
+                <figcaption class="figcap"><span class="fk">Stepped in &middot; not blocked</span>Your rule, your words, four ways out. The evidence line cites the user's own record &mdash; "a pattern, not a prediction."</figcaption>
+              </figure>
+              <figure class="figure">
+                <img class="shot-img" src="../images/tenet/dart-cooldown.webp" alt="After the ten-minute wait: 'Still want it? Look once more, then say so' — a refreshed quote showing price moved from $18.42 to $18.71 with changed values highlighted, a note that the earlier tap does not carry over, and buttons to confirm at the new price, reduce to rule size, or let it go" width="840" height="1832" loading="lazy" style="max-width:245px; border-radius:18px" />
+                <figcaption class="figcap"><span class="fk">After the wait</span>A fresh quote and a fresh yes &mdash; nothing sent during the cooldown, nothing carries over after it.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- host adaptation -->
+      <section class="proj-sec" id="hosts">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">ONE SYSTEM,<br>TWO HOSTS</h2>
+          <div>
+            <p class="proj-p">The intervention had to survive two opposite environments without becoming two products. <strong>Dart</strong> is a thumb-driven consumer app &mdash; Tenet arrives as a bottom sheet that owns the screen for one breath. <strong>Meridian</strong> is a dense pro terminal where a modal would be vandalism &mdash; Tenet docks as a persistent right rail that never covers the chart, answers to the keyboard (<code style="font-family:var(--mono); font-size:12.5px">T</code> toggles, <code style="font-family:var(--mono); font-size:12.5px">ESC</code> dismisses), and compresses the same anatomy: rule, to-scale context bar, four ways out, reason field inline.</p>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/tenet/meridian.webp" alt="The Meridian desktop terminal: dark dense watchlist, QLLR candlestick chart, and an equity order ticket — with Tenet docked as a cream right rail carrying the same rule quote, cap bar, reduce and wait actions, an inline override-reason field, and a footer stating that a dropped connection fails open and is recorded" width="1600" height="1000" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">Meridian &middot; docked rail</span>Same anatomy, terminal manners: nothing floats over the chart, everything reachable from the keyboard, the fail-open contract stated in the rail's own footer.</figcaption>
+            </figure>
+            <ul class="feat-list" style="margin-top: 18px">
+              <li><strong>Mobile:</strong> interruption is modal because attention is single-threaded &mdash; one sheet, one decision, then the app returns</li>
+              <li><strong>Desktop:</strong> interruption is ambient because attention is spatial &mdash; the rail waits in peripheral vision and never steals the cursor</li>
+              <li><strong>Both:</strong> identical rule text, identical four actions, identical record &mdash; the trust surface cannot fork</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- three decisions -->
+      <section class="proj-sec" id="decisions">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">THREE DECISIONS<br>THAT DEFINE IT</h2>
+          <div>
+            <div class="decisions">
+              <div class="decision"><div class="dt">&ldquo;Stepped in,&rdquo; not &ldquo;blocked.&rdquo;</div><div class="dd">The headline verb was UX writing's biggest decision. "Blocked" makes the system the actor and the user the suspect; "stepped in" makes it a companion at your elbow, and the subhead confirms it: <em>not a block &middot; your call</em>. Every downstream string inherits this stance &mdash; "let it go" instead of "abandon order," "kept to rule" instead of "complied."</div></div>
+              <div class="decision"><div class="dt">Nothing sends automatically.</div><div class="dd">Tempting version: after the cooldown, auto-send the order if untouched &mdash; fewer taps. Rejected because it inverts the product's meaning: Tenet exists to insert a human moment, so every path to market must end in a fresh, explicit yes &mdash; including after a wait, at a refreshed quote, with changed values highlighted.</div></div>
+              <div class="decision"><div class="dt">Evidence without false certainty.</div><div class="dd">The intervention cites the user's own history &mdash; "3 of your last 4 after-3pm adds were reduced or cancelled by morning" &mdash; and immediately disarms it: <em>a pattern, not a prediction</em>. No forecasted losses, no "you'll regret this," no probability theater. The strongest honest claim is the user's own behavior, quoted with the same verbatim respect as their rules.</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- companion record -->
+      <section class="proj-sec" id="record">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">ONE COMPANION<br>RECORD</h2>
+          <div>
+            <p class="proj-p"><span class="lbl real">IMPLEMENTED</span>&ensp;Both hosts write to a single record &mdash; every encounter, every outcome, in the user's own vocabulary. Overrides keep the typed reason verbatim. The connection-loss event sits in the timeline with the same weight as everything else: <em>"two orders sent without a check &mdash; recorded, not judged."</em> The weekly view surfaces patterns (encounters cluster in the last hour) without ever grading the trader.</p>
+            <figure class="figure" style="margin-top: 22px">
+              <img class="shot-img" src="../images/tenet/record.webp" alt="The Tenet Companion Record, week of Jan 12–18: a timeline of rule creation, a kept-to-rule reduction, an override with its reason kept verbatim, an 11-minute connection loss recorded as failed open, and a loosened rule waiting for Monday's open — beside a weekly summary of 6 encounters and an hour-of-day pattern chart" width="1600" height="760" loading="lazy" />
+              <figcaption class="figcap"><span class="fk">Companion Record &middot; simulated week</span>Kept, overridden, failed open &mdash; all first-class events. One record across both brokers, exportable, and never a score.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- trust / failure / accessibility -->
+      <section class="proj-sec" id="trust">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">TRUST, FAILURE &amp;<br>ACCESSIBILITY</h2>
+          <div>
+            <p class="proj-p">A product whose job is interrupting money movement earns trust through its worst moments, not its best ones:</p>
+            <ul class="feat-list">
+              <li><strong>Connection loss fails open, visibly.</strong> Tenet degrading must never degrade the brokerage. Orders send unchecked during an outage; the record shows the gap as an explicit event with its duration and what went through &mdash; hiding it would be the real betrayal</li>
+              <li><strong>Stale-quote honesty.</strong> Post-cooldown, the sheet leads with what changed (price, cost) in highlight chips, keeps the old values visible struck-through, and re-anchors the decision on current numbers</li>
+              <li><strong>Reasons are quoted, never paraphrased.</strong> The override field promises "kept verbatim" and the record honors it &mdash; the system that respects your words when you keep the rule must respect them when you break it</li>
+              <li><strong>Accessibility, scoped to what the prototype implements:</strong> full keyboard paths on desktop (rail toggle, action focus order, ESC dismissal), focus-visible rings on all actions, non-color state signals (struck-through old values, &ldquo;&middot;&rdquo; markers and text labels beside every colored chip), reduced-motion variant that swaps the sheet slide for a fade, and status-role announcements when Tenet steps in. No WCAG conformance is claimed &mdash; that requires an audit the prototype hasn't had</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- iteration -->
+      <section class="proj-sec" id="iteration">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">ITERATION<br>NOTES</h2>
+          <div>
+            <p class="proj-p">Three things the prototype taught by being built &mdash; each a change from an earlier working draft, not a hypothetical:</p>
+            <ul class="feat-list">
+              <li><strong>The first draft blocked.</strong> Its sheet had two buttons &mdash; "reduce" and "cancel" &mdash; and testing it on myself for a week of simulated sessions made the problem obvious: with no legitimate way through, the mental model becomes <em>fight the sheet</em>. Adding override-with-a-reason turned the adversary into a witness</li>
+              <li><strong>The cooldown originally preserved the tap.</strong> Wait ended, order armed, one tap to send &mdash; which quietly converted "wait" into "delay then send." Decoupling the wait from the send (fresh quote, fresh confirmation) made waiting a genuine decision point instead of a snooze button</li>
+              <li><strong>The desktop rail was born a modal.</strong> The first Meridian draft reused the mobile sheet as a centered dialog; over the chart it read as hostile within minutes. Docking it as a rail &mdash; present before the violation, persistent after &mdash; changed its character from alarm to instrument</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- limitations / validation -->
+      <section class="proj-sec" id="limitations">
+        <div class="rule"></div>
+        <div class="proj-row rv">
+          <h2 class="side" style="margin:0;font-weight:400">LIMITATIONS &amp;<br>VALIDATION PLAN</h2>
+          <div>
+            <p class="proj-p"><span class="lbl plan">PROPOSED</span>&ensp;What this project honestly is: a functional interactive prototype of a behavioral system, with fictional hosts and simulated data. What it is not yet:</p>
+            <ul class="feat-list">
+              <li><strong>No user study has been completed.</strong> The core claim &mdash; that self-authored friction changes send-moment behavior &mdash; is unvalidated. The plan: a two-week diary study with 8&ndash;10 active retail traders running the prototype against replayed personal scenarios, measuring reduce/wait/override/cancel distribution and self-reported regret, before any visual polish earns more investment</li>
+              <li><strong>Dart and Meridian are fictional.</strong> Real integration means a broker SDK or an order-flow interception layer, plus a trade-history import pipeline to seed the record &mdash; both are future work and both carry real regulatory surface (order handling, advice boundaries) that would need counsel before a line of production code</li>
+              <li><strong>The rule parser is staged.</strong> Plain-language rules in the prototype map to a small hand-built trigger set; the open question &mdash; how far natural phrasing can stretch before users need a structured editor &mdash; is a research question, not an engineering one</li>
+              <li><strong>Single-user, single-week data shape.</strong> The record's patterns view is designed around one simulated week; longitudinal shape (rule churn, override drift, abandonment) is unmodeled</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- reflection -->
+      <section class="results rv">
+        <div class="bloom"></div>
+        <span class="k">REFLECTION</span>
+        <div class="results-grid">
+          <p class="big">The hardest design material here wasn't the screens &mdash; it was <em>authority</em>. Every draft that gave Tenet more of it made the product worse. The versions that worked all moved authority back to the user's own past words &mdash; and made the system merely the courier.</p>
+          <div class="ledger">
+            <div><span>Friction, never a block</span><b>4 ways out, all reversible</b></div>
+            <div><span>Failure mode</span><b>fails open &mdash; recorded, never hidden</b></div>
+            <div><span>Evidence run</span><b>none yet &mdash; diary study proposed</b></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- next project -->
+      <a class="next-proj" href="morsel.html">
+        <span><span class="k">NEXT PROJECT &mdash; &#8470; 02</span><span class="t">Morsel &mdash; eat with your eyes</span></span>
+        <span class="arw">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
