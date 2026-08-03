@@ -60,9 +60,9 @@
 </head>
 <body>
 <div class="page">
-  <a href="../morsel.html">← back to the Morsel case study</a>
+  <a href="../morsel.html">← back to case study</a> · <a href="../morsel.html">live prototype (parent project) →</a>
   <h1 style="margin-top:16px;">Structural explorations</h1>
-  <p class="sub" style="margin-top:12px;">Four unresolved decisions, explored as real alternatives with tradeoffs — not post-hoc validation of what shipped. Each ends with a provisional recommendation and how to test it. Mock content is illustrative.</p>
+  <p class="sub" style="margin-top:12px;">Four unresolved decisions, explored as real alternatives with tradeoffs — not post-hoc validation of the selected directions. Each ends with a provisional recommendation and how to test it. Mock content is illustrative.</p>
 
   <!-- ============ A ============ -->
   <h2><span class="k">A</span>Feed information density</h2>
@@ -70,7 +70,7 @@
   <div class="rule"></div>
   <div class="opts">
     <div class="opt">
-      <h3>A1 · Photo-only <span class="shipped">shipped</span></h3>
+      <h3>A1 · Photo-only <span class="shipped">selected · in v3.1 prototype</span></h3>
       <div class="mock"><div class="mrow">
         <div class="mcol"><div class="ph" style="aspect-ratio:.8;"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1565299624946-b28f40a0ae38&w=200" alt="" /></div><div class="ph" style="aspect-ratio:1.05;"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1546069901-ba9599a7e63c&w=200" alt="" /></div></div>
         <div class="mcol"><div class="ph" style="aspect-ratio:1.1;"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1569718212165-3a8278d5f624&w=200" alt="" /></div><div class="ph" style="aspect-ratio:.85;"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1568901346375-23c9450c58cd&w=200" alt="" /></div></div>
@@ -130,7 +130,7 @@
   <div class="rule"></div>
   <div class="opts">
     <div class="opt">
-      <h3>B1 · Calibrate first, skippable <span class="shipped">shipped</span></h3>
+      <h3>B1 · Calibrate first, skippable <span class="shipped">selected · in v3.1 prototype</span></h3>
       <div class="mock"><div class="flow">
         <div class="step"><span class="n">1</span> Welcome + location rationale</div>
         <div class="step"><span class="n">2</span> Taste taps (≥4) <small>— or skip</small></div>
@@ -184,7 +184,7 @@
       <ul><li>Clean, but unanchored — 94% of <i>what</i>?</li><li>Reads like marketing; invites skepticism</li></ul>
     </div>
     <div class="opt">
-      <h3>C2 · % + sample + method <span class="shipped">shipped</span></h3>
+      <h3>C2 · % + sample + method <span class="shipped">selected · in v3.1 prototype</span></h3>
       <div class="mock"><div class="statcard"><div class="ring"></div><div><div class="t">94% would order again</div><div class="s">131 verified diners · <span style="color:var(--accent);font-weight:800;">how we know</span></div></div></div></div>
       <ul><li>Sample size does the credibility work</li><li>Expandable methodology = trust for skeptics, quiet for grazers</li></ul>
     </div>
@@ -194,7 +194,7 @@
       <ul><li>Warm, unambiguous</li><li>Loses precision; every dish sounds the same above ~80%</li></ul>
     </div>
     <div class="opt">
-      <h3>C4 · Cold start <span class="shipped">shipped</span></h3>
+      <h3>C4 · Cold start <span class="shipped">selected · in v3.1 prototype</span></h3>
       <div class="mock"><div class="statcard" style="border:1.5px dashed var(--ink3); background:transparent;"><div style="flex:none;width:30px;height:30px;border-radius:99px;border:2px dashed var(--ink3);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:var(--ink2);">NEW</div><div><div class="t">New — no score yet</div><div class="s">too few repeat orders to be honest</div></div></div></div>
       <ul><li>Admitting "not enough data" <b>is</b> the trust play</li><li>Protects the metric from small-sample noise</li></ul>
     </div>
@@ -207,7 +207,7 @@
   <div class="rule"></div>
   <div class="opts">
     <div class="opt">
-      <h3>D1 · Order primary <span class="shipped">shipped</span></h3>
+      <h3>D1 · Order primary <span class="shipped">selected · in v3.1 prototype</span></h3>
       <div class="mock"><div class="btnrow"><div class="b q icon">♥</div><div class="b q">Directions</div><div class="b p">Order</div></div></div>
       <ul><li>Matches "decide with your eyes → act now"</li><li>But Morsel exits to another app at its peak moment</li><li>Wrong for sit-down rooms & closed kitchens</li></ul>
     </div>
@@ -229,7 +229,7 @@
   <div class="rec"><span class="badge">Provisional</span><p><b>D3 is the destination; v3 ships its first two rules</b> (sold-out and closed states already disable ordering; no-carrier sheets pivot to pickup). Full swap of the primary slot needs data. <b>Test:</b> tasks 1 &amp; 10 — watch for taps on disabled/absent actions and where users expect "go there" to live.</p></div>
 
   <table class="meta">
-    <tr><td>Method note</td><td>All comparisons rendered in the shipped Toast system so differences are structural, not cosmetic. Mock data labeled illustrative. Recommendations are provisional pending the 5-session test round (see Testing Plan).</td></tr>
+    <tr><td>Method note</td><td>All comparisons rendered in the selected Toast visual system so differences are structural, not cosmetic. Mock data labeled illustrative. Recommendations are provisional pending the 5-session test round (see Testing Plan).</td></tr>
   </table>
 </div>
 </body>

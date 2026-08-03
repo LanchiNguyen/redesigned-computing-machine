@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Morsel — design system addendum (v2/v3)</title>
+<title>Morsel — design system addendum (v2/v3/v3.1)</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root { --paper:#F7F1E6; --surface:#FFFCF5; --sunken:#EFE6D6; --ink:#26190E; --ink2:rgba(38,25,14,.62); --ink3:rgba(38,25,14,.4); --line:rgba(38,25,14,.12); --accent:#C2492B; --accent-ink:#FFF6EC; }
@@ -54,9 +54,9 @@
 </head>
 <body>
 <div class="page">
-  <a href="../morsel.html">← back to the Morsel case study</a>
+  <a href="../morsel.html">← back to case study</a> · <a href="../morsel.html">core design system (parent project) →</a>
   <h1 style="margin-top:16px;">Design system addendum</h1>
-  <p class="sub" style="margin-top:12px;">Patterns added in v2 (critique round) and v3 (logic &amp; edge-state round). The core system — palette, type, spacing, buttons, sheets — is unchanged and documented separately. Tokens shown here are the Toast direction.</p>
+  <p class="sub" style="margin-top:12px;">Patterns added in v2 (critique round), v3 (logic &amp; edge-state round), and v3.1 (audit round). The core system — palette, type, spacing, buttons, sheets — is unchanged and documented separately. Tokens shown here are the Toast direction.</p>
 
   <div class="comp">
     <h2>Lifestyle selection chip <span class="v">v2</span></h2>
@@ -119,7 +119,7 @@
       <div class="stat new"><div><div class="t">New — no score yet</div><div class="s">too few repeat orders to be honest about a number</div></div></div>
     </div>
     <div class="notes">
-      The anti-star-rating. "How we know" expands inline: repeat orders through Morsel handoffs within 90 days, never self-reported — plus a prototype-data note. Below a minimum sample the number is withheld entirely (cold start), never extrapolated.
+      The anti-star-rating. "How we know" expands inline: repeat orders through Morsel handoffs within 90 days, never self-reported — plus a prototype-data note. Below a minimum sample the number is withheld entirely (cold start), never extrapolated. <b>Status: proposed model, not operational fact</b> — no order pipeline exists in the prototype; the repeat-order signal depends on unbuilt carrier integration, attribution, and consent plumbing, all open feasibility questions.
       <span class="copy">Sample size always visible. Methodology in one sentence. Abstention copy admits the limit plainly.</span>
       <span class="a11y">Ring graphic is decorative (<code>aria-hidden</code>); the stat reads as text. Disclosure is a real button, expanded state announced.</span>
     </div>
@@ -232,6 +232,68 @@
     <div class="notes">
       Every state carries a glyph or border treatment alongside its color: selection = check, warning = "!", cold start = dashed. Active feed tab = underline + weight. This is the floor for any new component.
       <span class="a11y">Verified against deuteranopia simulation; terracotta-on-cream also passes 4.5:1 for text ≥13px.</span>
+    </div>
+  <div class="comp">
+    <h2>Order-sheet allergy acknowledgement <span class="v">v3.1</span></h2>
+    <div class="demo">
+      <span class="cap">Warning + gate + locked option</span>
+      <div class="banner" style="flex-direction:column; align-items:stretch; gap:8px; width:100%;">
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div class="x">!</div>
+          <div><div class="t">Contains shellfish — an allergy you flagged</div>
+          <div class="s">Ordering stays locked until you confirm below.</div></div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <span style="width:22px; height:22px; border-radius:7px; border:2px solid var(--accent); flex:none;"></span>
+          <span style="font-size:12.5px; font-weight:700;">I understand this dish contains shellfish — unlock ordering</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; opacity:.4; width:100%;">
+        <span style="width:34px; height:34px; border-radius:10px; background:#EB1700; color:#fff; font-weight:800; display:inline-flex; align-items:center; justify-content:center;">D</span>
+        <span style="font-size:13px; font-weight:700;">DoorDash</span>
+        <span style="font-size:11.5px; color:var(--ink2);">Locked — confirm the allergy notice above</span>
+      </div>
+    </div>
+    <div class="notes">
+      When a dish that conflicts with a flagged allergy reaches the order sheet (saved dishes and direct links can), the dish-level warning is <b>repeated at the point of commitment</b>. Every delivery and pickup option is disabled until the diner explicitly acknowledges. The warning stays visible until the handoff completes or the sheet is cancelled; the acknowledgement never persists between sheets and is never pre-checked.
+      <span class="copy">Name the allergen and its source ("an allergy you flagged"). The unlock line restates the substance — no generic "I agree".</span>
+      <span class="a11y">Warning container is <code>role="alert"</code>. The gate is <code>role="checkbox"</code> + <code>aria-checked</code>. Locked rows are true <code>disabled</code> buttons with the lock reason in their visible sub-line. No filter, reset, or "clear" action anywhere in the product can remove allergy rules.</span>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h2>Diet-aware empty search <span class="v">v3.1</span></h2>
+    <div class="demo">
+      <span class="cap">Rules-empty (not inventory-empty)</span>
+      <div style="background:var(--sunken); border-radius:14px; padding:14px; width:100%;">
+        <div style="font-size:13.5px; font-weight:800; margin-bottom:6px;">No “burger” matches your current dietary settings</div>
+        <div style="font-size:11.5px; color:var(--ink2); margin-bottom:8px;">2 dishes exist on Morsel but are excluded by:</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+          <span style="font-size:11px; font-weight:700; border-radius:99px; padding:5px 10px; background:var(--surface); border:1px solid var(--line); color:var(--ink2);">Vegan · lifestyle</span>
+          <span style="font-size:11px; font-weight:700; border-radius:99px; padding:5px 10px; background:var(--accent); color:var(--accent-ink);">! no dairy · allergy</span>
+        </div>
+        <span class="btn q" style="min-height:36px; font-size:12.5px; width:100%;">Edit lifestyle preferences</span>
+      </div>
+    </div>
+    <div class="notes">
+      Two different truths need two different answers: <b>"we don't have it"</b> (“Nothing for X yet” — reserved for genuinely absent inventory) versus <b>"we have it, your rules exclude it"</b>. The rules-empty state names the query, counts the hidden matches, and lists exactly which rules excluded them — lifestyle chips neutral, allergy chips in warning treatment.
+      <span class="copy">Only lifestyle gets an edit shortcut. Allergy rules are named but never offered as a one-tap removal — "Allergy protections are separate and always stay on."</span>
+      <span class="a11y">The "!" glyph plus the · allergy suffix distinguish tiers without relying on color. Edit shortcut deep-links to the Diet &amp; safety step, not a generic settings page.</span>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h2>Prototype-data label <span class="v">v3.1</span></h2>
+    <div class="demo">
+      <span class="cap">Contextual + global</span>
+      <div class="stat"><div><div class="t">96% would order again</div><div class="s">133 verified diners (illustrative) · <span class="link">how we know</span></div></div></div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3);">From people who ate it · illustrative</div>
+      <div style="font-size:11.5px; color:var(--ink2);">Prototype: all diner counts, scores, save numbers, names, and quotes are illustrative seed data — not real customer evidence.</div>
+    </div>
+    <div class="notes">
+      Every place the prototype shows evidence-shaped content — diner counts, trust percentages, reviewer names and quotes, save momentum — carries an <b>(illustrative)</b> or <b>· sample data</b> label in context, and a persistent global note sits under the device on every load. The "how we know" disclosure repeats the methodology caveat in full.
+      <span class="copy">Label the data, not the feature: "133 verified diners (illustrative)" keeps the mechanism honest while marking the numbers as seed data. Never invent new metrics to fill space.</span>
+      <span class="a11y">Labels are plain text in the same node as the number they qualify — screen readers hear the caveat with the claim, not after it.</span>
     </div>
   </div>
 </div>

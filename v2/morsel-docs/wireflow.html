@@ -3,13 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="design_doc_mode" content="canvas" />
-<title>Morsel — wireflow & assumption map (v3)</title>
+<title>Morsel — wireflow & assumption map (v3.1)</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <style>
-  body { margin: 0; font-family: "Hanken Grotesk", sans-serif; }
+  html, body { margin: 0; overflow-x: hidden; }
+  body { font-family: "Hanken Grotesk", sans-serif; background: #EDE6D8; }
+  .bar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 14px 24px; font-size: 13px; color: #5C4B38; }
+  .bar .grow { flex: 1; }
+  .bar a { color: #B0542F; font-weight: 700; text-decoration: none; }
+  .bar a:hover { text-decoration: underline; }
+  .zoomctl { display: flex; align-items: center; gap: 6px; }
+  .zoomctl button { font: inherit; font-weight: 700; color: #5C4B38; background: #FFFCF5; border: 1px solid rgba(38,25,14,.18); border-radius: 99px; padding: 6px 14px; cursor: pointer; }
+  .zoomctl button[data-on="true"] { background: #26190E; color: #F7F1E6; border-color: #26190E; }
+  .zoomctl .pct { font-weight: 700; min-width: 42px; text-align: center; color: rgba(38,25,14,.55); }
+  .viewport { width: 100%; overflow: auto; padding-bottom: 40px; }
+  .fitbox { margin: 0 auto; }
+  .stage { width: 1580px; height: 880px; transform-origin: top left; }
   .frame {
-    position: absolute; left: 40px; top: 40px; width: 1580px; height: 880px;
+    position: relative; width: 1580px; height: 880px;
     background: #F7F1E6; border-radius: 18px; overflow: hidden;
     box-shadow: 0 2px 8px rgba(38,25,14,.08), 0 18px 50px rgba(38,25,14,.14);
     color: #26190E;
@@ -18,7 +29,7 @@
     position: absolute; background: #FFFCF5; border: 1.5px solid rgba(38,25,14,.18);
     border-radius: 12px; padding: 10px 12px; box-sizing: border-box;
   }
-  .node h3 { margin: 0 0 4px; font-family: "Lora", serif; font-weight: 600; font-size: 15px; }
+  .node h2 { margin: 0 0 4px; font-family: "Lora", serif; font-weight: 600; font-size: 15px; }
   .node p { margin: 0 0 6px; font-size: 11.5px; line-height: 1.4; color: rgba(38,25,14,.62); }
   .node .kicker { font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(38,25,14,.4); margin-bottom: 2px; }
   .overlay { border-style: dashed; background: #FBF6EC; }
@@ -41,14 +52,29 @@
 </style>
 </head>
 <body>
+<div class="bar">
+  <a href="../morsel.html">← back to case study</a>
+  <a href="../morsel.html">live prototype (parent project) →</a>
+  <a href="testing-plan.html">testing plan →</a>
+  <a href="ds-addendum.html">ds addendum →</a>
+  <div class="grow"></div>
+  <div class="zoomctl">
+    <button id="zfit" data-on="true">Fit to screen</button>
+    <button id="z100">100%</button>
+    <span class="pct" id="zpct">100%</span>
+  </div>
+</div>
+<div class="viewport">
+<div class="fitbox" id="fitbox">
+<div class="stage" id="stage">
 <div class="frame">
   <div class="titleblock">
-    <h1>Morsel — structure &amp; assumptions · v3</h1>
-    <p>The v3 prototype mapped as a wireflow. <b>Green</b> = implemented change (v2 = critique round, v3 = logic/edge-state round).
-    <b>Amber</b> = still an assumption — target of the 5-session usability round. Dashed nodes are sheets/overlays; dashed wires are secondary or recovery paths.</p>
+    <h1>Morsel — structure &amp; assumptions · v3.1</h1>
+    <p>The v3 prototype mapped as a wireflow. <b>Green</b> = implemented change (v2 = critique round, v3 = logic/edge-state round, v3.1 = audit round).
+    <b>Amber</b> = still an assumption — target of the two-round usability plan (<a href="testing-plan.html">Testing Plan</a>). Dashed nodes are sheets/overlays; dashed wires are secondary or recovery paths.</p>
   </div>
   <div class="legend">
-    <span class="tag green">implemented (v2/v3)</span>
+    <span class="tag green">implemented (v2/v3/v3.1)</span>
     <span class="tag amber">assumption — test it</span>
     <span><span class="dash"></span> recovery / secondary</span>
   </div>
@@ -92,13 +118,13 @@
 
   <div class="node" style="left:30px; top:120px; width:230px; height:106px;">
     <div class="kicker">Onboarding 0</div>
-    <h3>Welcome</h3>
+    <h2>Welcome</h2>
     <p>Collage · location rationale · enable OR continue without</p>
     <div class="tags"><span class="tag green">v3: permission rationale + denied path</span></div>
   </div>
   <div class="node" style="left:30px; top:270px; width:230px; height:132px;">
     <div class="kicker">Onboarding 1</div>
-    <h3>Taste calibration</h3>
+    <h2>Taste calibration</h2>
     <p>Tap ≥4 unlabeled dish photos · live "Sensing:" inference</p>
     <div class="tags">
       <span class="tag green">v2: skippable</span>
@@ -107,103 +133,103 @@
   </div>
   <div class="node" style="left:30px; top:444px; width:230px; height:130px;">
     <div class="kicker">Onboarding 2</div>
-    <h3>Diet &amp; safety</h3>
+    <h2>Diet &amp; safety</h2>
     <p>Lifestyle filters (veg/vegan/pesc) · allergies exclude from discovery</p>
     <div class="tags"><span class="tag green">v2: 3-tier split</span><span class="tag green">v3: honest promise — saved dishes kept + warned</span></div>
   </div>
 
   <div class="node" style="left:330px; top:250px; width:250px; height:162px;">
     <div class="kicker">Hub</div>
-    <h3>Feed</h3>
+    <h2>Feed</h2>
     <p>Editorial hero · Near you / Trending · masonry grid, photos only</p>
     <div class="tags">
       <span class="tag amber">photo-only grid: enough info scent?</span>
-      <span class="tag green">v3: taste boost + "your taste" tag</span>
-      <span class="tag green">v3: loading / offline / location-off states</span>
+      <span class="tag green">v3: taste boost + loading / offline / location-off states</span>
+      <span class="tag green">v3.1: "For you" + demo-distance label when location off</span>
     </div>
   </div>
 
   <div class="node overlay" style="left:650px; top:80px; width:240px; height:100px;">
     <div class="kicker">Sheet</div>
-    <h3>Location</h3>
+    <h2>Location</h2>
     <p>Type any city/hood · covered vs "no coverage yet" labels</p>
     <div class="tags"><span class="tag green">v3: denied + manual + no-coverage paths</span></div>
   </div>
   <div class="node overlay" style="left:560px; top:210px; width:140px; height:96px;">
     <div class="kicker">State</div>
-    <h3 style="font-size:13px;">No coverage</h3>
+    <h2 style="font-size:13px;">No coverage</h2>
     <p style="font-size:10.5px;">Honest empty city — never DC dishes mislabeled</p>
     <div class="tags"><span class="tag green">v3</span></div>
   </div>
   <div class="node overlay" style="left:650px; top:330px; width:240px; height:112px;">
     <div class="kicker">Screen</div>
-    <h3>Search</h3>
+    <h2>Search</h2>
     <p>Craving-first · labeled results · related threads · recovery</p>
     <div class="tags">
-      <span class="tag green">v2: labels + no-result recovery</span>
+      <span class="tag green">v3.1: diet-aware zero state — names the excluding rules</span>
       <span class="tag amber">query model vs real vocabulary</span>
     </div>
   </div>
   <div class="node overlay" style="left:646px; top:596px; width:244px; height:118px;">
     <div class="kicker">State</div>
-    <h3 style="font-size:13px;">Zero-result recovery</h3>
-    <p style="font-size:10.5px;">Names each active limit · separate actions per tier — "clear filters" never touches allergies</p>
+    <h2 style="font-size:13px;">Zero-result recovery</h2>
+    <p style="font-size:10.5px;">Names each active limit · separate actions per tier — "clear browsing filters" never touches allergies</p>
     <div class="tags"><span class="tag green">v3</span></div>
   </div>
 
   <div class="node" style="left:960px; top:250px; width:250px; height:162px;">
     <div class="kicker">Screen</div>
-    <h3>Dish detail</h3>
+    <h2>Dish detail</h2>
     <p>Photo hero · % would order again · quotes · Save / Directions / Order</p>
     <div class="tags">
       <span class="tag green">v2: verified + "how we know"</span>
-      <span class="tag green">v3: cold-start "no score yet" · sold-out · prototype-data note</span>
-      <span class="tag green">v2: allergy warning on direct open</span>
+      <span class="tag green">v3: cold-start "no score yet" · sold-out · allergy warning on direct open</span>
+      <span class="tag green">v3.1: illustrative-data labels on counts + quotes</span>
     </div>
   </div>
   <div class="node" style="left:960px; top:460px; width:250px; height:104px;">
     <div class="kicker">Screen</div>
-    <h3>Restaurant</h3>
+    <h2>Restaurant</h2>
     <p>Stats · "Shot here" grid (allergy chips) · closed = no ordering</p>
     <div class="tags"><span class="tag green">v2: closed state</span><span class="tag green">v3: warn chips</span></div>
   </div>
 
   <div class="node overlay" style="left:1290px; top:120px; width:240px; height:126px;">
     <div class="kicker">Sheet</div>
-    <h3>Order handoff</h3>
+    <h2>Order handoff</h2>
     <p>Carriers w/ ETA + fee · pickup "skip the fees"</p>
     <div class="tags">
-      <span class="tag green">v2: no-carrier state</span>
       <span class="tag green">v3: handoff failure + retry + pickup fallback</span>
+      <span class="tag green">v3.1: allergy re-warn + acknowledgement gates every option</span>
       <span class="tag exit">exits app →</span>
     </div>
   </div>
   <div class="node overlay" style="left:1290px; top:340px; width:240px; height:82px;">
     <div class="kicker">Toast</div>
-    <h3>Saved (instant)</h3>
+    <h2>Saved (instant)</h2>
     <p>Auto-save + optional "Add to collection"</p>
   </div>
   <div class="node overlay" style="left:1290px; top:450px; width:240px; height:90px;">
     <div class="kicker">Sheet</div>
-    <h3>Add to collection</h3>
-    <p>File into shelves · create inline</p>
+    <h2>Add to collection</h2>
+    <p>File into shelves · create inline · name required</p>
   </div>
 
   <div class="node" style="left:330px; top:670px; width:250px; height:122px;">
     <div class="kicker">Tab</div>
-    <h3>Profile</h3>
+    <h2>Profile</h2>
     <p>Taste card · dietary tiers · settings rows</p>
-    <div class="tags"><span class="tag green">v3: accurate allergy copy · all rows functional</span></div>
+    <div class="tags"><span class="tag green">v3.1: location row mirrors live state — never stale</span></div>
   </div>
   <div class="node" style="left:650px; top:670px; width:240px; height:118px;">
     <div class="kicker">Tab</div>
-    <h3>Saved</h3>
+    <h2>Saved</h2>
     <p>Collections rail · all saves · Recent / Nearest</p>
-    <div class="tags"><span class="tag green">v3: conflict warn chips, never auto-delete · new collection works</span></div>
+    <div class="tags"><span class="tag green">v3: conflict chips, never auto-delete</span><span class="tag green">v3.1: Nearest disabled without location</span></div>
   </div>
   <div class="node" style="left:960px; top:670px; width:240px; height:96px;">
     <div class="kicker">Screen</div>
-    <h3>Collection</h3>
+    <h2>Collection</h2>
     <p>Named shelf → dish detail · empty state</p>
     <div class="tags"><span class="tag green">v3: warn chips</span></div>
   </div>
@@ -217,8 +243,32 @@
     · Taste calibration ≥4 taps feels worth it<br />
     · Allergy model matches user expectations<br />
     · Order-primary action hierarchy</p>
-    <div class="tags"><span class="tag amber">validation plan → Testing Plan.html</span></div>
+    <div class="tags"><span class="tag amber"><a href="testing-plan.html" style="color:inherit;">validation plan → Testing Plan.html</a></span></div>
   </div>
 </div>
+</div>
+</div>
+</div>
+<script>
+(function () {
+  var stage = document.getElementById("stage"), fitbox = document.getElementById("fitbox");
+  var bFit = document.getElementById("zfit"), b100 = document.getElementById("z100"), pct = document.getElementById("zpct");
+  var mode = "fit";
+  function apply() {
+    var avail = document.documentElement.clientWidth - 48;
+    var s = mode === "fit" ? Math.min(1, avail / 1580) : 1;
+    stage.style.transform = "scale(" + s + ")";
+    fitbox.style.width = Math.min(1580, 1580 * s) + "px";
+    fitbox.style.height = (880 * s) + "px";
+    pct.textContent = Math.round(s * 100) + "%";
+    bFit.dataset.on = mode === "fit";
+    b100.dataset.on = mode === "full";
+  }
+  bFit.addEventListener("click", function () { mode = "fit"; apply(); });
+  b100.addEventListener("click", function () { mode = "full"; apply(); });
+  window.addEventListener("resize", apply);
+  apply();
+})();
+</script>
 </body>
 </html>

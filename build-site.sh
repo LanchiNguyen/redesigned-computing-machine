@@ -17,6 +17,7 @@ mkdir -p _site
 
 cp v2/*.html v2/styles.css v2/script.js _site/
 cp -r v2/morsel-docs _site/morsel-docs
+cp -r v2/tenet-proto _site/tenet-proto
 cp -r images _site/images
 cp favicon.png _site/
 
