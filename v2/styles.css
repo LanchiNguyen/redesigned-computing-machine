@@ -944,3 +944,24 @@ a.bar-loc:hover { color: var(--gold); }
   .resume-wrap { padding: 0; max-width: none; }
   body { background: #fff !important; }
 }
+
+/* ============ EDITORIAL PHONE LAYOUTS (layout-only refinement) ============ */
+/* Paired/staggered phone figures: hold a centered 2-up grid through tablet and
+   narrow-panel widths; collapse to a centered single column only on phones. */
+.fig-duo.phones { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; column-gap: 22px; }
+.fig-duo.phones .figure { max-width: 300px; width: 100%; }
+.fig-duo.phones .figure .shot-img { margin-left: auto; margin-right: auto; }
+.fig-duo.phones .figure .figcap { max-width: 260px; margin-left: auto; margin-right: auto; }
+.fig-duo.phones .fig-down { margin-top: 46px; }            /* staggered editorial rhythm */
+.fig-duo.phones .fig-note { align-self: center; max-width: 300px; }
+@media (max-width: 520px) {
+  .fig-duo.phones { grid-template-columns: 1fr; }
+  .fig-duo.phones .fig-down { margin-top: 0; }
+}
+/* Solo phone or narrow composite: constrain and center the unit deliberately */
+.pg-solo { margin-left: auto !important; margin-right: auto !important; }
+.pg-solo figcaption, .fig-center .figcap { text-align: center; }
+.fig-center { display: block; }
+.fig-center .shot-img { margin-left: auto; margin-right: auto; }
+/* Phone-state grids: center the tiles' last odd row instead of ragged-left gap */
+.phone-grid { justify-content: center; }
