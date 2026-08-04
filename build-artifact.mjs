@@ -26,6 +26,9 @@ function keepUsedFaces(cssText, corpus) {
   }
   return kept.join('\n');
 }
+/* emit a script element safely: the body may contain '</script' (which would close the
+   element early) but the closing tag itself must be literal, never escaped. */
+const scriptBlock = (body) => '<script>' + String(body).replace(/<\/script/gi, '<\\/script') + '</' + 'script>';
 const grab = (s, sel) => s.slice(s.indexOf(sel), s.indexOf('\n  </div>\n\n  <script'));
 const anchorize = s => s
   .replace(/href="tenet\.html#try"/g,'href="#tenet-try"')
@@ -297,12 +300,11 @@ out = out.replace(/<a class="doc-link" href="tenet-proto\/[^"]+">([^<]+) &rarr;<
 out = out.replace(/<a class="doc-link" href="morsel-docs\/[^"]+">open the full artifact &rarr;<\/a>/g, '<span class="doc-link" style="border-bottom:none">full artifact ships with the site (v2\/morsel-docs\/)<\/span>');
 
 /* real runtimes + canonical payloads + theater */
-out += '\n<script>' + reactJs + '\n</script>\n<script>' + reactDomJs + '\n</script>\n';
-out += '<script>window.__PROTO=' + protoJson + ';</script>\n';
-out += '<script>' + theaterJs.replace(/<\//g, '<\\/') + '</script>\n';
+out += '\n' + scriptBlock(reactJs) + '\n' + scriptBlock(reactDomJs) + '\n';
+out += scriptBlock('window.__PROTO=' + protoJson + ';') + '\n';
+out += scriptBlock(theaterJs) + '\n';
 
-const NAVNET = `
-<script>(function(){
+const NAVNET = `(function(){
   function goto(el){ el.scrollIntoView({behavior:'smooth'}); }
   /* any residual page.html / page.html#frag link resolves in-document instead of navigating */
   document.addEventListener('click',function(e){
@@ -325,12 +327,12 @@ const NAVNET = `
       }
     },t); });
   });
-})();<\/script>`;
-out += NAVNET;
+})();`;
+out += '\n' + scriptBlock(NAVNET) + '\n';
 let assetJs = 'const __A={';
 for (const [k, v] of Object.entries(imgMap)) assetJs += JSON.stringify(k) + ':"data:' + v.mime + ';base64,' + readFileSync(v.file).toString('base64') + '",';
 assetJs += '};document.querySelectorAll("[data-asset]").forEach(function(n){var u=__A[n.getAttribute("data-asset")];if(!u)return;if(n.tagName==="IMG"){n.src=u;}else{n.poster=u;}});';
-out += '\n<script>' + assetJs + '<\\/script>';
+out += '\n' + scriptBlock(assetJs);
 writeFileSync(S+'/portfolio-v2-artifact.html', out);
 const leftover = (out.match(/\.\.\/images\//g)||[]).length;
 const vids = (out.match(/data:video\/webm/g)||[]).length;
