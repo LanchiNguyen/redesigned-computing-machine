@@ -998,20 +998,4 @@ a.bar-loc:hover { color: var(--gold); }
 }
 .demo-mobile-note { display: none; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--meta); margin-top: 8px; }
 
-/* flagship card motion */
-.flag-media { position: relative; display: block; height: 250px; border-radius: 7px; border: 1px solid rgba(74,59,44,0.2); overflow: hidden; }
-.flag-media video { width: 100%; height: 100%; display: block; object-fit: contain; }
-.flag-media .vid-tag { position: absolute; left: 12px; top: 12px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em; color: #F2EDE2; background: rgba(16,19,24,0.72); padding: 5px 10px; border-radius: 999px; pointer-events: none; }
-.flag-media .vid-play { position: absolute; right: 12px; bottom: 12px; display: none; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; font-weight: 600; padding: 8px 13px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.5); background: rgba(16,19,24,0.8); color: #F2EDE2; cursor: pointer; }
-.flag-media.paused .vid-play { display: inline-block; }
 
-/* artifact motion fallback: captured runs of the real prototypes */
-.demo-motion { display: none; }
-.demo-static .demo-motion { display: block; }
-.demo-motion video { display: none; width: 100%; height: auto; border-radius: 18px; border: 1px solid rgba(74,59,44,0.2); box-shadow: 0 22px 44px rgba(30,18,8,0.16); background: #101318; }
-.demo-motion video.on { display: block; }
-.demo-motion video.is-phone { max-width: 380px; margin: 0 auto; border-radius: 26px; }
-.demo-motion-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-.demo-status { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--meta); }
-.demo-mbtn { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; font-weight: 600; padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(74,59,44,0.4); background: transparent; color: var(--ink); cursor: pointer; }
-.demo-mbtn:focus-visible { outline: 2.5px solid var(--rose-2); outline-offset: 2px; }
