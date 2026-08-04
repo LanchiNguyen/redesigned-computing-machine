@@ -57,6 +57,15 @@ const PROTO = {
   morselCss: readFileSync('v2/morsel-proto/v3/app/styles.css','utf8'),
   morselPageCss, morselBg: '#EDE6D8'
 };
+
+/* canonical Morsel photos, vendored from the live prototype's own sources and
+   keyed by their canonical IDs; u() resolves from this map instead of a remote host */
+import { readdirSync } from 'fs';
+const morselPhotos = {};
+for (const f of readdirSync('images/morsel-photos')) {
+  morselPhotos[f.replace(/\.webp$/,'')] = 'data:image/webp;base64,' + readFileSync('images/morsel-photos/' + f).toString('base64');
+}
+PROTO.morselPhotos = morselPhotos;
 const protoJson = JSON.stringify(PROTO).replace(/<\//g, '<\\/');
 const reactJs = readFileSync('v2/tenet-proto/vendor/react.production.min.js','utf8');
 const reactDomJs = readFileSync('v2/tenet-proto/vendor/react-dom.production.min.js','utf8');
@@ -192,7 +201,7 @@ const theaterJs = `
         addStyle(P.morselCss);
         addStyle(P.morselPageCss.replace(/html,\\s*body/g, ".pt-slot"));
         slot.innerHTML = '<div id="root"></div>';
-        new Function("React", "ReactDOM", P.morselBundle)(window.React, window.ReactDOM);  /* canonical v3 app, precompiled */
+        window.__MORSEL_PHOTOS = P.morselPhotos;\n        new Function("React", "ReactDOM", P.morselBundle)(window.React, window.ReactDOM);  /* canonical v3 app, precompiled; photos vendored */
       }
     } catch (err) {
       slot.innerHTML = '<div class="pt-boot">PROTOTYPE FAILED TO BOOT \\u2014 ' + String(err).slice(0, 120) + "</div>";
@@ -255,10 +264,14 @@ out = out.replace(/(<section class="proj-sec" id="morsel-try" aria-label="Try th
   '$1\n' + morselLauncher + '\n      </section>');
 
 /* inline images */
+const imgMap = {};
 out = out.replace(/((?:src|poster)=")\.\.\/(images\/(mug|chatter|matrix|heyperiod|nhathuong|morsel|tenet|sketch)\/([a-z0-9-]+)\.(webp|webm))(")/g, (m, p1, path, dir, name, ext, p6) => {
-  const file = ext === 'webp' ? `${S}/display2/${dir}/${name}.webp` : path;
-  const mime = ext === 'webp' ? 'image/webp' : 'video/webm';
-  return p1 + 'data:' + mime + ';base64,' + readFileSync(file).toString('base64') + p6;
+  const key = dir + '-' + name;
+  if (!imgMap[key]) {
+    const file = ext === 'webp' ? `${S}/display2/${dir}/${name}.webp` : path;
+    imgMap[key] = { mime: ext === 'webp' ? 'image/webp' : 'video/webm', file };
+  }
+  return p1.replace(/(src|poster)="$/, '$1="') + 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' + p6 + ' data-asset="' + key + '"';
 });
 out = out.replace(/<a class="doc-link" href="tenet-proto\/[^"]+">([^<]+) &rarr;<\/a>/g, '<span class="doc-link" style="border-bottom:none">$1 — the same build runs from the TRY THE PROTOTYPE stage above<\/span>');
 out = out.replace(/<a class="doc-link" href="morsel-docs\/[^"]+">open the full artifact &rarr;<\/a>/g, '<span class="doc-link" style="border-bottom:none">full artifact ships with the site (v2\/morsel-docs\/)<\/span>');
@@ -294,6 +307,10 @@ const NAVNET = `
   });
 })();<\/script>`;
 out += NAVNET;
+let assetJs = 'const __A={';
+for (const [k, v] of Object.entries(imgMap)) assetJs += JSON.stringify(k) + ':"data:' + v.mime + ';base64,' + readFileSync(v.file).toString('base64') + '",';
+assetJs += '};document.querySelectorAll("[data-asset]").forEach(function(n){var u=__A[n.getAttribute("data-asset")];if(!u)return;if(n.tagName==="IMG"){n.src=u;}else{n.poster=u;}});';
+out += '\n<script>' + assetJs + '<\\/script>';
 writeFileSync(S+'/portfolio-v2-artifact.html', out);
 const leftover = (out.match(/\.\.\/images\//g)||[]).length;
 const vids = (out.match(/data:video\/webm/g)||[]).length;
