@@ -965,3 +965,41 @@ a.bar-loc:hover { color: var(--gold); }
 .fig-center .shot-img { margin-left: auto; margin-right: auto; }
 /* Phone-state grids: center the tiles' last odd row instead of ragged-left gap */
 .phone-grid { justify-content: center; }
+
+/* ============ TRY-THE-PROTOTYPE STAGE + MOTION PREVIEWS ============ */
+.demo-stage { margin-top: 28px; }
+.demo-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.demo-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--rose-2); font-weight: 600; }
+.demo-tabs { display: flex; gap: 7px; flex-wrap: wrap; }
+.demo-tab { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; padding: 8px 14px; border-radius: 999px; border: 1.5px solid rgba(74,59,44,0.35); background: transparent; color: var(--ink); cursor: pointer; }
+.demo-tab[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.demo-tab:focus-visible, .demo-load:focus-visible, .demo-reset:focus-visible { outline: 2.5px solid var(--rose-2); outline-offset: 2px; }
+.demo-open { margin-left: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; font-weight: 600; color: var(--rose-link); border-bottom: 1.5px solid var(--rose-2); padding-bottom: 2px; }
+.demo-frame { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid rgba(74,59,44,0.2); box-shadow: 0 22px 44px rgba(30,18,8,0.16); background: #101318; }
+.demo-frame.is-phone { max-width: 400px; margin: 0 auto; border-radius: 30px; }
+.demo-frame iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; background: #fff; }
+.demo-poster { position: absolute; inset: 0; width: 100%; height: 100%; }
+.demo-poster img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.demo-load { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; font-weight: 600; padding: 14px 22px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.5); background: rgba(16,19,24,0.82); color: #F2EDE2; cursor: pointer; backdrop-filter: blur(3px); }
+.demo-load:hover { background: rgba(16,19,24,0.95); }
+.demo-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 9px; flex-wrap: wrap; }
+.demo-note-txt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--meta); }
+.demo-reset { display: none; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 999px; border: 1.5px dashed rgba(74,59,44,0.4); background: transparent; color: var(--ink); cursor: pointer; }
+.demo-stage.is-live .demo-reset { display: inline-block; }
+.demo-note { display: none; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--meta); margin-top: 8px; }
+/* artifact/static fallback: builder adds .demo-static */
+.demo-static .demo-load, .demo-static .demo-tabs { display: none; }
+.demo-static .demo-note { display: block; }
+/* small screens: wide workstation stages become open-in-new-tab posters */
+@media (max-width: 760px) {
+  .demo-frame.is-wide .demo-load { display: none; }
+  .demo-stage .demo-mobile-note { display: block; }
+}
+.demo-mobile-note { display: none; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--meta); margin-top: 8px; }
+
+/* flagship card motion */
+.flag-media { position: relative; display: block; height: 250px; border-radius: 7px; border: 1px solid rgba(74,59,44,0.2); overflow: hidden; }
+.flag-media video { width: 100%; height: 100%; display: block; object-fit: contain; }
+.flag-media .vid-tag { position: absolute; left: 12px; top: 12px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em; color: #F2EDE2; background: rgba(16,19,24,0.72); padding: 5px 10px; border-radius: 999px; pointer-events: none; }
+.flag-media .vid-play { position: absolute; right: 12px; bottom: 12px; display: none; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; font-weight: 600; padding: 8px 13px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.5); background: rgba(16,19,24,0.8); color: #F2EDE2; cursor: pointer; }
+.flag-media.paused .vid-play { display: inline-block; }

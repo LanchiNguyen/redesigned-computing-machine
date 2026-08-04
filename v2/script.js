@@ -121,3 +121,107 @@
     nums.forEach(function (n) { nio.observe(n); });
   }
 })();
+
+/* ---- Try-the-prototype stages + flagship motion previews ---- */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* demo stages: lazy click-to-load sandboxed iframes, scaled to fit */
+  document.querySelectorAll(".demo-stage").forEach(function (stage) {
+    if (stage.classList.contains("demo-static")) return;
+    var frame = stage.querySelector(".demo-frame");
+    var openLink = stage.querySelector(".demo-open");
+    var loadBtn = stage.querySelector(".demo-load");
+    var resetBtn = stage.querySelector(".demo-reset");
+    var tabs = stage.querySelectorAll(".demo-tab");
+    var poster = stage.querySelector(".demo-poster");
+    var posterImg = poster ? poster.querySelector("img") : null;
+    var current = null, iframe = null;
+
+    function cfg() {
+      var t = stage.querySelector('.demo-tab[aria-selected="true"]');
+      var el = t || stage;
+      return {
+        src: el.getAttribute("data-src"),
+        w: parseInt(el.getAttribute("data-w"), 10),
+        h: parseInt(el.getAttribute("data-h"), 10),
+        poster: el.getAttribute("data-poster"),
+        title: el.getAttribute("data-title") || "Interactive prototype"
+      };
+    }
+    function fit() {
+      var c = current; if (!c) return;
+      var cw = frame.clientWidth;
+      var scale = cw / c.w;
+      frame.style.height = Math.round(c.h * scale) + "px";
+      if (iframe) {
+        iframe.style.width = c.w + "px";
+        iframe.style.height = c.h + "px";
+        iframe.style.transform = "scale(" + scale + ")";
+      }
+    }
+    function applyPoster() {
+      var c = cfg(); current = c;
+      frame.classList.toggle("is-wide", c.w > 700);
+      frame.classList.toggle("is-phone", c.w <= 700);
+      if (posterImg && c.poster) { posterImg.src = c.poster; }
+      if (openLink) openLink.href = c.src;
+      fit();
+    }
+    function load() {
+      var c = cfg(); current = c;
+      if (iframe) { iframe.remove(); iframe = null; }
+      iframe = document.createElement("iframe");
+      iframe.setAttribute("title", c.title);
+      iframe.setAttribute("sandbox", "allow-scripts allow-same-origin");
+      iframe.src = c.src;
+      frame.appendChild(iframe);
+      stage.classList.add("is-live");
+      if (poster) poster.style.display = "none";
+      fit();
+      iframe.focus();
+    }
+    function reset() {
+      if (iframe) { iframe.remove(); iframe = null; }
+      stage.classList.remove("is-live");
+      if (poster) poster.style.display = "";
+      applyPoster();
+      if (loadBtn) loadBtn.focus();
+    }
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (t) { t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+        if (stage.classList.contains("is-live")) { load(); } else { applyPoster(); }
+      });
+    });
+    if (loadBtn) loadBtn.addEventListener("click", load);
+    if (resetBtn) resetBtn.addEventListener("click", reset);
+    window.addEventListener("resize", fit);
+    applyPoster();
+  });
+
+  /* flagship motion: autoplay real prototype captures when visible; poster + play under reduced motion */
+  document.querySelectorAll(".flag-media video").forEach(function (v) {
+    var wrap = v.closest(".flag-media");
+    var play = wrap ? wrap.querySelector(".vid-play") : null;
+    function show(state) { if (wrap) wrap.classList.toggle("paused", !state); }
+    if (reduce) {
+      show(false);
+      if (play) play.addEventListener("click", function () {
+        if (v.paused) { v.play(); show(true); play.textContent = "PAUSE"; }
+        else { v.pause(); show(false); play.textContent = "PLAY MOTION"; }
+        wrap.classList.remove("paused"); wrap.classList.add("paused"); /* keep control visible */
+      });
+      wrap && wrap.classList.add("paused");
+      return;
+    }
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { v.play().catch(function(){}); } else { v.pause(); }
+        });
+      }, { threshold: 0.25 });
+      io.observe(v);
+    } else { v.play().catch(function(){}); }
+  });
+})();
