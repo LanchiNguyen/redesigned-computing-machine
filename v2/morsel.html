@@ -17,6 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Klee+One:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="figures-fonts.css" />
+  <link rel="stylesheet" href="figures.css" />
 </head>
 <body>
   <a class="skip-link" href="#case">Skip to case study</a>
@@ -63,7 +65,7 @@
         <div class="cell"><span class="k">Status</span><span class="v"><span class="status-flag">Functional prototype &middot; v3.1 &middot; not shipped</span> Not evaluated with users; restaurants, diner identities, quotes, order counts, and trust scores are illustrative prototype data.</span></div>
       </div>
 
-      <p class="method-note rv">HOW TO READ THIS PAGE &mdash; <span class="lbl real">FUNCTIONAL</span> works in the prototype &middot; <span class="lbl sim">SIMULATED</span> illustrative prototype data &middot; <span class="lbl plan">PROPOSED</span> a plan or model, never a result. Every screen below is the source project's own audited 2&times; capture. The dietary model is deliberately <strong>allergy&#8209;aware, never &ldquo;allergy&#8209;safe&rdquo;</strong> &mdash; every warning tells the diner to confirm with the restaurant, because menu data can lag and kitchens share surfaces. No score appears without a disclosed method. No usability sessions have been run.</p>
+      <p class="method-note rv">HOW TO READ THIS PAGE &mdash; <span class="lbl real">FUNCTIONAL</span> works in the prototype &middot; <span class="lbl sim">SIMULATED</span> illustrative prototype data &middot; <span class="lbl plan">PROPOSED</span> a plan or model, never a result. Every screen below is the source project's own markup, rendered live on this page — not a screenshot. The dietary model is deliberately <strong>allergy&#8209;aware, never &ldquo;allergy&#8209;safe&rdquo;</strong> &mdash; every warning tells the diner to confirm with the restaurant, because menu data can lag and kitchens share surfaces. No score appears without a disclosed method. No usability sessions have been run.</p>
 
       <!-- cover: source portfolio card art -->
       <div class="cover rv">
@@ -99,7 +101,7 @@
         <div class="sechead"><span class="lead">THE SHAPE OF THE PROJECT</span><span>HONEST NUMBERS ONLY</span></div>
         <div class="chips" style="padding: 0 0 8px">
           <div class="chip rv"><div class="in"><div class="n">3</div><div class="l">TIERS IN THE DIETARY MODEL &mdash; TASTE, LIFESTYLE, ALLERGY</div></div></div>
-          <div class="chip rv" style="--d:80ms"><div class="in"><div class="n">16</div><div class="l">AUDITED V3.1 STATES, CAPTURED AT 2&times; FROM THE PROTOTYPE</div></div></div>
+          <div class="chip rv" style="--d:80ms"><div class="in"><div class="n">16</div><div class="l">AUDITED V3.1 STATES, RENDERED LIVE FROM THE PROTOTYPE</div></div></div>
           <div class="chip rv" style="--d:160ms"><div class="in"><div class="n" data-static>0</div><div class="l">USABILITY SESSIONS RUN &mdash; TWO-ROUND PLAN BELOW</div></div></div>
         </div>
       </section>
@@ -126,16 +128,16 @@
                 <figcaption class="figcap"><span class="fk">Before &middot; v1</span>One flat list &mdash; a nut allergy modeled identically to a lifestyle choice.</figcaption>
               </figure>
               <figure class="figure fig-down">
-                <img class="shot-img" src="../images/morsel/v31-onboarding-dietary-2x.webp" alt="v3.1 dietary onboarding: lifestyle choices in one tier and allergies in a visually distinct protected tier with different mechanics, plus the note that Morsel is allergy-aware, not allergy-safe — always confirm with the kitchen" width="804" height="1748" loading="lazy" style="max-width:225px; border-radius:18px" />
+                <div class="fig-live shot-img" data-fig="morsel-v31-onboarding-dietary" role="img" aria-label="v3.1 dietary onboarding: lifestyle choices in one tier and allergies in a visually distinct protected tier with different mechanics, plus the note that Morsel is allergy-aware, not allergy-safe — always confirm with the kitchen" style="max-width:225px; border-radius:18px"></div>
                 <figcaption class="figcap"><span class="fk">After &middot; v3.1</span>Tiers with different power &mdash; lifestyle filters; allergies exclude, flag, and follow the dish.</figcaption>
               </figure>
             </div>
             <p class="proj-p" style="margin-top: 26px"><strong>How allergy context follows a dish.</strong> Conflicting dishes leave feed and search; anything already saved is <em>retained and flagged</em> rather than silently deleted; a dish opened directly (from a save or shared link) carries a warning explaining why it's still visible; and the order sheet repeats the warning and <strong>locks every delivery and pickup option until the diner explicitly acknowledges the conflict</strong> &mdash; the checkbox is never pre-checked.</p>
             <div class="phone-grid" style="margin-top: 18px; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))">
-              <figure><img src="../images/morsel/v31-saved-conflicts-2x.webp" alt="All saves: '2 saves conflict with your allergy settings — kept and flagged, never auto-deleted', with Nuts warning chips on the conflicting tiles" loading="lazy" /><figcaption>Saves retained and flagged &mdash; never auto-deleted</figcaption></figure>
-              <figure><img src="../images/morsel/v31-detail-conflict-warning-2x.webp" alt="A dish opened directly showing an allergen conflict warning that explains why the dish is still visible and tells the diner to confirm with the kitchen" loading="lazy" /><figcaption>Direct open &mdash; warned and explained, not blocked</figcaption></figure>
-              <figure><img src="../images/morsel/v31-order-allergy-locked-2x.webp" alt="The Allergy Gate order sheet: 'Contains nuts — an allergy you flagged. Ordering stays locked until you confirm below. Tell the kitchen about your allergy either way — menu data can lag.' Delivery providers show as locked; the acknowledgement checkbox is unchecked" loading="lazy" /><figcaption>Order sheet locked &mdash; acknowledgement never pre-checked</figcaption></figure>
-              <figure><img src="../images/morsel/v31-order-allergy-unlocked-2x.webp" alt="The same order sheet after the diner has explicitly acknowledged the conflict: providers unlocked, the allergy warning still visible" loading="lazy" /><figcaption>After an explicit yes &mdash; unlocked, warning still present</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-saved-conflicts" role="img" aria-label="All saves: '2 saves conflict with your allergy settings — kept and flagged, never auto-deleted', with Nuts warning chips on the conflicting tiles"></div><figcaption>Saves retained and flagged &mdash; never auto-deleted</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-detail-conflict-warning" role="img" aria-label="A dish opened directly showing an allergen conflict warning that explains why the dish is still visible and tells the diner to confirm with the kitchen"></div><figcaption>Direct open &mdash; warned and explained, not blocked</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-order-allergy-locked" role="img" aria-label="The Allergy Gate order sheet: 'Contains nuts — an allergy you flagged. Ordering stays locked until you confirm below. Tell the kitchen about your allergy either way — menu data can lag.' Delivery providers show as locked; the acknowledgement checkbox is unchecked"></div><figcaption>Order sheet locked &mdash; acknowledgement never pre-checked</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-order-allergy-unlocked" role="img" aria-label="The same order sheet after the diner has explicitly acknowledged the conflict: providers unlocked, the allergy warning still visible"></div><figcaption>After an explicit yes &mdash; unlocked, warning still present</figcaption></figure>
             </div>
             <div class="fig-duo phones" style="margin-top: 24px">
               <figure class="figure">
@@ -159,11 +161,11 @@
             <p class="proj-p">Star ratings compress bias, self-selection, and revenge reviews into one unfalsifiable number. Morsel proposes a different signal: <strong>&ldquo;X% would order again,&rdquo;</strong> counted from repeat orders through the app's own handoffs &mdash; sample size always visible, method one tap away. When a dish is too new for honest math, the design abstains: <em>&ldquo;New on Morsel &mdash; no score yet.&rdquo;</em></p>
             <div class="fig-duo phones" style="margin-top: 22px">
               <figure class="figure">
-                <img class="shot-img" src="../images/morsel/v31-trust-method-2x.webp" alt="The trust signal expanded: the would-order-again percentage with its visible sample size and the plain-language method sheet one tap away, labeled as a proposed measurement model with illustrative data" width="804" height="1748" loading="lazy" style="max-width:225px; border-radius:18px" />
+                <div class="fig-live shot-img" data-fig="morsel-v31-trust-method" role="img" aria-label="The trust signal expanded: the would-order-again percentage with its visible sample size and the plain-language method sheet one tap away, labeled as a proposed measurement model with illustrative data" style="max-width:225px; border-radius:18px"></div>
                 <figcaption class="figcap"><span class="fk">v3.1 &middot; the method, disclosed</span>Percentage + sample + method. <span class="lbl plan">PROPOSED</span> model &mdash; it depends on carrier integration, order attribution, diner consent, and privacy plumbing that don't exist yet, and would need defenses against gaming.</figcaption>
               </figure>
               <figure class="figure fig-down">
-                <img class="shot-img" src="../images/morsel/v31-detail-coldstart-2x.webp" alt="A dish page for a new dish where the design abstains from scoring: 'New on Morsel — no score yet' in place of a manufactured number" width="804" height="1748" loading="lazy" style="max-width:225px; border-radius:18px" />
+                <div class="fig-live shot-img" data-fig="morsel-v31-detail-coldstart" role="img" aria-label="A dish page for a new dish where the design abstains from scoring: 'New on Morsel — no score yet' in place of a manufactured number" style="max-width:225px; border-radius:18px"></div>
                 <figcaption class="figcap"><span class="fk">v3.1 &middot; cold start</span>Too new for honest math &rarr; abstain. No score without a disclosed method.</figcaption>
               </figure>
             </div>
@@ -180,11 +182,11 @@
             <p class="proj-p">A photo-only feed maximizes appetite but hides price, distance, and name behind a tap. Labeled cards, hybrid density, and a split model were all explored; the selected direction keeps the <strong>grazing feed photo-only</strong> and gives <strong>search results full labels</strong> &mdash; searchers are comparing while browsers are grazing. That tradeoff is explicitly unresolved until usability testing; it is the first task in the plan.</p>
             <div class="fig-duo phones" style="margin-top: 22px">
               <figure class="figure">
-                <img class="shot-img" src="../images/morsel/v31-feed-foryou-shaw-2x.webp" alt="The v3.1 For-you feed: full-bleed dish photography with minimal overlay chrome, distances disclosed as from the Shaw demo neighborhood" width="804" height="1748" loading="lazy" style="max-width:225px; border-radius:18px" />
+                <div class="fig-live shot-img" data-fig="morsel-v31-feed-foryou-shaw" role="img" aria-label="The v3.1 For-you feed: full-bleed dish photography with minimal overlay chrome, distances disclosed as from the Shaw demo neighborhood" style="max-width:225px; border-radius:18px"></div>
                 <figcaption class="figcap"><span class="fk">v3.1 &middot; the grazing feed</span>Photo-only by choice &mdash; the appetite surface stays quiet.</figcaption>
               </figure>
               <figure class="figure fig-down">
-                <img class="shot-img" src="../images/morsel/v31-search-diet-empty-2x.webp" alt="Diet-aware search empty state distinguishing 'doesn't exist here' from 'excluded by your settings', with the active limits named" width="804" height="1748" loading="lazy" style="max-width:225px; border-radius:18px" />
+                <div class="fig-live shot-img" data-fig="morsel-v31-search-diet-empty" role="img" aria-label="Diet-aware search empty state distinguishing 'doesn't exist here' from 'excluded by your settings', with the active limits named" style="max-width:225px; border-radius:18px"></div>
                 <figcaption class="figcap"><span class="fk">v3.1 &middot; search, labeled and honest</span>Search is the comparing surface &mdash; and its empty state distinguishes &ldquo;doesn't exist here&rdquo; from &ldquo;excluded by your settings.&rdquo;</figcaption>
               </figure>
             </div>
@@ -200,12 +202,12 @@
           <div>
             <p class="proj-p">The prototype implements honest states for the paths most concepts skip. Location off relabels the feed to &ldquo;For you,&rdquo; discloses that distances are from a demo neighborhood, and disables &ldquo;Nearest&rdquo; sort. No-coverage never shows one city's dishes under another city's name. Zero-result recovery names each active limit &mdash; and clearing filters never touches allergies.</p>
             <div class="phone-grid" style="margin-top: 18px; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))">
-              <figure><img src="../images/morsel/v31-location-no-coverage-2x.webp" alt="No-coverage state naming the unsupported city plainly instead of mislabeling another city's dishes" loading="lazy" /><figcaption>Unsupported city &mdash; named, never faked</figcaption></figure>
-              <figure><img src="../images/morsel/v31-zero-result-recovery-2x.webp" alt="Zero-result recovery listing each active limit by tier with separate clear actions; allergy settings are not clearable from here" loading="lazy" /><figcaption>Zero results &mdash; names each limit; allergies untouchable</figcaption></figure>
-              <figure><img src="../images/morsel/v31-offline-2x.webp" alt="Offline state naming the cause and preserving safety context" loading="lazy" /><figcaption>Offline &mdash; the cause, said plainly</figcaption></figure>
-              <figure><img src="../images/morsel/v31-imgfail-2x.webp" alt="Image-failure state: the photo-first interface degrading honestly when photos cannot load" loading="lazy" /><figcaption>Image failure &mdash; the photo-first app, without photos</figcaption></figure>
-              <figure><img src="../images/morsel/v31-handoff-failure-2x.webp" alt="Order handoff failure naming the cause and offering a path forward while keeping the allergy context" loading="lazy" /><figcaption>Handoff failure &mdash; names the cause, preserves safety</figcaption></figure>
-              <figure><img src="../images/morsel/v31-onboarding-taste-2x.webp" alt="Taste onboarding: preference chips that re-rank the feed — the lowest-stakes tier of the three" loading="lazy" /><figcaption>Taste tier &mdash; re-ranks only; the lowest-stakes tier</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-location-no-coverage" role="img" aria-label="No-coverage state naming the unsupported city plainly instead of mislabeling another city's dishes"></div><figcaption>Unsupported city &mdash; named, never faked</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-zero-result-recovery" role="img" aria-label="Zero-result recovery listing each active limit by tier with separate clear actions; allergy settings are not clearable from here"></div><figcaption>Zero results &mdash; names each limit; allergies untouchable</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-offline" role="img" aria-label="Offline state naming the cause and preserving safety context"></div><figcaption>Offline &mdash; the cause, said plainly</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-imgfail" role="img" aria-label="Image-failure state: the photo-first interface degrading honestly when photos cannot load"></div><figcaption>Image failure &mdash; the photo-first app, without photos</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-handoff-failure" role="img" aria-label="Order handoff failure naming the cause and offering a path forward while keeping the allergy context"></div><figcaption>Handoff failure &mdash; names the cause, preserves safety</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-onboarding-taste" role="img" aria-label="Taste onboarding: preference chips that re-rank the feed — the lowest-stakes tier of the three"></div><figcaption>Taste tier &mdash; re-ranks only; the lowest-stakes tier</figcaption></figure>
             </div>
           </div>
         </div>
@@ -219,7 +221,7 @@
           <div>
             <p class="proj-p">Implemented behavior, scoped to what the prototype actually does: semantic controls with <code style="font-family:var(--mono); font-size:12.5px">aria-pressed</code>/<code style="font-family:var(--mono); font-size:12.5px">aria-selected</code>/<code style="font-family:var(--mono); font-size:12.5px">role="alert"</code> where state matters; no nested interactive elements; a keyboard-only pass executed on the critical order path (saved tile &rarr; detail &rarr; save toggle &rarr; order &rarr; acknowledgement &rarr; provider) with the order sheet as a named modal dialog &mdash; focus trapped while open, Escape to close, focus restored to the trigger; a live region for save announcements; &ge;44px touch targets; and a 140% text-scale mode that reflows without loss. <strong>Not claimed:</strong> WCAG conformance or an assistive-technology audit &mdash; screen-reader evaluation with real users is still owed.</p>
             <div class="phone-grid pg-solo" style="margin-top: 18px; max-width: 245px">
-              <figure><img src="../images/morsel/v31-textscale-140-2x.webp" alt="The dish page rendered at 140 percent text scale, reflowing without loss of content or controls" loading="lazy" /><figcaption>140% text scale &mdash; reflow without loss</figcaption></figure>
+              <figure><div class="fig-live" data-fig="morsel-v31-textscale-140" role="img" aria-label="The dish page rendered at 140 percent text scale, reflowing without loss of content or controls"></div><figcaption>140% text scale &mdash; reflow without loss</figcaption></figure>
             </div>
           </div>
         </div>
@@ -292,6 +294,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="figures.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

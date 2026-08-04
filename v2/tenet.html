@@ -17,6 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Klee+One:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="figures-fonts.css" />
+  <link rel="stylesheet" href="figures.css" />
 </head>
 <body>
   <a class="skip-link" href="#case">Skip to case study</a>
@@ -158,12 +160,12 @@
             <p class="proj-p">The central product decision: Dart and Meridian are not responsive versions of one interface. They are two host-specific expressions of the same behavioral layer &mdash; the same rule, arriving through each broker's own visual language, at each broker's own speed. In Dart the intervention has to earn a pause inside an interface built to eliminate them; in Meridian the same rule reads as workstation infrastructure &mdash; Ink Blue, quiet, and precise.</p>
             <div class="fig-duo phones" style="margin-top: 22px">
               <figure class="figure">
-                <img class="shot-img" src="../images/tenet/host-ticket.webp" alt="Dart, the fictional gamified mobile broker, at 9:53 with a 4-day streak badge and SPY 0DTE puts: a contracts stepper set to 12 of MAX 86, '12 × $1.42 = $1,704 premium at risk', and a lime 'Swipe to buy 12 contracts' rail with 'tenet · 4 rules on · cap 5' beneath" width="644" height="1320" loading="lazy" style="max-width:236px; border-radius:18px" />
-                <figcaption class="figcap"><span class="fk">Dart &middot; captured from the prototype</span>Stimulation-heavy by design &mdash; streak badge, thumb-speed swipe rail. Tenet waits silently underneath: 4 rules on, cap 5.</figcaption>
+                <div class="fig-live shot-img" data-fig="tenet-host-ticket" role="img" aria-label="Dart, the fictional gamified mobile broker, at 9:53 with a 4-day streak badge and SPY 0DTE puts: a contracts stepper set to 12 of MAX 86, '12 × $1.42 = $1,704 premium at risk', and a lime 'Swipe to buy 12 contracts' rail with 'tenet · 4 rules on · cap 5' beneath" style="max-width:236px; border-radius:18px"></div>
+                <figcaption class="figcap"><span class="fk">Dart &middot; rendered live from the prototype</span>Stimulation-heavy by design &mdash; streak badge, thumb-speed swipe rail. Tenet waits silently underneath: 4 rules on, cap 5.</figcaption>
               </figure>
               <figure class="figure fig-down">
-                <img class="shot-img" src="../images/tenet/host-intervention.webp" alt="The same Dart screen after the swipe: '2 of your rules stepped in — nothing sent. Cooldown — 3 losing entries this morning, 9:41 / 9:46 / 9:52. Size — you asked for 12, your cap today is 5. Nothing was sent. Three ways forward:' with buttons Reduce to 5 contracts, Hold to start 9-minute cooldown, Override with a reason, and Cancel order — nothing sends" width="644" height="1320" loading="lazy" style="max-width:236px; border-radius:18px" />
-                <figcaption class="figcap"><span class="fk">The moment &middot; captured live</span>Swiping a revenge-sized order: two rules step in, name their reasons in the trader's own terms, and hold &mdash; nothing sent, every exit open.</figcaption>
+                <div class="fig-live shot-img" data-fig="tenet-host-intervention" role="img" aria-label="The same Dart screen after the swipe: '2 of your rules stepped in — nothing sent. Cooldown — 3 losing entries this morning, 9:41 / 9:46 / 9:52. Size — you asked for 12, your cap today is 5. Nothing was sent. Three ways forward:' with buttons Reduce to 5 contracts, Hold to start 9-minute cooldown, Override with a reason, and Cancel order — nothing sends" style="max-width:236px; border-radius:18px"></div>
+                <figcaption class="figcap"><span class="fk">The moment &middot; rendered live</span>Swiping a revenge-sized order: two rules step in, name their reasons in the trader's own terms, and hold &mdash; nothing sent, every exit open.</figcaption>
               </figure>
             </div>
             <p class="proj-p" style="margin-top:16px"><a class="doc-link" href="tenet-proto/host.html">Open the live Dart host prototype &mdash; four scenarios &rarr;</a></p>
@@ -180,8 +182,8 @@
             <p class="proj-p">Choosing the cooldown holds the order &mdash; <em>held, not queued to fire</em>. When the timer ends the trader reviews a refreshed quote and sends or cancels; an old order never fires by itself. The same mechanic runs in Meridian, where a revenge-sized 1,000-share short is held through the cooldown in a keyboard-first workstation, and every fill is labeled <span class="lbl sim">SIMULATED FILL</span>.</p>
             <div class="fig-duo phones" style="margin-top: 22px">
               <figure class="figure">
-                <img class="shot-img" src="../images/tenet/host-cooldown.webp" alt="Dart during the cooldown: 'Cooldown running — your order is held, not queued to fire. When the timer ends you review a refreshed quote — nothing sends by itself.' A progress rail reads COOLDOWN · 5:00 LEFT with 'Cancel cooldown and order' beneath" width="644" height="1320" loading="lazy" style="max-width:236px; border-radius:18px" />
-                <figcaption class="figcap"><span class="fk">Cooldown running &middot; captured live</span>The copy does the ethical work: held, not queued; review, then decide; cancel always present.</figcaption>
+                <div class="fig-live shot-img" data-fig="tenet-host-cooldown" role="img" aria-label="Dart during the cooldown: 'Cooldown running — your order is held, not queued to fire. When the timer ends you review a refreshed quote — nothing sends by itself.' A progress rail reads COOLDOWN · 5:00 LEFT with 'Cancel cooldown and order' beneath" style="max-width:236px; border-radius:18px"></div>
+                <figcaption class="figcap"><span class="fk">Cooldown running &middot; rendered live</span>The copy does the ethical work: held, not queued; review, then decide; cancel always present.</figcaption>
               </figure>
               <figure class="figure fig-note">
                 <figcaption class="figcap" style="max-width:300px; margin:0"><span class="fk">Why a refreshed quote</span>Quotes move during a cooldown, so the order the trader approved no longer exists when it ends. Queue-and-send and auto-cancel were both considered and rejected &mdash; each takes the decision away from the trader, the exact failure Tenet exists to prevent. The refreshed review shows the delta rather than hiding it.</figcaption>
@@ -199,8 +201,8 @@
           <div>
             <p class="proj-p">Meridian removes reflection through efficiency, so Tenet answers in the workstation's own register: a quiet status chip in the header (<em>4 rules &middot; 3 apply here</em>), and an Ink Blue panel at transmit. The chart, ladder, order context, and positions are never touched &mdash; the guard follows the person, not the product. A chart annotation marks the moment: <em>9:53 &mdash; your rule stepped in</em>.</p>
             <figure class="figure" style="margin-top: 22px">
-              <img class="shot-img" src="../images/tenet/meridian-stepped.webp" alt="Meridian Trader, the fictional light-themed desktop workstation: SPY chart falling with a dashed annotation '9:53 — your rule stepped in', Level 2 ladder live, three losing round trips totaling −$360, and an Ink Blue panel over the order ticket reading 'Loss cooldown stepped in — nothing sent. Your rule: after 3 losing trades before noon, the next order waits nine minutes… this order flips you short at 2× your largest size today. Size cap not triggered — 1,000 of 1,500 shares. Start 9-minute cooldown / Override with a reason'" width="2724" height="1390" loading="lazy" />
-              <figcaption class="figcap"><span class="fk">Meridian &middot; captured from the prototype</span>The only colored object in a deliberately near-neutral room. Two contained changes &mdash; a header chip and the transmit panel; everything else keeps printing.</figcaption>
+              <div class="fig-live shot-img" data-fig="tenet-meridian-stepped" role="img" aria-label="Meridian Trader, the fictional light-themed desktop workstation: SPY chart falling with a dashed annotation '9:53 — your rule stepped in', Level 2 ladder live, three losing round trips totaling −$360, and an Ink Blue panel over the order ticket reading 'Loss cooldown stepped in — nothing sent. Your rule: after 3 losing trades before noon, the next order waits nine minutes… this order flips you short at 2× your largest size today. Size cap not triggered — 1,000 of 1,500 shares. Start 9-minute cooldown / Override with a reason'"></div>
+              <figcaption class="figcap"><span class="fk">Meridian &middot; rendered live from the prototype</span>The only colored object in a deliberately near-neutral room. Two contained changes &mdash; a header chip and the transmit panel; everything else keeps printing.</figcaption>
             </figure>
             <p class="proj-p" style="margin-top:16px"><a class="doc-link" href="tenet-proto/desktop.html">Open the live Meridian prototype &rarr;</a></p>
           </div>
@@ -230,9 +232,9 @@
           <div>
             <p class="proj-p">The after-close app is where authoring and evidence live. &ldquo;What your rules did&rdquo; leads with counts, not outcomes &mdash; <em>7&times; stepped in &middot; 6&times; waited or trimmed &middot; 1&times; continued past</em> &mdash; and the estimates block shows the full Decision-C stance in one screen: estimated loss avoided <strong>$1,240 EST</strong> with its mark-to-close method note and fee/slippage exclusions, beside realized on overrides <strong>&minus;$310 ACTUAL</strong>. Not money earned, and labeled so.</p>
             <div class="phone-grid" style="margin-top: 22px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))">
-              <figure><img src="../images/tenet/companion-home.webp" alt="Companion home at 16:12, market closed: 'What your rules did · Jul 27–31' labeled illustrative prototype data — 7× stepped in, 6× waited or trimmed, 1× continued past — a week list of cooldown, size-cap, wind-down and pacing events, a logged 17-minute feed outage, and the estimates block: estimated loss avoided $1,240 EST, realized on overrides −$310 ACTUAL, with the mark-to-close method note" loading="lazy" /><figcaption>Home &mdash; counts lead, estimates carry their method and exclusions</figcaption></figure>
-              <figure><img src="../images/tenet/companion-rules.webp" alt="Companion Rules tab: the four authored rules with their enforceable parameters, each showing where it applies and its stricter-immediate / looser-at-next-open arming state" loading="lazy" /><figcaption>Rules &mdash; enforceable parameters; stricter arms now, looser waits for the open</figcaption></figure>
-              <figure><img src="../images/tenet/companion-record.webp" alt="Companion Record tab: filters for waited, overrode, changes, outages and notes across Dart and Meridian; a 30-day summary 'overrode 3× · 1 paid off · net −$98 · settled · excl. fees'; and an immutable event list including 'feed lost 17 min — trading unaffected — outage' and 'continued past the cap — $310'. Footer: intervention events are preserved; add a note or report an error — the original entry stays" loading="lazy" /><figcaption>Record &mdash; immutable, host-tagged, outages logged with the same weight</figcaption></figure>
+              <figure><div class="fig-live" data-fig="tenet-companion-home" role="img" aria-label="Companion home at 16:12, market closed: 'What your rules did · Jul 27–31' labeled illustrative prototype data — 7× stepped in, 6× waited or trimmed, 1× continued past — a week list of cooldown, size-cap, wind-down and pacing events, a logged 17-minute feed outage, and the estimates block: estimated loss avoided $1,240 EST, realized on overrides −$310 ACTUAL, with the mark-to-close method note"></div><figcaption>Home &mdash; counts lead, estimates carry their method and exclusions</figcaption></figure>
+              <figure><div class="fig-live" data-fig="tenet-companion-rules" role="img" aria-label="Companion Rules tab: the four authored rules with their enforceable parameters, each showing where it applies and its stricter-immediate / looser-at-next-open arming state"></div><figcaption>Rules &mdash; enforceable parameters; stricter arms now, looser waits for the open</figcaption></figure>
+              <figure><div class="fig-live" data-fig="tenet-companion-record" role="img" aria-label="Companion Record tab: filters for waited, overrode, changes, outages and notes across Dart and Meridian; a 30-day summary 'overrode 3× · 1 paid off · net −$98 · settled · excl. fees'; and an immutable event list including 'feed lost 17 min — trading unaffected — outage' and 'continued past the cap — $310'. Footer: intervention events are preserved; add a note or report an error — the original entry stays"></div><figcaption>Record &mdash; immutable, host-tagged, outages logged with the same weight</figcaption></figure>
             </div>
             <p class="proj-p" style="margin-top:16px"><a class="doc-link" href="tenet-proto/companion.html">Open the live Companion &rarr;</a>&ensp;&middot;&ensp;<a class="doc-link" href="tenet-proto/duo.html">Host + Companion, synchronized side by side &rarr;</a></p>
           </div>
@@ -311,6 +313,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="figures.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

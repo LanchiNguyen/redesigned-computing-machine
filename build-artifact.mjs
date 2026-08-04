@@ -6,6 +6,10 @@ const fonts = readFileSync(S+'/fonts-inline.css','utf8');
 const fraunces = readFileSync(S+'/fonts-tasting-inline.css','utf8');
 const worksans = readFileSync(S+'/fonts-body-inline.css','utf8');
 const protoFonts = readFileSync(S+'/proto-fonts-inline.css','utf8');
+/* live prototype figures: the case-study screens are the prototypes' own markup,
+   rendered as DOM instead of shipped as rasters (see build-figures.mjs) */
+const figuresCss = readFileSync('v2/figures.css','utf8');
+const figuresJs  = readFileSync('v2/figures.js','utf8');
 
 /* ship only the typefaces the portfolio or a prototype actually references —
    drops leftovers from the earlier type-exploration phase (pure dead weight) */
@@ -274,7 +278,7 @@ const theaterJs = `
 
 let out =
   '<title>Lana Nguyen — Portfolio v2 · Live Prototypes</title>\n' +
-  '<style>\n' + keepUsedFaces(fonts + fraunces + worksans + protoFonts, css + theaterCss + home + tn + morsel + hp + nh + mug + mx + ch + sk + rs + ab + PROTO.morselCss + PROTO.morselPageCss + PROTO.tenet.host + PROTO.tenet.desktop + PROTO.tenet.companion) + '\n' + css + '\n' + theaterCss + '\n</style>\n' +
+  '<style>\n' + keepUsedFaces(fonts + fraunces + worksans + protoFonts, css + theaterCss + figuresCss + figuresJs + home + tn + morsel + hp + nh + mug + mx + ch + sk + rs + ab + PROTO.morselCss + PROTO.morselPageCss + PROTO.tenet.host + PROTO.tenet.desktop + PROTO.tenet.companion) + '\n' + css + '\n' + theaterCss + '\n' + figuresCss + '\n</style>\n' +
   '<a class="skip-link" href="#home-work">Skip to work</a>\n' +
   '<div class="desk">\n' + home + '\n' + tn + '\n' + morsel + '\n' + hp + '\n' + nh + '\n' + mug + '\n' + mx + '\n' + ch + '\n' + sk + '\n' + ab + '\n' + rs + '\n</div>\n' +
   '<button id="draftToggle" style="position:fixed;right:16px;bottom:16px;z-index:99;font:600 10.5px/1 IBM Plex Mono,monospace;letter-spacing:.1em;padding:9px 13px;border-radius:999px;border:1.5px dashed rgba(94,69,38,.55);background:rgba(239,217,160,.92);color:#5E4526;cursor:pointer">SHOW [ADD] PUNCH LIST</button>\n' +
@@ -303,6 +307,8 @@ out = out.replace(/<a class="doc-link" href="morsel-docs\/[^"]+">open the full a
 out += '\n' + scriptBlock(reactJs) + '\n' + scriptBlock(reactDomJs) + '\n';
 out += scriptBlock('window.__PROTO=' + protoJson + ';') + '\n';
 out += scriptBlock(theaterJs) + '\n';
+/* figures read photos from the same canonical map the theater uses — one copy, not two */
+out += scriptBlock('window.__MORSEL_PHOTOS=window.__PROTO.morselPhotos;\n' + figuresJs) + '\n';
 
 const NAVNET = `(function(){
   function goto(el){ el.scrollIntoView({behavior:'smooth'}); }
