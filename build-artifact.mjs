@@ -249,9 +249,9 @@ let out =
   '<script>\n' + js + '\ndocument.getElementById("draftToggle").addEventListener("click",function(){var on=document.documentElement.classList.toggle("draft");this.textContent=on?"HIDE [ADD] PUNCH LIST":"SHOW [ADD] PUNCH LIST";});\n</script>\n';
 
 /* swap each #try stage's demo apparatus for the theater launcher (artifact only) */
-out = out.replace(/(<section class="proj-sec" id="try" aria-label="Try the Tenet prototype">\n        <div class="rule"><\/div>\n        <div class="sechead">[\s\S]*?<\/div>)\n[\s\S]*?\n      <\/section>/,
+out = out.replace(/(<section class="proj-sec" id="tenet-try" aria-label="Try the Tenet prototype">\n        <div class="rule"><\/div>\n        <div class="sechead">[\s\S]*?<\/div>)\n[\s\S]*?\n      <\/section>/,
   '$1\n' + tenetLauncher + '\n      </section>');
-out = out.replace(/(<section class="proj-sec" id="try" aria-label="Try the Morsel prototype">\n        <div class="rule"><\/div>\n        <div class="sechead">[\s\S]*?<\/div>)\n[\s\S]*?\n      <\/section>/,
+out = out.replace(/(<section class="proj-sec" id="morsel-try" aria-label="Try the Morsel prototype">\n        <div class="rule"><\/div>\n        <div class="sechead">[\s\S]*?<\/div>)\n[\s\S]*?\n      <\/section>/,
   '$1\n' + morselLauncher + '\n      </section>');
 
 /* inline images */
@@ -268,7 +268,31 @@ out += '\n<script>' + reactJs + '\n</script>\n<script>' + reactDomJs + '\n</scri
 out += '<script>window.__PROTO=' + protoJson + ';</script>\n';
 out += '<script>' + theaterJs.replace(/<\//g, '<\\/') + '</script>\n';
 
-const NAVNET = `\n<script>document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(!a)return;var h=a.getAttribute('href')||'';var m=h.match(/^([a-z-]+)\\.html(?:#([a-z-]+))?$/);if(!m)return;e.preventDefault();var ids=[m[1]+'-'+(m[2]||''),m[2]||'',m[1]];for(var i=0;i<ids.length;i++){var el=ids[i]&&document.getElementById(ids[i]);if(el){el.scrollIntoView({behavior:'smooth'});return;}}});<\/script>`;
+const NAVNET = `
+<script>(function(){
+  function goto(el){ el.scrollIntoView({behavior:'smooth'}); }
+  /* any residual page.html / page.html#frag link resolves in-document instead of navigating */
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a) return;
+    var h=a.getAttribute('href')||''; var m=h.match(/^([a-z-]+)\\.html(?:#([a-z-]+))?$/); if(!m) return;
+    e.preventDefault();
+    var ids=[m[1]+'-'+(m[2]||''), m[2]||'', m[1]];
+    for(var i=0;i<ids.length;i++){ var el=ids[i]&&document.getElementById(ids[i]); if(el){ goto(el); return; } }
+  });
+  /* in-document anchors keep native hash + back behavior; re-correct once late media
+     above the target settles and shifts layout (mobile especially) */
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a) return;
+    var h=a.getAttribute('href')||''; if(h.charAt(0)!=='#'||h.length<2) return;
+    var el=document.getElementById(h.slice(1)); if(!el) return;
+    [700,1400,2400].forEach(function(t){ setTimeout(function(){
+      var top=el.getBoundingClientRect().top;
+      if(top<-40||top>Math.max(160,window.innerHeight*0.5)){
+        window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-8,behavior:'auto'});
+      }
+    },t); });
+  });
+})();<\/script>`;
 out += NAVNET;
 writeFileSync(S+'/portfolio-v2-artifact.html', out);
 const leftover = (out.match(/\.\.\/images\//g)||[]).length;
