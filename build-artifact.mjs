@@ -6,6 +6,26 @@ const fonts = readFileSync(S+'/fonts-inline.css','utf8');
 const fraunces = readFileSync(S+'/fonts-tasting-inline.css','utf8');
 const worksans = readFileSync(S+'/fonts-body-inline.css','utf8');
 const protoFonts = readFileSync(S+'/proto-fonts-inline.css','utf8');
+
+/* ship only the typefaces the portfolio or a prototype actually references —
+   drops leftovers from the earlier type-exploration phase (pure dead weight) */
+function keepUsedFaces(cssText, corpus) {
+  const blocks = cssText.match(/@font-face\{[^}]*\}/g) || [];
+  const kept = [];
+  const seen = new Set();
+  for (const b of blocks) {
+    const m = /font-family:\s*'([^']+)'/.exec(b);
+    if (!m) continue;
+    const fam = m[1];
+    const wm = /font-weight:\s*(\d+)/.exec(b);
+    const sm = /font-style:\s*([a-z]+)/.exec(b);
+    const key = fam + '|' + (wm ? wm[1] : '400') + '|' + (sm ? sm[1] : 'normal');
+    if (seen.has(key)) continue;                 // de-dup identical faces across sources
+    if (!corpus.includes(fam)) continue;         // family never referenced anywhere
+    seen.add(key); kept.push(b);
+  }
+  return kept.join('\n');
+}
 const grab = (s, sel) => s.slice(s.indexOf(sel), s.indexOf('\n  </div>\n\n  <script'));
 const anchorize = s => s
   .replace(/href="tenet\.html#try"/g,'href="#tenet-try"')
@@ -251,7 +271,7 @@ const theaterJs = `
 
 let out =
   '<title>Lana Nguyen — Portfolio v2 · Live Prototypes</title>\n' +
-  '<style>\n' + fonts + fraunces + worksans + '\n' + protoFonts + '\n' + css + '\n' + theaterCss + '\n</style>\n' +
+  '<style>\n' + keepUsedFaces(fonts + fraunces + worksans + protoFonts, css + theaterCss + home + tn + morsel + hp + nh + mug + mx + ch + sk + rs + ab + PROTO.morselCss + PROTO.morselPageCss + PROTO.tenet.host + PROTO.tenet.desktop + PROTO.tenet.companion) + '\n' + css + '\n' + theaterCss + '\n</style>\n' +
   '<a class="skip-link" href="#home-work">Skip to work</a>\n' +
   '<div class="desk">\n' + home + '\n' + tn + '\n' + morsel + '\n' + hp + '\n' + nh + '\n' + mug + '\n' + mx + '\n' + ch + '\n' + sk + '\n' + ab + '\n' + rs + '\n</div>\n' +
   '<button id="draftToggle" style="position:fixed;right:16px;bottom:16px;z-index:99;font:600 10.5px/1 IBM Plex Mono,monospace;letter-spacing:.1em;padding:9px 13px;border-radius:999px;border:1.5px dashed rgba(94,69,38,.55);background:rgba(239,217,160,.92);color:#5E4526;cursor:pointer">SHOW [ADD] PUNCH LIST</button>\n' +
