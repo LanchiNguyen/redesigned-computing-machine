@@ -127,8 +127,55 @@
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* demo stages: lazy click-to-load sandboxed iframes, scaled to fit */
+  /* artifact/static mode: the stage is a captured-run motion demo */
+  function initMotion(stage) {
+    var vids = Array.prototype.slice.call(stage.querySelectorAll(".demo-motion video"));
+    if (!vids.length) return;
+    var tabs = stage.querySelectorAll(".demo-tab");
+    var toggle = stage.querySelector(".demo-toggle");
+    var replay = stage.querySelector(".demo-replay");
+    var status = stage.querySelector(".demo-status");
+    var baseStatus = status ? status.textContent : "";
+    function cur() { return vids.filter(function (v) { return v.classList.contains("on"); })[0] || vids[0]; }
+    function setStatus(playing) { if (status) status.textContent = (playing ? "PLAYING — " : "PAUSED — ") + baseStatus; }
+    function play(v) { v.play().then(function(){ setStatus(true); if (toggle) toggle.textContent = "PAUSE"; }).catch(function(){}); }
+    function pause(v) { v.pause(); setStatus(false); if (toggle) toggle.textContent = "PLAY"; }
+    function show(i) {
+      vids.forEach(function (v, j) {
+        v.classList.toggle("on", j === i);
+        if (j !== i) v.pause();
+      });
+      var v = vids[i];
+      if (reduce) { pause(v); } else { play(v); }
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (t) { t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+        show(i);
+      });
+    });
+    if (toggle) toggle.addEventListener("click", function () {
+      var v = cur();
+      if (v.paused) { play(v); } else { pause(v); }
+    });
+    if (replay) replay.addEventListener("click", function () {
+      var v = cur(); v.currentTime = 0; play(v);
+    });
+    if (reduce) { pause(cur()); return; }
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var v = cur();
+          if (e.isIntersecting) { play(v); } else { v.pause(); }
+        });
+      }, { threshold: 0.15 });
+      io.observe(stage);
+      setStatus(false);
+    } else { play(cur()); }
+  }
+
   document.querySelectorAll(".demo-stage").forEach(function (stage) {
-    if (stage.classList.contains("demo-static")) return;
+    if (stage.classList.contains("demo-static")) { initMotion(stage); return; }
     var frame = stage.querySelector(".demo-frame");
     var openLink = stage.querySelector(".demo-open");
     var loadBtn = stage.querySelector(".demo-load");
