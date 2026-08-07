@@ -71,7 +71,8 @@ function deref(html) {
 
 const figs = {};
 for (const [key, f] of Object.entries(store.figures)) {
-  figs[key] = { h: deref(f.html), w: f.w, y: f.h };
+  const cls = f.cls || (/^tenet-/.test(key) ? 'tfig' : null);
+  figs[key] = { h: deref(f.html), w: f.w, y: f.h, ...(cls ? { c: cls } : {}) };
 }
 
 /* ---- CSS ---- */
@@ -88,8 +89,24 @@ const css = [
   '.fig-duo.phones .figure .fig-live,.fig-center .fig-live{margin-left:auto;margin-right:auto}',
   store.css.morsel,
   scopeSafely(store.css['tenet-host'], '.tfig'),
-  scopeSafely(store.css['tenet-desktop'], '.tfig')
+  scopeSafely(store.css['tenet-desktop'], '.tfig'),
+  scopeSafely(store.css['doc-wf'] || '', '.docfig-wf'),
+  scopeSafely(store.css['doc-ex'] || '', '.docfig-ex'),
+  scopeSafely(store.css['doc-ds'] || '', '.docfig-ds'),
+  scopeSafely(store.css['doc-tp'] || '', '.docfig-tp')
 ].join('\n');
+/* @keyframes pass through scoping verbatim; a duplicated name across sheets
+   would silently redefine an animation for every figure */
+{
+  const blocks = css.match(/@(?:-webkit-)?keyframes\s+[a-zA-Z0-9_-]+\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}/g) || [];
+  const byName = {};
+  for (const b of blocks) {
+    const name = /keyframes\s+([a-zA-Z0-9_-]+)/.exec(b)[1];
+    const body = b.replace(/\s+/g, '');
+    if (byName[name] && byName[name] !== body) throw new Error('conflicting @keyframes definitions for "' + name + '"');
+    byName[name] = body;
+  }
+}
 /* companion shares the host sheet byte-for-byte; shipping it twice is waste */
 if (store.css['tenet-companion'] !== store.css['tenet-host']) {
   throw new Error('companion CSS diverged from host — ship it separately');
@@ -115,7 +132,7 @@ window.__FIGS = ${JSON.stringify(figs)};
     box.setAttribute('data-fw', f.w);
     box.style.setProperty('--fw', f.w); box.style.setProperty('--fh', f.y);
     var inner = document.createElement('div');
-    inner.className = 'fig-scale' + (/^tenet-/.test(box.getAttribute('data-fig')) ? ' tfig' : '');
+    inner.className = 'fig-scale' + (f.c ? ' ' + f.c : '');
     inner.style.width = f.w + 'px'; inner.style.height = f.y + 'px';
     inner.setAttribute('aria-hidden', 'true');   /* the caption on .fig-live is the accessible name */
     inner.inert = true;   /* the fragments contain real <button>s; without inert they are dead tab stops */

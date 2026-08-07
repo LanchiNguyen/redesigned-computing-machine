@@ -179,6 +179,46 @@ const grabTenet = (p, flat) => p.evaluate((flat) => {
     await p.close();
   }
 
+  /* --- Morsel process docs: the appendix previews render live, like the
+         figures — a top-crop of the real document, not a raster of it --- */
+  const DOCS = [
+    { key: 'morsel-doc-wireflow', page: 'morsel-docs/wireflow.html', sel: '#stage', cls: 'docfig-wf', cssKey: 'doc-wf', aspect: null },
+    { key: 'morsel-doc-explorations-preview', page: 'morsel-docs/explorations.html', sel: '.page', cls: 'docfig-ex', cssKey: 'doc-ex', aspect: 1804 / 2200 },
+    { key: 'morsel-doc-ds-preview', page: 'morsel-docs/ds-addendum.html', sel: '.page', cls: 'docfig-ds', cssKey: 'doc-ds', aspect: 1804 / 2200 },
+    { key: 'morsel-doc-testing-preview', page: 'morsel-docs/testing-plan.html', sel: '.page', cls: 'docfig-tp', cssKey: 'doc-tp', aspect: 1804 / 2200 }
+  ];
+  const docCss = {};
+  for (const d of DOCS) {
+    const p = await b.newPage({ viewport: { width: 1720, height: 1150 } });
+    try {
+      await p.goto(BASE + '/' + d.page, { waitUntil: 'load', timeout: 60000 });
+      await p.waitForTimeout(2500);
+      const cap = await p.evaluate((sel) => {
+        const n = document.querySelector(sel); if (!n) return null;
+        n.style.transform = 'none';                     /* wireflow fit-to-screen scale */
+        const r = n.getBoundingClientRect();
+        let html = n.outerHTML
+          .replace(/src="\.\.\/\.\.\/images\/morsel-photos\/([0-9a-f-]+)\.webp"/g, 'src="PHOTO:$1"')
+          .replace(/\sloading="lazy"/g, '')
+          /* fragments are inert previews: dead relative hrefs would read as broken
+             links in the host page's DOM, and extra h1s are noise even when
+             aria-hidden. The scoped sheets style bare tags, so h1 keeps its look
+             via an inline demotion instead of a tag swap. */
+          .replace(/<a\s([^>]*?)href="[^"]*"/g, '<a $1')
+          .replace(/<h1(\s|>)/g, '<h1 role="presentation"$1');
+        return { html, w: Math.round(n.scrollWidth || r.width), h: Math.round(n.scrollHeight || r.height),
+                 text: n.innerText.replace(/\s+/g, ' ') };
+      }, d.sel);
+      if (!cap) throw new Error('selector not found: ' + d.sel);
+      if (cap.text.length < 100) throw new Error('suspiciously empty doc');
+      const h = d.aspect ? Math.round(cap.w * d.aspect) : cap.h;
+      figures[d.key] = { html: cap.html, w: cap.w, h, proto: d.page, cls: d.cls };
+      docCss[d.cssKey] = await p.evaluate(() => [...document.querySelectorAll('style')].map(x => x.textContent).join('\n'));
+      console.log('OK   ' + d.key, cap.w + 'x' + h + (d.aspect ? ' (top crop of ' + cap.h + ')' : ''), Math.round(cap.html.length / 1024) + 'KB');
+    } catch (e) { fails.push(d.key + ': ' + e.message); console.log('FAIL ' + d.key, e.message.slice(0, 120)); }
+    await p.close();
+  }
+
   /* --- prototype stylesheets, shipped once each --- */
   const css = {};
   css.morsel = fs.readFileSync('/home/user/redesigned-computing-machine/v2/morsel-proto/v3/app/styles.css', 'utf8');
@@ -190,6 +230,7 @@ const grabTenet = (p, flat) => p.evaluate((flat) => {
     await p.close();
   }
 
+  Object.assign(css, docCss);
   fs.writeFileSync('figures.json', JSON.stringify({ figures, css }, null, 0));
   const n = Object.keys(figures).length;
   console.log('\ncaptured ' + n + ' figures, ' + Math.round(JSON.stringify(figures).length / 1024) + 'KB total DOM');

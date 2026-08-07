@@ -26,6 +26,7 @@ function keepUsedFaces(cssText, corpus) {
     const key = fam + '|' + (wm ? wm[1] : '400') + '|' + (sm ? sm[1] : 'normal');
     if (seen.has(key)) continue;                 // de-dup identical faces across sources
     if (!corpus.includes(fam)) continue;         // family never referenced anywhere
+    if (/url\(\s*https?:/.test(b)) continue;     // remote src would be CSP-blocked; self-contained only
     seen.add(key); kept.push(b);
   }
   return kept.join('\n');

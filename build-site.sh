@@ -24,6 +24,8 @@ cp favicon.png _site/
 
 # v2 pages reference assets one level up; at the deployed root they are local
 perl -pi -e 's|\.\./images/|images/|g; s|\.\./favicon\.png|favicon.png|g' _site/*.html
+# the figure runtime's photo fallback carries the same one-level-up path
+perl -pi -e "s|'\.\./images/morsel-photos/'|'images/morsel-photos/'|g" _site/figures.js
 # morsel-docs pages sit one level deeper
 perl -pi -e 's|\.\./\.\./images/|../images/|g; s|\.\./\.\./favicon\.png|../favicon.png|g' _site/morsel-docs/*.html
 
