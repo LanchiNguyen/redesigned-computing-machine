@@ -50,7 +50,6 @@ const anchorize = s => s
   .replace(/href="tenet\.html"/g,'href="#tenet"')
   .replace(/href="morsel\.html"/g,'href="#morsel"')
   .replace(/href="nhathuong\.html"/g,'href="#nhathuong"')
-  .replace(/href="resume\.html"/g,'href="#resume"')
   .replace(/href="sketchbook\.html"/g,'href="#sketchbook"')
   .replace(/href="index\.html"/g,'href="#home"');
 
@@ -63,7 +62,6 @@ const mug = anchorize(grab(readFileSync('v2/mug.html','utf8'), '<div class="page
 const mx = anchorize(grab(readFileSync('v2/matrix.html','utf8'), '<div class="page" id="project">')).replace('id="project"','id="matrix"').replace(' id="case"',' id="matrix-case"');
 const ch = anchorize(grab(readFileSync('v2/chatter.html','utf8'), '<div class="page" id="project">')).replace('id="project"','id="chatter"').replace(' id="case"',' id="chatter-case"');
 const sk = anchorize(grab(readFileSync('v2/sketchbook.html','utf8'), '<div class="page" id="sketchbook">'));
-const rs = anchorize(grab(readFileSync('v2/resume.html','utf8'), '<div class="page" id="resume">'));
 const ab = anchorize(grab(readFileSync('v2/about.html','utf8'), '<div class="page" id="about">'));
 
 /* ---------------- prototype theater payloads (canonical source, verbatim) ---------------- */
@@ -279,9 +277,9 @@ const theaterJs = `
 
 let out =
   '<title>Lana Nguyen — Portfolio v2 · Live Prototypes</title>\n' +
-  '<style>\n' + keepUsedFaces(fonts + fraunces + worksans + protoFonts, css + theaterCss + figuresCss + figuresJs + home + tn + morsel + hp + nh + mug + mx + ch + sk + rs + ab + PROTO.morselCss + PROTO.morselPageCss + PROTO.tenet.host + PROTO.tenet.desktop + PROTO.tenet.companion) + '\n' + css + '\n' + theaterCss + '\n' + figuresCss + '\n</style>\n' +
+  '<style>\n' + keepUsedFaces(fonts + fraunces + worksans + protoFonts, css + theaterCss + figuresCss + figuresJs + home + tn + morsel + hp + nh + mug + mx + ch + sk + ab + PROTO.morselCss + PROTO.morselPageCss + PROTO.tenet.host + PROTO.tenet.desktop + PROTO.tenet.companion) + '\n' + css + '\n' + theaterCss + '\n' + figuresCss + '\n</style>\n' +
   '<a class="skip-link" href="#home-work">Skip to work</a>\n' +
-  '<div class="desk">\n' + home + '\n' + tn + '\n' + morsel + '\n' + hp + '\n' + nh + '\n' + mug + '\n' + mx + '\n' + ch + '\n' + sk + '\n' + ab + '\n' + rs + '\n</div>\n' +
+  '<div class="desk">\n' + home + '\n' + tn + '\n' + morsel + '\n' + hp + '\n' + nh + '\n' + mug + '\n' + mx + '\n' + ch + '\n' + sk + '\n' + ab + '\n' + '\n</div>\n' +
   '<button id="draftToggle" style="position:fixed;right:16px;bottom:16px;z-index:99;font:600 10.5px/1 IBM Plex Mono,monospace;letter-spacing:.1em;padding:9px 13px;border-radius:999px;border:1.5px dashed rgba(94,69,38,.55);background:rgba(239,217,160,.92);color:#5E4526;cursor:pointer">SHOW [ADD] PUNCH LIST</button>\n' +
   '<script>\n' + js + '\ndocument.getElementById("draftToggle").addEventListener("click",function(){var on=document.documentElement.classList.toggle("draft");this.textContent=on?"HIDE [ADD] PUNCH LIST":"SHOW [ADD] PUNCH LIST";});\n</script>\n';
 
