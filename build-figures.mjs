@@ -118,6 +118,7 @@ window.__FIGS = ${JSON.stringify(figs)};
     inner.className = 'fig-scale' + (/^tenet-/.test(box.getAttribute('data-fig')) ? ' tfig' : '');
     inner.style.width = f.w + 'px'; inner.style.height = f.y + 'px';
     inner.setAttribute('aria-hidden', 'true');   /* the caption on .fig-live is the accessible name */
+    inner.inert = true;   /* the fragments contain real <button>s; without inert they are dead tab stops */
     inner.innerHTML = f.h;
     inner.querySelectorAll('[data-mp]').forEach(function (n) { n.src = photoSrc(n.getAttribute('data-mp')); });
     box.appendChild(inner);

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="../../favicon.png" />
+<meta name="description" content="Morsel process document: two-round usability testing plan (proposed; not yet run)." />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Morsel — usability testing plan (two rounds)</title>
@@ -29,6 +31,10 @@
   a { color: var(--accent); font-weight: 700; text-decoration: none; }
   a:hover { text-decoration: underline; }
   .note { background: var(--sunken); border-radius: 12px; padding: 10px 14px; font-size: 12.5px; color: var(--ink2); margin-top: 14px; }
+  /* wide protocol tables scroll inside their own box on narrow screens */
+  @media (max-width: 640px) {
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
 </style>
 </head>
 <body>

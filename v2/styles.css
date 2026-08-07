@@ -162,6 +162,10 @@ a { color: inherit; text-decoration: none; }
   font-weight: 500; font-size: 13px; letter-spacing: 0.08em;
 }
 .bar-links a { color: var(--rose-nav); padding-bottom: 3px; border-bottom: 1.5px solid transparent; transition: color 0.25s var(--ease); }
+/* touch targets: grow the nav hit area on coarse pointers without moving layout */
+@media (pointer: coarse) {
+  .bar-links a { padding: 10px 6px; margin: -10px -6px; padding-bottom: 13px; margin-bottom: -10px; }
+}
 .bar-links a:hover { color: #F8ECE8; }
 .bar-links a.active { color: #F8ECE8; border-bottom-color: var(--gold); }
 .bar-loc { font-weight: 500; font-size: 11.5px; letter-spacing: 0.12em; color: var(--rose-nav); }

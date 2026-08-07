@@ -15,7 +15,7 @@ cd "$(dirname "$0")"
 rm -rf _site
 mkdir -p _site
 
-cp v2/*.html v2/styles.css v2/script.js _site/
+cp v2/*.html v2/styles.css v2/script.js v2/figures.css v2/figures.js v2/figures-fonts.css _site/
 cp -r v2/morsel-docs _site/morsel-docs
 cp -r v2/tenet-proto _site/tenet-proto
 cp -r v2/morsel-proto _site/morsel-proto
@@ -24,6 +24,8 @@ cp favicon.png _site/
 
 # v2 pages reference assets one level up; at the deployed root they are local
 perl -pi -e 's|\.\./images/|images/|g; s|\.\./favicon\.png|favicon.png|g' _site/*.html
+# morsel-docs pages sit one level deeper
+perl -pi -e 's|\.\./\.\./images/|../images/|g; s|\.\./\.\./favicon\.png|../favicon.png|g' _site/morsel-docs/*.html
 
 # absolute social-preview URLs once a domain exists
 if [ -n "${SITE_URL:-}" ]; then
