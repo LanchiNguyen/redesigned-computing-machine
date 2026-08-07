@@ -48,7 +48,7 @@
         <div class="proj-hero-grid">
           <div class="rv">
             <h1>Matrix &mdash; build-ready UI at <em>startup speed</em></h1>
-            <p class="proj-lede">Matrix connects fans with creators through rewards and gamified engagement. Working directly with the CEO, I turned product specs and the brand's existing style guide into hi-fi screens for a waiting dev team: eleven screens, two feature areas, one week.</p>
+            <p class="proj-lede">Matrix connects fans with creators through rewards and gamified engagement. Working directly with the CEO, I turned specs and the brand's existing style guide into eleven hi-fi screens for a waiting dev team, across two feature areas, in one week.</p>
           </div>
           <div class="meta-rail rv" style="--d:120ms">
             <div><span class="k">CLIENT</span><span class="v">Matrix &middot; startup</span></div>
@@ -62,7 +62,7 @@
       <!-- TL;DR -->
       <div class="tldr rv">
         <div class="cell"><span class="k">The brief</span><span class="v">Someone else's spec, someone else's style guide (dark surfaces, neon accents), two feature areas: <strong>events &amp; voting</strong> and <strong>tokens &amp; NFTs</strong>. Lo-fi &rarr; team review &rarr; pixel-final, twice over.</span></div>
-        <div class="cell"><span class="k">My part</span><span class="v">All of the design, wireframes through hi-fi, reviewed by the CEO and team. Screen content uses fictional creators and sample data.</span></div>
+        <div class="cell"><span class="k">My part</span><span class="v">All of the design, wireframes through hi-fi, reviewed by the CEO and team. Screens use fictional creators and sample data.</span></div>
         <div class="cell"><span class="k">Status</span><span class="v"><span class="status-flag">Handed off</span><span class="addm"> [ADD: what the dev team built / shipped, or that the trail ends at handoff]</span></span></div>
       </div>
 
@@ -91,7 +91,7 @@
         <div class="rule"></div>
         <div class="proj-row rv">
           <span class="side" role="heading" aria-level="2">OVERVIEW</span>
-          <p class="statement">Unlike my zero-to-one projects, Matrix was disciplined execution: a fixed spec, a fixed style guide, a real dev team waiting. The interesting work sat in the gap between the spec and what would be pleasant to use; the voting flow below is the clearest example.</p>
+          <p class="statement">Unlike my zero-to-one projects, Matrix was disciplined execution: a fixed spec, a fixed style guide, a dev team waiting. The interesting work sat in the gap between the spec and what would be pleasant to use, clearest in the voting flow below.</p>
         </div>
       </section>
 
@@ -101,7 +101,7 @@
         <div class="proj-row rv">
           <span class="side" role="heading" aria-level="2">FEATURE 01<br>EVENTS &amp; VOTING</span>
           <div>
-            <p class="proj-p">Fans browse live events and vote for creators. I drew lo-fi wireframes from the spec, reviewed them with the CEO and team, then went hi-fi:</p>
+            <p class="proj-p">Fans browse live events and vote for creators. I drew lo-fis from the spec, reviewed them with the CEO and team, then went hi-fi:</p>
             <figure class="figure" style="margin-top: 26px">
               <img class="shot-img" src="../images/matrix/wire-events.webp" alt="Low-fidelity wireframes: event description, voting flow with champion dropdowns, creator selection, vote confirmation, and results, annotated with spec notes" width="1600" height="827" loading="lazy" />
               <figcaption class="figcap"><span class="fk">Lo-fi</span>Straight from the spec: dropdown champion pickers, plus annotations for a nav swap and EN/VN language toggle.</figcaption>
@@ -121,12 +121,12 @@
         <div class="proj-row rv">
           <span class="side" role="heading" aria-level="2">FEATURE 02<br>TOKENS &amp; NFTS</span>
           <div>
-            <p class="proj-p">Fans buy and sell creator tokens and collectibles. Same rhythm, lo-fi to hi-fi.</p>
+            <p class="proj-p">Fans buy and sell creator tokens and collectibles, same lo-fi-to-hi-fi rhythm.</p>
             <ul class="feat-list">
               <li><strong>Market</strong>: prices and trading for tokens and collectibles</li>
               <li><strong>Orders</strong>: filled and open in one list, one-tap cancel for open ones</li>
-              <li><strong>Detail pages</strong>: per-creator token and NFT views with price history and buy/sell flows</li>
-              <li><strong>Checkout</strong>: card or crypto, built to survive whichever payment processor the team picked</li>
+              <li><strong>Detail pages</strong>: per-creator token and NFT views, price history, buy/sell flows</li>
+              <li><strong>Checkout</strong>: card or crypto, built to survive whichever processor the team picked</li>
             </ul>
             <figure class="figure" style="margin-top: 26px">
               <img class="shot-img" src="../images/matrix/wire-market.webp" alt="Low-fidelity wireframes: tokens and collectibles list, open and filled orders, NFT detail with buy flow, token detail with price chart, and card/crypto payment sheets" width="1600" height="1018" loading="lazy" />
@@ -149,23 +149,23 @@
             <p class="proj-p" style="margin-bottom:18px"><span class="lbl retro">RETROSPECTIVE</span>&ensp;The calls visible in the wire-to-hi-fi diff:</p>
             <div class="ev-wrap" style="margin-bottom:22px"><table class="ev-table">
               <tr><th>Decision</th><th>Instead of</th><th>Why</th></tr>
-              <tr><td><b>Tappable creator cards for voting</b></td><td>The spec's two dropdown pickers</td><td>Cards make the vote feel like a choice; fan counts give the tap a stake</td></tr>
+              <tr><td><b>Tappable creator cards for voting</b></td><td>The spec's two dropdown pickers</td><td>Cards make the vote a choice; fan counts give the tap a stake</td></tr>
               <tr><td><b>Sparklines + signed % per market row</b></td><td>Price-only list</td><td>Traders scan for direction first, magnitude second</td></tr>
               <tr><td><b>Neon rationed to prices &amp; actions</b></td><td>Accent color everywhere the style guide allows</td><td>On near-black, everything-neon means nothing-neon; scannability needed a hierarchy the guide didn't specify</td></tr>
               <tr><td><b>Processor-agnostic checkout sheet</b></td><td>Designing to one payment provider</td><td>The team hadn't picked one; the layout survives either choice</td></tr>
             </table></div>
             <p class="proj-p">Consistent components, real spacing tokens from the style guide, and flows the team could build without guessing. The limits of a one-week pass:</p>
             <ul class="feat-list">
-              <li>The boards show <strong>happy paths</strong>; loading, empty, and error states weren't in scope for the week.<span class="addm"> [ADD: if states were documented in the Figma file, say so and show one]</span></li>
-              <li>Device chrome is inconsistent across two boards (full iOS status bars on some screens, not others); I'd re-export before showing these again.</li>
+              <li>The boards show <strong>happy paths</strong>; loading, empty, and error states weren't in scope.<span class="addm"> [ADD: if states were documented in the Figma file, say so and show one]</span></li>
+              <li>Device chrome is inconsistent across two boards (iOS status bars on some screens, not others); I'd re-export before showing these again.</li>
               <li>The neon-on-dark palette came with its contrast choices; small grey metadata on near-black is what I'd challenge first in a week two.</li>
             </ul>
-            <p class="proj-p" style="margin-top:18px"><span class="lbl plan">PROPOSED</span>&ensp;The state inventory a week two would deliver, and how I'd know the handoff worked:</p>
+            <p class="proj-p" style="margin-top:18px"><span class="lbl plan">PROPOSED</span>&ensp;The state inventory week two would deliver, and how I'd know the handoff worked:</p>
             <div class="ev-wrap"><table class="ev-table">
               <tr><th>Item</th><th>Plan</th><th>Goal (not a result)</th></tr>
-              <tr><td><b>State coverage</b></td><td>Loading / empty / error for the 5 stateful screens (market, orders, event, vote, checkout); empty inventory and failed payment first, the money moments</td><td>0 screens where a dev has to invent a state</td></tr>
-              <tr><td><b>Handoff quality</b></td><td>Count dev clarification questions per screen in the first build sprint</td><td>&le;1 per screen; each one becomes a spec fix</td></tr>
-              <tr><td><b>Build parity</b></td><td>Side-by-side review of built screens vs. Figma at sprint end</td><td>Any deviation is a deliberate call</td></tr>
+              <tr><td><b>State coverage</b></td><td>Loading / empty / error for the 5 stateful screens (market, orders, event, vote, checkout); empty inventory and failed payment first</td><td>0 screens where a dev has to invent a state</td></tr>
+              <tr><td><b>Handoff quality</b></td><td>Count dev clarification questions per screen in the first sprint</td><td>&le;1 per screen; each one becomes a spec fix</td></tr>
+              <tr><td><b>Build parity</b></td><td>Side-by-side review of built screens vs. Figma at sprint end</td><td>Deviations are deliberate calls</td></tr>
             </table></div>
           </div>
         </div>
